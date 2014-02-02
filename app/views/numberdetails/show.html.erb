@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>DEmon:</b>
+   <% @demons.each do |demon| %>
+   <%=demon.name %> <br/>
+   <% end %>
+   <%=@demon_total_word_count%>
+  <%#= @numberdetail.mobile_number %>
+</p>
+
+
+<%
+    concat "hello"
+    # is the equivalent of <%= "hello" %>
+
+    if logged_in
+      concat "Logged in!"
+    else
+      concat link_to('login', action: :login)
+    end  
+    %>
+
+
+
+
+
+
+<!-- 
+<p>
+  <b>Service provider:</b>
+  <%#=best_in_place @numberdetail, :service_provider %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%#=best_in_place @numberdetail, :amount %>
+</p> -->
+
+
+<%#= link_to 'Edit', edit_numberdetail_path(@numberdetail) %> 
+<%#= link_to 'Back', numberdetails_path %>

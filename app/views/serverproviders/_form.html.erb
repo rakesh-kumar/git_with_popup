@@ -1,0 +1,38 @@
+<%= form_for(@serverprovider) do |f| %>
+  <% if @serverprovider.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@serverprovider.errors.count, "error") %> prohibited this serverprovider from being saved:</h2>
+
+      <ul>
+      <% @serverprovider.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div id ='dropdown'>
+ mera na
+ </div>
+
+  
+<p id="text-type">Go ahead, type!</p>
+  <div class="field">
+    <%= f.label :provider_name %><br />
+    <%= f.text_field :provider_name %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br />
+    <%#= f.text_field :state %>
+    <%= f.select :state, [['Uttarakahnd','uttarakahnd'],['Delhi','delhi'],['Madhya Pradesh','madhya pradesh'],['Banglore','banglore']] %>
+
+  </div>
+  <div class="field">
+    <%= f.label :plane %><br />
+    <%= f.text_field :plane %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+

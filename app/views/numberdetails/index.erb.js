@@ -1,0 +1,1 @@
+$("numberdetails").html('<%= escape_javascript(render("numberdetails")) %>');

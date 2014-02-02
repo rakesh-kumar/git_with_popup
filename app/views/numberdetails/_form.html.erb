@@ -1,0 +1,103 @@
+<%= form_for(@numberdetail) do |f| %>
+  <% if @numberdetail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@numberdetail.errors.count, "error") %> prohibited this numberdetail from being saved:</h2>
+
+      <ul>
+      <% @numberdetail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div id ='dropdown'>
+ mera na
+ </div>
+
+  
+<p id="text-type">Go ahead, type!</p>
+  <div class="field">
+    <%= f.label :mobile_number %><br />
+    <%= f.number_field :mobile_number %>
+  </div>
+  <div class="selectpicker">
+    <%= f.label :serverprovider %><br />
+    <%#= f.text_field :details %>
+    <%#= f.select :serviceprovider , @serverprovider.collect {|c| c.provider_name }, {include_blank: ' Select Your Operater '} %>
+
+  </div>
+  <div class="field">
+    <%= f.label :state %><br />
+    <%#= f.select "state",@serverprovider.collect {|f| f.state } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :details %><br />
+    <%= f.text_field :details%>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount,:onkeyup => "ajaxdilog();" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+  var default_text = $('#text_type').text();
+
+
+  $('#numberdetail_details').keyup(function(){
+    
+    $(this).doTimeout('#text_type', 250, function(){
+      $('#text_type').text(this.val()|| default_text);
+    });
+  }); 
+
+
+// var url ="";
+
+//  var num = ""
+//  var url2 = "1"
+//  var data2 = "rakesh"
+
+// function ajaxdilog(){
+//   alert('hhhhh!')
+//   $.ajax({
+//     url: url2,
+//     type:"GET",
+//     data:data2
+    
+//   });
+// }
+$(function () {
+    var minlength = 10;
+
+    $("#numberdetail_amount").keyup(function () {
+        var that = this,
+        value = $(this).val();
+
+        if (value.length == minlength ) {
+            $.ajax({
+                type: "POST",
+                url: "maurya",
+                data: {
+                    'search_keyword' : value
+                },
+                dataType: "text",
+                success: function(msg){
+                    //we need to check if the value is the same
+                    if (value==$(that).val()) {
+                    //Receiving the result of search here
+                    }
+                }
+            });
+        }
+    });
+});
+ alert(value)
+</script>
+<!-- 
+<iframe src="//www.facebook.com/plugins/follow?href=https%3A%2F%2Fwww.facebook.com%2Frakeshmaurya262&amp;layout=standard&amp;show_faces=true&amp;colorscheme=light&amp;width=450&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>  -->

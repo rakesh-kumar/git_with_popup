@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  mobile_number: 1
+  service_provider: MyString
+  amount: 9.99
+
+two:
+  mobile_number: 1
+  service_provider: MyString
+  amount: 9.99

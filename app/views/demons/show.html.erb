@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @demon.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @demon.address %>
+</p>
+
+
+<%= link_to 'Edit', edit_demon_path(@demon) %> |
+<%= link_to 'Back', demons_path %>
