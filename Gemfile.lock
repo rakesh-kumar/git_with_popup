@@ -39,10 +39,17 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    columnize (0.3.6)
+    debugger (1.5.0)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.0)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.0)
     erubis (2.7.0)
     execjs (2.0.2)
+    geocoder (1.1.9)
     hike (1.2.3)
-    hpricot (0.8.6)
     i18n (0.6.9)
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
@@ -52,10 +59,13 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.2)
     mime-types (1.25.1)
+    mocha (1.0.0)
+      metaclass (~> 0.0.1)
     multi_json (1.8.4)
+    nifty-generators (0.4.6)
     polyglot (0.3.3)
-    polylines (0.1.1)
     rack (1.3.10)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -111,9 +121,11 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.1.1)
-  hpricot
+  debugger
+  geocoder
   jquery-rails
-  polylines
+  mocha
+  nifty-generators
   rails (= 3.1.1)
   sass-rails (~> 3.1.4)
   sqlite3
