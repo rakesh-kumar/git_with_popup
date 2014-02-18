@@ -1,0 +1,18 @@
+%h1
+  ==#{shop.name} 已经完成
+  %strong 72%
+  Only two steps up!
+#what-is-next.clearfix
+  =image_tag "admin/icons/progressbar/#{@task.name}.jpg"
+  #next-step-description
+    %h2
+      %strong The next step:
+      Logistics and distribution
+    %p
+      By price or weight set
+      %a(data-guide-position="left" data-guide-target="#shipping a" data-guide-text="Click here to set your shipping" href="##{@task.name}" class="show_#{@task.name}_guide")
+        %em.icon
+        %strong.triangle
+        Your shipping
+  / #name
+/ #what-is-next

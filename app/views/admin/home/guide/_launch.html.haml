@@ -1,0 +1,11 @@
+%h1==#{shop.name} 准备启用
+#what-is-next.clearfix
+  =image_tag "admin/icons/progressbar/#{@task.name}.jpg"
+  #next-step-description
+    %p
+      Enable your store, the store will remove access password protected, manage Home will display statistics stores.
+    %p
+      %small You can still go to [Settings] - [General Settings], set a password protection for access to shops.
+    .done-button.clearfix
+      =form_tag launch_path, method: :post, class: :button_to do
+        =submit_tag 'Enable my store', id: :launch_btn

@@ -1,0 +1,131 @@
+- @current_faq = :current
+
+#banner
+  .content
+    %h1 Frequently Asked Questions
+    -#
+      #contact-us
+        %a.emailus(href="/contact/") Email
+        %span#chat-on.chat-on(style="display:none")
+          %a.livechat.hotspot(href="/contact") Real-time communication
+        %span#chat-off
+.content.subpage
+  .col-6
+    %h3 Getting Started
+    %ul
+      %li
+        %a(href="#what-shopqi-does") What ShopQi do?
+      %li
+        %a(href="#what-shopqi-doesnt-do")
+          ShopQi
+          %em Can not
+          What to do?
+      %li
+        %a(href="#installation") How to install ShopQi?
+      %li
+        %a(href="#what-you-need") Before the start of sales of goods What do I need to prepare?
+      %li
+        %a(href="#custom-domains") My shop can use your own domain name?
+      %li
+        %a(href="#languages") What languages ​​are supported?
+    %h3 Design your store
+    %ul
+      %li
+        %a(href="#changing-designs") Designer or programmer needs to modify the appearance of our stores do?
+    %h3 Orders and Logistics
+    %ul
+      %li
+        %a(href="#order-process") When I received the order what I want to do?
+  .col-6.last
+    %h3 Payment
+    %ul
+      %li
+        %a(href="#customer-payment-methods") Customers can use what I pay?
+      %li
+        %a(href="#payment-gateways") What is a payment gateway?
+      %li
+        %a(href="#manual-payments") Support offline payments it?
+    %h3 Your account
+    %ul
+      %li
+        %a(href="#cost") How much is the cost of using ShopQi?
+    -#
+      %h3 Still in doubt?
+      %ul
+        %li
+          The answer may be more
+          %a(href="#{wiki_url_with_port}") Our documentation
+          Found
+        %li
+          Or you can
+          %a(href="/contact") Contact Us
+  %hr/
+  #faq.col-8
+    %h2#getting-started
+      Getting Started
+      %span.back-to-top
+        %a(href="#wrapper") Back to top
+    %h3#what-shopqi-does What ShopQi do?
+    %p ShopQi online program is a software as a service to help you create online store to sell merchandise. It allows you to manage merchandise, customize your shop appearance; receive payments through payment gateways, track and process orders。
+    %h3#what-shopqi-doesnt-do
+      ShopQi
+      %em Can not
+      What to do?
+    %p ShopQi not responsible for the logistics of goods
+    %h3#installation How to install ShopQi?
+    %p ShopQi is no need to install! ShopQi software running on our remote server, you do not need to worry about any problems with the installation or upgrade, you only need a new version of the browser can be, such as IE9, Google browser.
+    %h3#what-you-need Before the start of sales of goods What do I need to prepare?
+    %p You need to:
+    %ul
+      %li Prepare sales of goods
+      %li
+        The opening of a
+        %a(href="#supported-gateways") Payment Gateway
+        Customers receiving payment for
+      %li A new version of the browser is used to open the shop admin
+    %h3#custom-domains My shop can use your own domain name?
+    %p Can! You can either register a domain name domain name providers in the country, and bind this domain to your ShopQi store. You only need to enter the Manage -> Settings -> Domains & DNS, according to the prompts.
+    %hr/
+    %h2#design
+      Design your store
+      %span.back-to-top
+        %a(href="#wrapper") Back to top
+    %h3#changing-designs Designer or programmer needs to modify the appearance of our stores do?
+    %p It is not necessary! ShopQi comes with a variety of pre-designed templates look, you can apply to the store. Moreover, ShopQi will continue to add new template design, so you can keep the store stylish appearance. In addition, our theme editor lets you easily modify the appearance of the store.
+    %hr/
+    %h2#payments
+      Payment
+      %span.back-to-top
+        %a(href="#wrapper") Back to top
+    %h3#customer-payment-methods Customers can use what I pay?
+    %p ShopQi incorporates many different online payment service, including Paypal, money paid through and so on.
+    %h3#payment-gateways What is a payment gateway?
+    %p Payment gateway is the interface between the banking system and the Internet for your online account to provide secure authentication and payment services.
+    .col-8.clearfix.paymentprocessors
+      %p The following is an integrated payment gateway ShopQi:
+      %h3#supported-gateways(rel="supported-gateways")
+      .col-8.clearfix
+        %ul.clearfix
+          %li
+            %a(href="http://www.alipay.com") Paypal
+          %li
+            %a(href="http://www.tenpay.com") TenPay
+    %h3#manual-payments With the support line payments do ?
+    %p Payment you can accept postal remittance, bank transfer or cash on delivery. Only need to specify the payment details to the payment settings, customers can choose this method of payment at the time of payment.
+    %hr/
+    %h2#orders
+      Orders and Logistics
+      %span.back-to-top
+        %a(href="#wrapper") Back to top
+    %h3#order-process When I received the order what I want to do?
+    %p
+      After you receive a new order email alert, you should log ShopQi, view order details. After confirming the correct order, the delivery of goods to the delivery address specified by the customer, then the order is marked as shipped state.
+    %h2#account
+      Your account
+      %span.back-to-top
+        %a(href="#wrapper") Back to top
+    %h3#cost How much is the cost of using ShopQi?
+    %p
+      According to the size of your business, we provide a variety of
+      %a(href="/signup") Price scheme
+      For you to choose

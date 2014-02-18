@@ -1,0 +1,19 @@
+%h1
+  ==#{shop.name} 已经完成
+  %strong 40%
+  Only four steps up!
+#what-is-next.clearfix
+  =image_tag "admin/icons/progressbar/#{@task.name}.jpg"
+  #next-step-description
+    %h2
+      %strong The next step:
+      Content
+    %p
+      If you want to add new pages to your store, or publish a blog post, please
+      Go
+      %a(data-guide-position="bottom" data-guide-target="#navlist li a[href='/admin/pages']" data-guide-text="Click here to modify your content store" href="##{@task.name}" class="show_#{@task.name}_guide")
+        %em.icon
+        %strong.triangle
+        Blog & page
+  / #name
+/ #what-is-next

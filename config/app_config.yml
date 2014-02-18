@@ -1,0 +1,34 @@
+defaults: &defaults
+  can_register: true
+  mail:
+    from: "ShopQi<noreply@shopqi.com>"
+    support: "ShopQi Support<support@shopqi.com>"
+  domain:
+    host: lvh.me
+    #host: localtunnel.com
+    port: ''
+    record: 粤ICP备11089804号
+  wiki:
+    relative_path: 'data/wiki'
+
+development:
+  <<: *defaults
+  domain:
+    host: lvh.me
+    #host: localtunnel.com
+    port: ':4000'
+    record: 粤ICP备11089804号
+
+test:
+  <<: *defaults
+  wiki:
+    relative_path: 'data/wiki_test'
+
+production:
+  <<: *defaults
+  can_register: false
+  domain:
+    #host: lvh.me
+    host: shopqi.com
+    port: ''
+    record: 粤ICP备11089804号

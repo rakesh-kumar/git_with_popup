@@ -1,0 +1,18 @@
+%h1
+  ==#{shop.name} 已经完成
+  %strong 60%
+  Only three steps up!
+#what-is-next.clearfix
+  =image_tag "admin/icons/progressbar/#{@task.name}.jpg"
+  #next-step-description
+    %h2
+      %strong The next step:
+      Payment Gateway
+    %p
+      %a(data-guide-position="left" data-guide-target="#payment a" data-guide-text="Click here to select your payment gateway" href="##{@task.name}" class="show_#{@task.name}_guide")
+        %em.icon
+        %strong.triangle
+        Set up a payment gateway
+      For receiving payment from the customer
+  / #name
+/ #what-is-next

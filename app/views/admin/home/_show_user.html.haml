@@ -1,0 +1,13 @@
+%script(id="user-details-area" type="text/html")
+  =dialog '{{ name }}' do
+    .user
+      %p.st
+        %span.label.fl Mailbox:
+        %a(href="mailto:{{email}}") {{{ email }}}
+      %p
+        %span.label.fl Phone:
+        {{ phone }}
+      {{#is_current_user }}
+      %p.user-action
+        %a(href="/admin/users/{{id}}/edit") Modify User Profile
+      {{/is_current_user}}

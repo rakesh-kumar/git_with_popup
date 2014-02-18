@@ -1,0 +1,19 @@
+%h1
+  ==#{shop.name} 已经完成
+  %strong 20%
+  Only 5 steps up!
+#what-is-next.clearfix
+  =image_tag "admin/icons/progressbar/#{@task.name}.jpg"
+  #next-step-description
+    %h2
+      %strong The next step:
+      Customize the appearance
+    %p
+      Go
+      %a(data-guide-position="left" data-guide-target="#nav-theme-settings a" data-guide-text="Click here to modify the appearance of your theme" href="##{@task.name}" class="show_#{@task.name}_guide")
+        %em.icon
+        %strong.triangle
+        Theme Appearance settings
+      Start customizing the appearance of your store
+  / #name
+/ #what-is-next

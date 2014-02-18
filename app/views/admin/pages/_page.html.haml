@@ -1,0 +1,7 @@
+%tr(class="#{cycle(:odd, :even)}")
+  %td
+    =link_to page.title, page_path(page), title: "Permalink: #{page.handle}"
+    -unless page.published?
+      %span.status-hidden Hide
+  %td.date=page.updated_at.to_s(:db)
+  %td(style="text-align: center")=link_to image_tag('admin/icons/trash.gif'), page_path(page), remote: true, method: :delete, title: 'Remove it', class: :del, data: { confirm: 'Are you sure you want to delete?' }

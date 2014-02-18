@@ -1,0 +1,16 @@
+#container
+  #dialog
+    .status
+      %p Accounts program renewals
+    =form_for :consumption, url: confirm_pay_plan_account_index_path do |f|
+      .ppb
+        %p.sb==You are currently using #{raw high_color shop.plan_type.name} 方案，此方案单价为#{raw high_color shop.plan_type.price}元/年，
+        %p.sb Default payment of one year, you can choose to pay
+        %p.sb
+          =f.select :quantity, options_for_select((1..5).map{|c|[c,c]}, 1)
+          年
+        %p.sb Click OK button to enter the confirmation of payment page
+      .actions
+        =f.submit 'Confirm',class: 'btn'
+        =w('or')
+        =link_to w('cancel'), account_index_path

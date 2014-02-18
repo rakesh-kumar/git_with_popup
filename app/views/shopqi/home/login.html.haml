@@ -1,0 +1,40 @@
+#banner
+  .content
+    %h1 Login
+  / .content
+/ #banner
+.content.subpage
+  .loginarea
+    .col-5(style="padding-top:25px;")
+      %form(method="post")
+        %label(for="subdomain") Store Web Address
+        %input#subdomain.formnote(name="subdomain" type="text")/
+        %span.formnote=Setting.store_host
+        %label(for="login") Email
+        %input#login(name="user[email]" type="text")/
+        %label(for="password") Password
+        %input#password.formnote(name="user[password]" type="password" value="")/
+        / <span class="formnote"><a href="">Forgot Password?</a></span>
+        =image_submit_tag 'buttons/btn-login-grey.gif', value: 'log in', onclick: "this.form.action='http://'+$('#subdomain').val()+'#{Setting.store_host}#{request.port_string}/user/sign_in';this.form.submit(); return false;"
+    / .col-5
+    .col-5.secondcol.last(style="padding-top:25px;padding-bottom:25px")
+      %h3 Other ways Login
+      %p
+        You can also add
+        %code /admin
+        ==To your #{Setting.store_host} Store Address.
+      %p
+        %em.light
+          If your store address is
+          %code==http://examplestore#{Setting.store_host}
+          %br/
+          Then your admin address
+          %br/
+          %code http://examplestore#{Setting.store_host}/admin
+      %p If you do not remember the store address, when you register, you can send us your welcome message to find it.
+      %h3 No account?
+      =link_to image_tag('buttons/btn-signupnow.gif'), services_signup_path
+    / .col-5
+  / .col-8
+/ content
+.no-signup-page(style="margin-top: 30px;")

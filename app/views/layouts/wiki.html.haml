@@ -1,0 +1,85 @@
+!!! 5
+- conditional_html do
+  %head
+    %meta(content="text/html; charset=utf-8" http-equiv="Content-Type")/
+    %meta(content="no" http-equiv="imagetoolbar")/
+    %meta(content="true" name="MSSmartTagsPreventParsing")/
+    %meta(content="ShopQi electronic business platform is a powerful e-commerce solution that contains all the e-commerce functionality needed for SMEs, free registration" name="description")/
+    %meta(content="ShopQi B2C independent shop online shop online shop e-commerce e-commerce solutions for online sales brand of e-commerce vertical e-commerce shopping cart regional e-commerce" name="keywords")/
+    %meta(content="width=device-width initial-scale=1.0" name="viewport")/
+    %link(href="#{image_path('favicon.png')}" rel="shortcut icon" type="image/x-icon")/
+    %link(href="#{image_path('icons/apple-touch-icon.png')}" rel="apple-touch-icon-precomposed")/
+    %title ShopQi help documentation
+    = stylesheet_link_tag "layout_shopqi_wiki"
+    = javascript_include_tag 'shopqi_wiki_application'
+    /[if lt IE 7]
+      = javascript_include_tag 'DD_belatedPNG_0.0.8a-min'
+      :javascript
+        DD_belatedPNG.fix('.png_bg');
+    =csrf_meta_tag
+    -#=render 'shared/google'
+  %body
+    .resources-nav
+      %ul
+        %li.logo
+          %a{href: url_with_port, style: "filter:none"}=image_tag 'resources-nav/logo-shopqi.png'
+        -#
+          %li=link_to 'Forum','#'
+        %li.current=link_to 'Help Documentation', wiki_url_with_port
+        %li=link_to 'Theme Appearance', theme_store_url_with_port
+        %li=link_to 'Home',url_with_port
+    / .resources-nav
+    #header.clearfix
+      .clearfix
+        %h1=link_to image_tag('skins/logo-documentation.png', class: :png_bg),"#{wiki_url_with_port}"
+        %ul.user-options
+          %li#pt-anonlogin=link_to 'Page List', '/pages'
+        -if admin_user_signed_in?
+          %ul.user-options
+            %li#pt-anonlogin=link_to 'Sign In',destroy_admin_user_session_path
+          %ul.user-options
+            %li#pt-anonlogin=link_to 'New', new_wiki_page_path
+          -unless controller.action_name == 'new' || controller.action_name == 'preview' || !@name
+            %ul.user-options
+              %li#pt-anonlogin=link_to 'Editor',"/edit/#{@name}"
+            %ul.user-options
+              %form(action="/destroy/#{@name}" method="post")
+                %li#pt-anonlogin=link_to 'Delete',"javascript:;",onclick: "if (confirm('Are you sure you want to delete this page ?')){$(this).closest('form').submit();return true}else{ return false }"
+            %ul.user-options
+              %li#pt-anonlogin=link_to 'History',"/history/#{@name}"
+    #wrapper
+      #container.clearfix
+        #sidebar.col-3
+          .sidebar-wrapper
+            #p-search.portlet
+              %h5
+                %label{:for => "searchInput"} Inquiry
+              #searchBody.pBody
+                %form#searchform(action= "/search" method='get')
+                  %div.png_bg
+                    %input#searchInput(accesskey= "f" name="q" type= "text" value= "")
+                    %input#mw-searchButton.searchButton.png_bg(type="submit")
+            #category-navigation
+              =raw sidebar.formatted_data if sidebar
+        #content.col-9.last
+          =preserve yield
+
+    =render 'shared/baidu'
+
+:javascript
+  $(document).ready(function(){
+    $('#category-navigation h3').click(function(){
+      $(this).next().toggle();
+      return false;
+    })
+    $('#preview-content').click(function(){
+      var oldAction = $('#gollum-form').attr('action');
+      var $form = $($('#gollum-form').get(0));
+      $form.attr('action', '/preview');
+      $form.attr('target', '_blank');
+      $form.submit();
+      $form.attr('action', oldAction);
+      $form.removeAttr('target');
+      return false;
+    })
+  })

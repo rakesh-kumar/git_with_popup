@@ -1,0 +1,141 @@
+- @current_tour = :current
+- @current_store = :current
+
+#banner
+  .content
+    %h1 Run your shop
+  / .content
+/ #banner
+.content.subpage
+  #sidebar-features.col-3.last=render 'sidebar'
+  .col-9.right.last.running-your-store
+    %h2.center Build all the features needed for an online store
+    %p.feature-subheading All functions
+    .col-9.screenshot.last(style="background: url(#{asset_path('graphics/features-rys-macair.jpg')}) top right no-repeat; height:248px")
+      %p(style="margin-top:35px; width:300px") Build an online store that you need a lot of e-commerce functionality. ShopQi integrate all these functions, and provide simple and intuitive user interface
+    %hr/
+    .col-5.left=image_tag 'graphics/feature-rys-editscreen.jpg', width: 365, height: 512, class: :screenshot
+    .col-4.left.last
+      %h3 Additions and modifications to the product
+      %p Increase in ShopQi and modify product is very easy, simple interface allows you to more efficiently organize merchandise.
+      %ul.screenshot-featurelist
+        %li
+          =image_tag 'graphics/feature-rys-addimages.gif', width: 86, height: 86, class: 'icon-left'
+          %strong Increase product images
+          %br/
+          Upload pictures to your online shop without the need to worry about the size of optimization problem, we will do the work for you.
+        %li
+          =image_tag 'graphics/feature-rys-adddescr.gif', width: 86, height: 86, class: 'icon-left'
+          %strong Increase product description
+          %br/
+          Description of goods for your customers.
+        %li
+          =image_tag 'graphics/feature-rys-adddetails.gif', width: 86, height: 86, class: 'icon-left'
+          %strong Modify information
+          %br/
+          In ShopQi You can modify all aspects of product information, including product attributes, labels, and so on.
+        %li
+          =image_tag 'graphics/feature-rys-inventory.gif', width: 86, height: 86, class: 'icon-left'
+          %strong Management style
+          %br/
+          Very easy to use style editing capabilities, combined with ShopQi order tracking feature that allows you to easily grasp inventory.
+    / .col-4
+    .col-9.last
+      %h3 Order details
+    / .col-9
+    .col-5.left
+      %ul.screenshot-featurelist(style="margin-top:0px")
+        %li
+          =image_tag 'graphics/feature-rys-notes.gif', width: 86, height: 86, class: 'icon-right'
+          %strong Additional Remarks
+          %br/
+          Allow your customers in order to write the note when submitting information..
+        %li
+          =image_tag 'graphics/feature-rys-nextstep.gif', width: 86, height: 86, class: 'icon-right'
+          %strong Timely response
+          %br/
+          Keep abreast of what is already receiving orders require delivery, or has arrived.
+        %li
+          =image_tag 'graphics/feature-rys-productlisting.gif', width: 86, height: 86, class: 'icon-right'
+          %strong Product List
+          %br/
+          Each product will be displayed SKU inventory and price information to calculate the total amount of.
+        %li
+          =image_tag 'graphics/feature-rys-contact.gif', width: 86, height: 86, class: 'icon-right'
+          %strong Your customers
+          %br/
+          See details under the Single Customer Information.
+    / .col-5
+    .col-4.left.last=image_tag 'graphics/feature-orderscreen.jpg', width: 285, height: 380, class: :screenshot
+    .feature-box-top(style="clear:both")
+    .feature-box-middle.clearfix.organizing-products(style="margin-bottom:40px")
+      %h3 Organize your merchandise
+      %p
+        =image_tag 'icons/smartcollection-large.gif', class: :right
+        ShopQi to all goods classified
+        = succeed "." do
+          %em Set
+        For example: You can put all the shirts and sweaters expected to return "clothes" collection, while the shirt part of the classification of goods to the "hot goods" collection.
+      %p
+        You can also
+        %em Intelligence collection
+        To organize merchandise. Smart collection based on criteria you set classification of commodities. For example: You can add a smart collection, the price is less than $ 5 merchandise classified as "Minato single commodity.".
+    .feature-box-bottom
+    -#
+      .col-3.left.clear
+        %h3 Payment Gateway
+        %p
+          =image_tag 'icons/moneypile48.gif', width: 48, height: 48, class: [:right, :icon]
+          ShopQi integrates multiple payment gateways
+      / .col-3
+      .col-3.left.margin-bottom.fraud-detection
+        %h3 Fraud Detection
+        %p
+          =image_tag 'icons/shield48.gif', width: 48, height: 48, class: [:right, :icon]
+          When someone orders your shop, we will automatically detect your credit card information he provided is correct. This can greatly reduce your trading risk
+      / .col-3
+      .col-3.left.last.margin-bottom.x-marks-the-spot
+        %h3 X marks the spot
+        %p
+          =image_tag 'icons/compass48.gif', width: 48, height: 48, class: [:right, :icon]
+          See next single address map location
+      / .col-3
+    %hr/
+    .col-5.margin-bottom.content-management.left
+      %h3 CMS Content Management
+      %p New pages and blog articles is easy.
+      %ul.screenshot-featurelist
+        %li
+          =image_tag 'graphics/feature-rys-pages.gif', width: 86, height: 86, class: 'icon-right'
+          %strong New Page
+          %br/
+          Page content, for example: [about us] page, you can let your customers know more about your shop.
+        %li
+          =image_tag 'graphics/feature-rys-blogs.gif', width: 86, height: 86, class: 'icon-right'
+          %strong New blog
+          %br/
+          A blog post can better introduce your product can be used as a very effective marketing tool.
+    / .col-5
+    .col-4.left.last=image_tag 'graphics/feature-pagescreen.gif', width: 283, height: 327, class: :screenshot
+    %hr/
+    .margin-bottom.clearfix
+      %h3 Customer Management
+      %div(style="width: 324px; float: left")
+        %strong(style="display: block; margin: 0 0 6px 0") Customer Account
+        %p Allows customers to use the email address and password registered accounts in your shop, after registering customers can view their purchase history and management of the delivery address. You can also set the store does not require registration account to complete the purchase operation.
+        =image_tag 'graphics/tour-customeraccounts.jpg', width: 324, height: 186, class: :screenshot
+      %div(style="width: 324px; float: right")
+        %strong(style="display: block; margin: 0 0 6px 0") Customers grouping
+        %p You can create groups of customers based on search criteria, such as grouped according to the customer location, total spending, or customer labels. So you can better organize customer information.
+        =image_tag 'graphics/tour-customergroups.jpg', width: 324, height: 186, class: :screenshot
+    .clearfix
+      .next-feature
+        .next-buttons.clearfix
+          %a.signup(href="/signup") Registration
+          %a.next-step(href="/tour/design") View custom themes appearance &rsaquo;
+        / .clearfix
+      / .next-feature
+    / .clearfix
+  / .col-9
+/ content
+.no-signup-page(style="margin-top: 30px;")

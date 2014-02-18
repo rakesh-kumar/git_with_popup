@@ -1,0 +1,27 @@
+#container
+  #dialog
+    .status
+      %p Delete ShopQi account
+    %h3 We hope that you will reconsider the next
+    %p.info
+      We are constantly improving ShopQi features, making it the best hope to use e-commerce platform. If you have any comments on our products, we hope you will give us your requests for our products, we are happy to serve you. Similarly, if you use the process, there are any questions, we are happy to assist you.
+    %p.st
+      Our telephone number is:
+      %big{:style => "color: #659319"}
+        400-6767-888
+    =form_for cancel_reason,url: account_index_path, method: 'delete'  do |f|
+      .ppb
+        %h3.sst Still want to close the store?
+        %p.sb
+          %label{:for => "cancel_reason_selection", :style => "padding-right: 8px"} You closed because?
+        =f.select :selection,options_for_select([["Choose a reason",nil]] + cancel_reason_options)
+        #cancel_reason_text_details
+          %p
+            %label#cancel_reason_detailed_label{:for => "cancel_reason_detailed"} Please tell us your specific reason for you to close shop?
+          %textarea#text-details{:cols => "40", :name => "cancel_reason[detailed]", :rows => "4", :style => "width: 80%"}
+      .actions
+        %input.btn.red-btn{:name => "commit", :type => "submit", :value => "Close to shops"}/
+        %p.note{:style => "margin-top: 5px"}
+          %span.highlight You will delete all your product information, order information and some other content
+        %p.st.sb Or
+        %a.btn.green-btn{:href => "/admin/account"} I changed my attention returns store

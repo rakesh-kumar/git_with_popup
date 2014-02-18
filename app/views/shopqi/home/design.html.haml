@@ -1,0 +1,92 @@
+- @current_tour = :current
+- @current_design = :current
+
+#banner
+  .content
+    %h1 Customize
+  / .content
+/ #banner
+.content.subpage
+  #sidebar-features.col-3.last=render 'sidebar'
+  .col-9.right.last
+    .clearfix.page-subheading(style="margin-bottom:40px;")
+      %h2.center Easily customizable designs
+      %p.feature-subheading Lets you shop the way you want to display.
+    .col-9.clearfix.last
+      .col-6.poloroid
+        %a.single.cboxelement(href="#{asset_path('graphics/tour-themestore-big.jpg')}")
+          =image_tag 'graphics/tour-themestore-small.jpg'
+          %em Browse Topics store to find the best theme
+      / .col-6
+      .col-3.poloroidcopy.last
+        %h3 Theme Store
+        %p
+          =link_to 'Theme Store', theme_store_url_with_port, target: :_blank
+          There are divisions created by the ShopQi diverse professional look and feel.
+        %p Themes allow you to choose the fastest way to build online stores.
+      / .col-3
+    / .col-9 clearfix last
+    .col-9.clearfix.last
+      .col-3.poloroidcopy
+        %h3 Custom themes
+        %p Each topic contains its own set options so you do not need to master HTML / CSS can customize the theme.
+        %p All themes can easily be modified to include upload your own Logo pattern.
+        %p You can also modify the contents of the font, the layout of commodities like slides or.
+      / .col-3
+      .col-6.poloroid.last
+        %a.single.cboxelement(href="#{asset_path('graphics/tour-presetscreenbig.jpg')}")
+          =image_tag 'graphics/tour-presetscreen.jpg'
+          %em It is easy to modify the appearance by Theme Editor
+      / .col-6
+    / .col-9 clearfix last
+    %h3(style="text-align:center") Custom themes example
+    .clearfix.preset-example
+      %ul
+        %li.step1
+          %strong> Step 1 Choose a theme
+          Browse
+          =link_to 'Theme Store', theme_store_url_with_port, target: :_blank
+          Then choose a topic for custom.
+          %a.single.cboxelement(href="#{asset_path('graphics/tour-presetex-beforebig.jpg')}")
+            =image_tag 'graphics/tour-presetex-before.png'
+        %li.step2
+          %strong> Step 2. Customization
+          Use Theme Editor to modify the form of patterns and colors Logo.
+          %a.single.cboxelement(href="#{asset_path('graphics/tour-presetex-presetsbig.jpg')}")
+            =image_tag 'graphics/tour-presetex-presets.png'
+        %li.step3
+          %strong> Step 3 Complete
+          Now we do not look the same shop.
+          %a.single.cboxelement(href="#{asset_path('graphics/tour-presetex-afterbig.jpg')}")
+            =image_tag 'graphics/tour-presetex-after.png'
+    / .feature-box clearfix
+    .col-9.clearfix.last
+      .col-3.poloroidcopy
+        %h3 Implement custom writing HTML & CSS
+        %p
+          ShopQi HTML & CSS allows you to 100% control of your online store interface. ShopQi use template language
+          = succeed "." do
+            %a(href="#{wiki_url_with_port}/Liquid" target="_blank" title="Liquid - ShopQi Wiki") Liquid
+        %p Liquid can be easily converted to a static HTML & CSS dynamic e-commerce system.
+        %p
+          Details can be
+          %a(href="#{wiki_url_with_port}/Main_Page" target="_blank" title="Main Page - ShopQi Wiki") Check out our documentation
+          To learn how to use Liquid.
+      / .col-3
+      .col-6.poloroid.last
+        %a.single.cboxelement(href="#{asset_path('graphics/tour-templateeditor-big.jpg')}")
+          =image_tag 'graphics/tour-templateeditor-small.jpg'
+          %em Quick use template editor to update your HTML &amp; CSS. It has syntax highlighting and modify records saving function is very simple and safe!
+      / .col-6
+    / .col-9 clearfix last
+    .clearfix
+      .next-feature
+        .next-buttons.clearfix
+          %a.signup(href="/signup") Registration
+          %a.next-step(href="/tour/security") View ShopQi hosting and security &rsaquo;
+        / .clearfix
+      / .next-feature
+    / .clearfix
+  / .col-9
+/ content
+.no-signup-page(style="margin-top: 30px;")

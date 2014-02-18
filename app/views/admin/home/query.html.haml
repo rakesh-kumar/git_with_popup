@@ -1,0 +1,33 @@
+%h2#title Query results
+#action-links
+  %ul
+-if results.blank?
+  .sgroup.sst
+    %p
+      We're sorry, have not been able to find any matches
+      %span.highlight==#{params[:q]}
+      The results, try to reduce or replace the keyword.
+
+-else
+  -results_by_group = results.group_by(&:class)
+  .sgroup.sst
+    %p
+      ==有 #{results.size} 条记录匹配您的查询
+      %span.highlight==#{params[:q]}
+  .sgroup.sst{:style => "margin: 0 5em 2em 5em"}
+    -[Product,Page,Blog,Article,Order].each do |clazz|
+      -unless results_by_group[clazz].blank?
+        %h4==#{t("activerecord.models.#{clazz.to_s.underscore}")}:
+        %ul{:style => "padding-left: 30px; list-style:square;margin: 0.5em 0 2em 0"}
+          -results_by_group[clazz].each do |p|
+            %li=link_to highlight(p.title,params[:q]),url_for_lookup(clazz,p)
+#btm-nav.act-screen.ssb
+  #pagination
+.box2
+  %h3 If you have any questions about ShopQi of
+  You can visit our
+  =succeed '，' do
+    =link_to 'Business Support',support_path
+  There you can find some useful answers for you, and where you can put your questions.
+/ end div.main
+/ end div.container

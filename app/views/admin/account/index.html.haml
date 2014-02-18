@@ -1,0 +1,71 @@
+%h2#title Your account information
+#action-links
+  %ul
+=render partial:"shared/noscript"
+=render partial:"shared/upgrade_ie"
+=render partial:'plans'
+.group.box2
+  =render partial: 'about'
+%h3 User List
+#staff-members
+  #user-list
+    %table.standard-table(cellspacing=0)
+      %thead
+        %th Full name
+        %th Mailbox
+        %th Competence
+        %th
+      %tbody
+    -if current_user.is_admin?
+      .group-actions
+        =link_to 'New users',"#",id:"add-user",class:'btn'
+        #new-user-form{:style => "display:none; text-align: left"}
+          =form_for user, remote:true, validate:true, html:{id:"new_user",class:"new_user"} do |f|
+            %h3 Add a new user
+            %p.note
+              New users can
+              %strong Enter
+              = succeed "." do
+                %strong Manage your store page
+              The initial password is 666666
+            %dl
+              %dt=f.label :name
+              %dd=f.text_field :name
+              %dt=f.label :email
+              %dd=f.text_field :email
+            %p.sst
+              %input.btn{:name => "commit", :type => "submit", :value => "New"}/
+              =w('or')
+              %a{:href => "#",id:'cancel'} Return
+-if current_user.is_admin?
+  -#
+    #billing-cycles.group.box2
+      %h3 List of costs
+  .group.box2
+    %h4 Need to change the shop owner?
+    =form_for user,url:{action:"change_ownership"} do |f|
+      %p.note
+        As the account owner can access and modify the credit card and billing information on this page credit card. You can transfer ownership to any other user,
+        = succeed "." do
+          %strong However, you will not be able to access this page
+      =f.select :id, users.all.delete_if{|u|u == current_user}.collect{|p|[p.name,p.id]},{},class:'sst',style: "width: 160px; margin-right: 0px;"
+      %input{:name => "commit", :style => "position: relative; bottom: 2px", :type => "submit", :value =>"Change the account owner"}/
+  #cancel-shop.group.box2
+    %h4 You want to close your shop?
+    %p.note Once your account quit, everything you store will be permanently deleted
+    %p.st
+      =link_to "Delete my account (I know it can not be recovered)",cancel_account_index_path,class: 'btn'
+%hr/
+=render partial: "admin/home/show_user"
+=render "admin/users/user"
+=render "admin/users/permission"
+:javascript
+  App.init = function(){
+    new App.Controllers.Users();
+    Backbone.history.start();
+  }
+  App.users = new App.Collections.Users();
+  App.users.refresh(#{users_json});
+  App.current_user = #{current_user.to_json(only: [:id,:admin])}
+  App.resources_size = #{KeyValues::Resource.all.size}
+  new App.Views.User.Index({collection: App.users});

@@ -1,0 +1,35 @@
+#sticky-progress.position-fixed
+  #launch-bar
+    #task-checkoff.hide.clearfix
+
+    #progress-bar-container
+      #progress-bar(style="display:none")=render 'admin/home/progress_task'
+/ #sticky-progress
+%script(id="checkoff-item" type="text/x-handlebars-template")
+  #task-meta
+    %strong {{{name}}}
+    %small Surplus {{{incomplete_task_count}}} Steps
+  %p.desc
+  %ul
+    %li.task-completed
+      %a#complete-task-button(href="#")
+        I've completed this step
+        %em.icon
+    %li.pick-another-task
+      %a#skip-task-button(href="#") Select other steps
+%script(id="add_product-desc-item" type="text/x-handlebars-template")
+  Your store at least one product! Click
+  %a(data-guide-position="left" data-guide-target="#action-links li a[href='/admin/products/new']" data-guide-text="Click here to add a commodity" href = "#") to add a product 
+   Start recording on product information.
+%script(id="customize_theme-desc-item" type="text/x-handlebars-template")
+  Modify your current theme on this page, or
+  %a(href="#{theme_store_url_with_port}" target="_blank") ShopQi theme store 
+  Select a new theme
+%script(id="add_content-desc-item" type="text/x-handlebars-template")
+  On this page you can add new web content for your store, or modify existing content.
+%script(id="setup_payment_gateway-desc-item" type="text/x-handlebars-template")
+  Payment gateway to receive payment from the customer.
+%script(id="setup_shipping-desc-item" type="text/x-handlebars-template")
+  On this page you can add items to send to any area of shipping.
+%script(id="setup_domain-desc-item" type="text/x-handlebars-template")
+  On this page you can bind other domain names for your store. Such top-level domain such as www.example.com.

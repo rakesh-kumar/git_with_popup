@@ -1,0 +1,21 @@
+#container
+  #dialog
+    -if flash[:alert]
+      #system_error.status.system-error
+        %p=flash[:alert]
+      %ul.full
+        %li
+          You have successfully deleted your shop, thank you for your continued support for us, thank you!
+        %li.last
+          Return
+          =link_to 'Official website', host_with_port
+    -else
+      .status
+        %p=flash[:notice]
+      %ul.full
+        %li
+          Return 
+          =link_to 'Login ', new_user_session_path, title: 'Login again'
+        %li.last
+          Return 
+          =link_to 'Shop', '/'

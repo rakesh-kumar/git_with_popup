@@ -1,0 +1,111 @@
+%h2#title Installing Themes
+#action-links
+  %ul
+    %li#customer=link_to 'Upload a theme', '#'
+    %li#themestore=link_to 'Find more themes', "#{theme_store_url_with_port}?shop_url=#{show_shop_url}"
+=render "shared/noscript"
+=render "shared/upgrade_ie"
+.import-wrapper
+  #theme-progress-bar.box2.import-in-progress.c.toggle(style='display: none') Processing your theme files ...
+  #finished-dialog.box2.import-complete.c.toggle(style='display: none')
+#exceed_message.message.c.hide Up to eight themes can be installed before installing more themes, please delete the existing topics.
+#storage_full_message.message.c.hide=I18n.t('activerecord.errors.models.shop.attributes.storage.full')
+#upload-theme.box2.ssb.clearfix(style="display:none;")
+  .fl.st(style="margin-right: 15px")
+    %a(href="#")=image_tag 'admin/icons/arrow-up-large.gif'
+  %h3 Add a new topic
+  %div
+    %p.note
+      Please compress all the theme files are packaged into a zip file; uploaded theme will be installed into your store
+      = succeed "." do
+        %strong But do not automatically release
+    %dl
+      %dd
+        #file-uploader
+    .group-actions
+      Or
+      %a.cancel(href="#") Cancel
+    / .group-actions
+
+#published
+  %h3.heading Topics published
+  %p.note.sb
+    Here is the topic you have posted these topics
+    %strong Has been applied
+    To your storefront. Any changes you make to these themes will take effect immediately.
+  #published-themes
+    %ul.theme.pb.clearfix
+
+#unpublished.hide
+  %h3.heading Theme unpublished
+  %p.note.sb Here is the topic you do not publish. Modifications you have made ​​to these topics will not affect the current storefront.
+  #unpublished-themes
+    %ul.theme.unpublished.pb.clearfix
+
+%script(id="theme-item" type="text/x-handlebars-template")
+  .fl.theme-icon
+    {{#if is_published}}
+    =image_tag 'admin/theme-placeholder.jpg'
+    {{else}}
+    =image_tag 'admin/unpublished-theme-placeholder.jpg'
+    {{/if}}
+  .fr.theme-details
+    .heading.clearfix
+      %h3
+        {{name}}
+        {{#if is_published}}
+        %span(class="{{role}}") {{#if is_main}}General{{else}}Mobile{{/if}}
+        {{/if}}
+      %p.main-actions
+        {{#unless is_main}}
+        %span.preview
+          %a(data-popup="true" href="#{show_shop_url}?preview_theme_id={{id}}") Preview
+        %span.delete-theme
+          |
+          %a(href="#")=image_tag 'admin/icons/trash.gif'
+        {{/unless}}
+    %ul.theme-actions.clearfix
+      %li.theme-settings
+        %a(href="/admin/themes/{{id}}/settings") Appearance settings
+      %li.duplicate-theme
+        %a(href="#") Copy topic
+      %li.theme-editor
+        %a(href="/admin/themes/{{id}}/assets") Template Editor
+      %li.export-theme
+        %a(href="#") Export topic
+    %ul.theme-actions.extra.clearfix
+      {{#if is_published}}
+      %span.main-theme Has been released for the{{#if is_main}}General{{else}}Mobile{{/if}}Theme
+      {{else}}
+      .publish-theme-link
+        %li.publish-main
+          %a(href="#") Publish this topic
+      .publish-theme-dropdown(style="display:none;")
+        %form.edit_theme(action="#" onsubmit="return false")
+          %span.fl
+            %select(name="theme[role]")
+              %option(value="main") Published for the general theme
+              -#%option(value="mobile") 发布为手机主题
+          %span.fr
+            %input(name="commit" type="submit" value="Submit")
+            Or
+            %a(href="#" style="background:none") Cancel
+      {{/if}}
+      {{#if is_mobile}}
+      %li
+        %a(href="/admin/themes/{{id}}?theme[role]=unpublished" style="float:right;") Unpublish
+      {{/if}}
+%script(id="finished-dialog-item" type="text/x-handlebars-template")
+  Your theme files have been uploaded completed.
+  %br
+  %span.import-actions
+    %a(href="#{show_shop_url}?preview_theme_id={{id}}") Preview {{name}}
+    Or
+    %a(href="/admin/themes/{{id}}/assets") Into the template editor page
+
+:javascript
+  App.published_themes = new App.Collections.ShopThemes(#{@published_themes_json})
+  App.unpublished_themes = new App.Collections.ShopThemes(#{@unpublished_themes_json})
+  new App.Views.Theme.Index();
+
+  task_name = 'customize_theme';
