@@ -1,5 +1,11 @@
 @import "normalize"; // https://github.com/JohnAlbin/normalize.css-with-sass-or-compass
 
+.page {
+  @include at-breakpoint(30em 8){
+     @include container;
+  }
+}
+  
 .btn {
   @include sassy-button('matte', 5px); }
 
