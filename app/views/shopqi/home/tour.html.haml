@@ -1,0 +1,190 @@
+- @current_tour = :current
+- @current_intro = :current
+
+#banner
+  .content
+    %h1 Functional demo
+  / .content
+/ #banner
+.content.subpage
+  #sidebar-features.col-3=render 'sidebar'
+  .col-9.last.introduction
+    .tour-intro
+      %h2 Build all the features needed for an online store
+      %h3 You will have your own online store, you can receive online payments using your own domain name, fully customizable appearance of your store, we offer you all this.
+    / .tour-intro
+    -#
+      .video-tour
+        .tour-video-wrapper
+          %object(height="366" width="650")
+            %param(name="movie" value="#")/
+            %param(name="allowScriptAccess" value="always")/
+            %param(name="allowFullScreen" value="true")/
+            %embed(allowfullscreen="true" allowscriptaccess="always" height="366" src="#" type="application/x-shockwave-flash" width="650")
+      / .tour-video
+    / .video
+    .col-9.clearfix.last
+      .col-3.poloroidcopy
+        %h3 Your own store appearance
+        %p On ShopQi, you have your own online store for the sale of goods. You can contain a number of free or fee theme stores pick the right look. If you master HTML &amp; CSS skills, you can re-design.
+        %p Use ShopQi theme you can upload your own Logo patterns, change colors or fonts, etc..
+        %p
+          Look
+          %a(href="/tour/design") Customize your appearance
+          Or visit our
+          = succeed "." do
+            %a(href="#{theme_store_url_with_port}" title="ShopQi Theme Store | Ecommerce Templates") Theme Store
+      / .col-3
+      .col-6.poloroid.last
+        %a.single.cboxelement(href="#{asset_path('graphics/tour-themeshelves-big.jpg')}")
+          =image_tag 'graphics/tour-themeshelves.jpg'
+          %em ShopQi provide a variety of topics
+      / .col-6
+    / .col-9 clearfix last
+    .col-9.clearfix.last
+      .col-6.poloroid
+        %a.single.cboxelement(href="#{asset_path('graphics/tour-productpage-big.jpg')}")
+          =image_tag 'graphics/tour-productpage.jpg'
+          %em Add and modify your product is very easy
+      / .col-6
+      .col-3.poloroidcopy.last
+        %h3 Manage your store
+        %p By admin login, you can manage and edit your shop content. You can easily increase the goods and receive payments from customers.
+        %p
+          ShopQi will
+          %a(href="/tour/security") Put your shop
+          Our high-speed server running, you do not need the technical stuff involved.
+        %p
+          For details, please see
+          = succeed "." do
+            %a(href="/tour/store/") Run a ShopQi shop
+      / .col-3
+    / .col-9 clearfix last
+    .col-9.clearfix.last
+      .col-3.poloroidcopy
+        %h3 Receive payments
+        %p
+          ShopQi bear all the technical details of online payment, integrated common market
+          %a(href="http://www.shopqi.com/faq/#supported-gateways" title="") Payment Gateway , Including Paypal, money paid through so
+    
+          %p
+            Use ShopQi applications, we also support the sale of digital goods
+            = succeed "." do
+              %a.single.cboxelement(href="#" title="ShopQi Application Store") Fetch
+          %p You can also use Taobao logistics warehouse services.
+      / .col-3
+      .col-6.poloroid.last
+        %a.single.cboxelement(href="#{asset_path('graphics/tour-orderpage-big.jpg')}")
+          =image_tag 'graphics/tour-orderpage.jpg'
+          %em In ShopQi management background, you can see the details of each order
+      / .col-6
+    / .col-9 clearfix last
+    -#
+      .col-9.essential-features.clearfix
+        %h2(style="font-size:22px; text-align:center") Run a online store for all needed functions
+        %ul.clearfix
+          %li
+            =image_tag 'graphics/ov-support.jpg'
+            %strong Support
+            %br/
+            If you have any questions, you can contact us by email or telephone the
+            %a(href="http://support#{store_host_with_port}" title="Welcome - ShopQi Support") Support Team
+          %li
+            =image_tag 'graphics/ov-iphone.jpg'
+            %strong iPhone Application
+            Use iphone, manage your shop anywhere
+            = succeed "." do
+              %a(href="http://www.shopqi.com/iphone/" title="") iPhone Application
+          %li
+            =image_tag 'graphics/ov-stats.jpg'
+            %strong ShopQi Statistics
+            %br/
+            Customer tracking and statistical sources. You can also use Google Analytics Service.
+          %li
+            =image_tag 'graphics/ov-editor.jpg'
+            %strong Modify the contents of the store
+            %br/
+            Write a blog post or join a link so
+          %li
+            =image_tag 'graphics/ov-orders.jpg'
+            %strong Order Management
+            %br/
+            ShopQi will take good care of all your order information and customer information.
+          %li
+            =image_tag 'graphics/ov-promo.jpg'
+            %strong Join discount code
+            %br/
+            Can greatly enhance the sales of certain goods sold increased discount code.
+    / .col-9 last
+    .feature-box.clearfix
+      %h3(style="text-align:center; font-weight:normal; font-size:20px; text-shadow:1px 1px #fff") We do all the detail work
+      %p(style="text-align:center")
+        When you register successfully on ShopQi, we'll do all the technical details, so that you can
+        %strong> Focus on the launch of your online business
+        \ If you need any help, our professional support team will assist you.
+      %ul
+        %li.backups
+          %strong Automatic backup
+          %br/
+          Shop your data is automatically backed up to a secure server, so you do not have to worry about data loss problems.
+        %li.security
+          %strong Security
+          %br/
+          Your shop using industry-standard 128-bit SSL encryption technology to protect your business information and customer information.
+      %ul
+        %li.servers
+          %strong Speed ​​server
+          %br/
+          Your shop is running on a high-speed multi-core servers, excellent performance.
+        %li.updates
+          %strong Free Upgrade
+          %br/
+          ShopQi will continue to add functionality to your online store. Upgrade all future updates are free.
+    / .feature-box
+    .clearfix
+      .col-9.essential-features
+        %ul.clearfix
+          %li
+            =image_tag 'graphics/ov-fees.jpg'
+            %strong No hidden fees
+            %br/
+            We will not bandwidth or installation, citing additional costs.
+          -#
+            %li
+              =image_tag 'graphics/ov-subsite.jpg'
+              %strong Use of existing sites
+              %br/
+              You can use the existing site ShopQi (as a sub-domain), for the site to increase business functions.
+            %li
+              =image_tag 'graphics/ov-creditcards.jpg'
+              %strong Support Credit.
+              %br/
+              Customers can use Visa, Mastercard, and so on.
+            %li
+              =image_tag 'graphics/ov-themestore.jpg'
+              %strong Theme Store
+              %br/
+              No designer does not matter, you can go to
+              %a(href="#{theme_store_url_with_port}") Theme Store 
+              The selection of topics appearance.
+          %li
+            =image_tag 'graphics/ov-urls.jpg'
+            %strong Use your own domain name
+            %br/
+            You can enable any domain name for your shop.
+          %li.last
+            =image_tag 'graphics/ov-customization.jpg'
+            %strong Customize your shop
+            %br/
+            You can easily upload Logo, modify the color or content shop.
+      / .col-9 last
+    / .clearfix
+    .next-feature
+      .next-buttons.clearfix
+        %a.signup(href="/signup") Registration
+        %a.next-step(href="/tour/store") View Run your shop &rsaquo;
+      / .clearfix
+    / .next-feature
+  / .col-9 last
+/ content
+.no-signup-page(style="margin-top: 30px;")

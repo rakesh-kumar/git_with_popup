@@ -1,0 +1,99 @@
+%h2#title
+#action-links
+  %ul
+=render partial:"shared/noscript"
+=render partial:"shared/upgrade_ie"
+-if params[:launched]
+  #launched-store.clearfix
+    =image_tag 'admin/icons/progressbar/launched.jpg'
+    .launched-message
+      %h1 You have enabled the store, congratulations!
+      %p
+        =link_to shop.primary_domain.host, shop.primary_domain.url
+        Have access to, you can always take orders
+      %ul.share-your-store
+.col-12.last
+  #dashboard-facts.box2
+    %ul
+      -[:today,:yesterday,:last_week].each do |k|
+        %li
+          %p.big==¥#{statistics[k][:price]} RMB
+          %span==#{statistics[k][:des]}
+          %p==#{statistics[k][:size]}个订单
+      %li
+        %p.big==#{statistics[:total][:size]}
+        %span==#{statistics[:total][:des]}
+      %li
+        %p.big==#{statistics[:total_product][:size]}
+        %span==#{statistics[:total_product][:des]}
+      %li.last
+        %p.big==#{statistics[:skus][:size]}
+        %span==#{statistics[:skus][:des]}
+.col-8
+  -if shop.payments.empty?
+    #account-status.announcement(style="margin: 2em 5em")
+      %h3 Welcome!
+      %p(style="margin-top:0.5em") ShopQi already installed the store for you, you can input your goods. Before you sell goods to customers, you need to tell our customers how to receive payment
+      %p(style="margin-top:1em")
+        To do so, now that you
+        %a(href="/admin/payments/") Select a payment gateway
+        \.
+        If you are unsure how to choose, we recommend that you choose
+        %a(href="https://www.alipay.com" target="_blank") Paypal
+  #stats-spinner(style="display:none") Updating ...
+  #stats
+  #recent-activity
+    %h3.sb The latest activity records
+    %table#events.data{:cellpadding => "0", :cellspacing => "0"}
+      %tbody
+        =render partial:"activity", collection: activities
+  -#
+    %p#upgrade.box2
+      *
+      %a{:href => "/admin/account"} Upgrade your plan
+      to utilize full statistics including a draggable bar graph, a list of
+      top referrers, search terms, a traffic breakdown, and percentage of hits
+      by country of origin.
+.col-4.last.sidebar
+  %h3 Recent orders
+  -if recent_orders.blank?
+    %p.note You currently have no orders
+  -else
+    %ul#dashboard-orders
+      -recent_orders.each do |order|
+        %li
+          =link_to order.name, order_path(order)
+          \- ¥#{order.total_price}
+          %span.note
+            (
+            ==#{order.created_at.to_s(:short)}
+            )
+  -unless recent_comments.blank?
+    %h3.sst The latest blog comments
+    %ul#dashboard-comments
+      -recent_comments.each do |comment|
+        -article = comment.article
+        %li
+          %p
+            %a(href= "#{comments_path(blog_id: article.blog.id,article_id: article.id)}")
+              %span.yesterday==#{comment.created_at.to_s(:short)}
+              由 #{comment.author} Comment
+          %p.note=truncate(comment.body,length: 10)
+  %h3.sst 用户
+  %ul#user-table.nobull
+    -shop.users.each do |u|
+      %li.box2
+        =image_tag u.default_avatar_image_url, id: 'gravatar'
+        =link_to u.name,"#users/#{u.id}",:class => "closure-lightbox"
+        -if u.is_admin?
+          %span.state.owner Account Owner
+        %br/
+        %small.note
+          -if u.last_sign_in_at
+            ==Last Login:#{distance_of_time_in_words(u.last_sign_in_at ,Time.now)}
+          -else
+            The user now, no logged
+=render partial:"show_user"
+
+:javascript
+  new App.Controllers.Users();

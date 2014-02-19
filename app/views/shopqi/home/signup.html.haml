@@ -1,0 +1,104 @@
+- @current_signup = :current
+
+#banner
+  .content
+    %h1(style="font-family:hevletica arial sans-serif") Registration
+  / .content
+/ #banner
+.content.subpage
+  %div(style="position: relative; left: 65px")
+    %p(style="text-align:center; margin-bottom:30px")
+      =image_tag 'signup/copy-tryshopqifreefor30days.png'
+  %table#price-chart
+    %tr
+      %th.heading &nbsp;
+      %th.table-col-0.basic
+        %a(href="/services/signup/new/free")
+      %th.table-col-1.professional
+        %a(href="/services/signup/new/professional")
+      %th.table-col-2.business
+        %a(href="/services/signup/new/business")
+      %th.table-col-3.unlimited
+        %a(href="/services/signup/new/unlimited")
+    %tr.even
+      %td Installation fee
+      %td.table-col-0 Free
+      %td.table-col-1 Free
+      %td.table-col-2 Free
+      %td.table-col-3 Free
+    %tr.odd
+      %td Bandwidth charges
+      %td.table-col-0 Free
+      %td.table-col-1 Free
+      %td.table-col-2 Free
+      %td.table-col-3 Free
+    %tr.even
+      %td Maximum number of styles goods(SKU)
+      -plan_types.each_with_index do |plan_type, index|
+        %td(class="table-col-#{index} #{plan_type.code}")
+          %span.special=plan_type.skus
+    %tr.odd
+      %td Storage space
+      -plan_types.each_with_index do |plan_type, index|
+        %td(class="table-col-#{index} #{plan_type.code}")
+          %span.special==#{plan_type.storage}MB
+    %tr.even
+      %td Contains all the core functionality of e-commerce
+      %td.table-col-0
+        =image_tag 'signup/checkmark.gif'
+      %td.table-col-1
+        =image_tag 'signup/checkmark.gif'
+      %td.table-col-2
+        =image_tag 'signup/checkmark.gif'
+      %td.table-col-3
+        =image_tag 'signup/checkmark.gif'
+    %tr.odd
+      %td Binding TLDs
+      %td.table-col-0 &nbsp;
+      %td.table-col-1
+        =image_tag 'signup/checkmark.gif'
+      %td.table-col-2
+        =image_tag 'signup/checkmark.gif'
+      %td.table-col-3
+        =image_tag 'signup/checkmark.gif'
+    %tr.even
+      %td
+        %em.note Price (yuan)
+      %td.table-col-0
+        %a(href="/services/signup/new/free")
+          =image_tag 'signup/btn-table-signup.gif'
+      %td.table-col-1
+        %a(href="/services/signup/new/professional")
+          =image_tag 'signup/btn-table-signup.gif'
+      %td.table-col-2
+        %a(href="/services/signup/new/business")
+          =image_tag 'signup/btn-table-signup.gif'
+      %td.table-col-3
+        %a(href="/services/signup/new/unlimited")
+          =image_tag 'signup/btn-table-signup.gif'
+  .col-12.highlight-box
+    .highlight-box-wrapper
+      -#%h2.center Prices do not know which program to choose?
+        %p.center
+          Call to(1.888.746.7439)
+          %span#chat-on2.chat-on(style="display:none")
+          %span#chat-off2
+      %p.notes.center You can always modify your price plan, for advanced customization features, please call us
+    / .highlight-box-wrapper
+  / .col-12 highlight-box
+  #signup-faq.col-12.clearfix
+    %h2 Doubt?
+    .col-6
+      %h3 The need for installation costs?
+      %p No. All prices are no setup fee program.
+      %h3 If you cancel within 30 days of account do I need to pay?
+      %p Do not need. ShopQi provide you with up to 30 days risk free trial period after registration ShopQi online store, 30 days to cancel the account will not be charged any fees to your
+    / .col-6
+    .col-6.last
+      %h3 I can always cancel an account yet?
+      %p Yes, we sincerely hope to continue to serve you, but you can still cancel the account management in the background.
+      %h3 Then I can modify it into other programs?
+      %p Of course you can! You can always upgrade your plan or lower, no additional fees.
+    / .col-6
+  / .col-12
+/ content

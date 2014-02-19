@@ -1,0 +1,111 @@
+!!! 5
+- conditional_html do
+  %head
+    %meta(content="text/html; charset=utf-8" http-equiv="Content-Type")/
+    %meta(content="no" http-equiv="imagetoolbar")/
+    %meta(content="true" name="MSSmartTagsPreventParsing")/
+    %meta(content="ShopQi cloud store is a powerful e-commerce solution that contains all the e-commerce functionality, free registration" name="description")/
+    %meta(content="ShopQi cloud service providers store electricity supplier B2C independent shop online shop online shop e-commerce solution for online sales of e-commerce e-commerce vertical e-commerce shopping cart local e-commerce brand" name="keywords")/
+    %meta(content="width=device-width initial-scale=1.0" name="viewport")/
+    %link(href="#{image_path('favicon.png')}" rel="shortcut icon" type="image/x-icon")/
+    %link(href="#{image_path('icons/apple-touch-icon.png')}" rel="apple-touch-icon-precomposed")/
+    %title ShopQi cloud store - a new choice to shop online
+    = stylesheet_link_tag "layout_shopqi"
+    =yield :stylesheets
+    /[if IE]
+      = stylesheet_link_tag "shopqi_ie-signup"
+    /[if IE 6]
+      = stylesheet_link_tag "ie6"
+    /[if IE 7]
+      = stylesheet_link_tag "ie7"
+    =javascript_include_tag 'shopqi_application'
+    =yield :javascripts
+    /[if lt IE 7]
+      = javascript_include_tag 'DD_belatedPNG_0.0.8a-min'
+      :javascript
+        DD_belatedPNG.fix('.png_bg');
+    =csrf_meta_tag
+    -#=render 'shared/google'
+  %body(style=@body_style)
+    #wrapper
+      #masthead
+        .content
+          %a(href="/")
+          %a.logo-shopqi(href="/")=image_tag 'logos/shopqi_bag.gif'
+          %ul#nav-primary
+            %li=link_to 'Home', '/', class: 'top-nav'
+            %li(class=@current_tour)=link_to 'Features Demonstration', tour_intro_path, class: 'top-nav'
+            -#
+              %li
+                %a(href="/examples/") Success Stories
+            %li(class=@current_faq)=link_to 'Frequently Asked Questions', faq_path, class: 'top-nav'
+            %li(class=@current_signup)=link_to 'Registration', services_signup_path, class: 'top-nav'
+            %li.sub-nav
+              %ul.utilities
+                %li=link_to 'Theme Appearance', theme_store_url_with_port
+                %li=link_to 'Help Documentation', wiki_url_with_port
+                -#
+                  %li.megadropdown
+                    %a(href="#") Resources
+                    %ul
+                      -#
+                        %li
+                          %a(href="http://support.shopqi.com/" title="Welcome &mdash; After-sales support")
+                            %strong> After-sales support
+                            Contact ShopQi
+                        %li
+                          %a(href="http://forums.shopqi.com/" title="ShopQi Forum")
+                            %strong> Forum
+                            ShopQi community
+                        %li
+                          %a(href="http://apps.shopqi.com/" title="ShopQi App Store")
+                            %strong> Application
+                            Select Store application
+                      %li
+                        =link_to theme_store_url_with_port do
+                          %strong> Theme Appearance
+                          Select Template Store
+                        =link_to wiki_url_with_port do
+                          %strong> Help Documentation
+                          Learn how to use ShopQi
+                %li.last
+                  %a(href="/login") Login
+      =yield
+      #footer
+        #footer-wrapper
+          .content
+            .col-3
+              %h3 Function
+              %ul
+                %li=link_to "ShopQi Brief introduction", tour_intro_path
+                %li=link_to "Run your shop", tour_store_path
+                %li=link_to "Custom themes appearance", tour_design_path
+                %li=link_to "Managed Services & Security", tour_security_path
+                %li=link_to "Features List", tour_features_path
+            .col-3
+              %h3 Resources
+              %ul
+                %li=link_to "Help Documentation", wiki_url_with_port
+                %li=link_to "Theme Store", theme_store_url_with_port
+            .col-3
+              %h3 ShopQi
+              %ul
+                %li=link_to 'About Us', about_path
+                %li=link_to 'Terms of Service', agreement_path, target: :_blank
+                %li=link_to 'Links', home_links_path
+            .col-3.contact-us.last
+              %h3 Contact Us
+              %ul
+                %li
+                  =image_tag 'admin/icons/phone16.gif', height: 12, width: 12
+                  %span.imgreplacement.phone 0755-26008888
+                %li
+                  =image_tag 'admin/icons/email.gif', height: 12, width: 12
+                  =link_to 'admin@shopqi.com', 'mailto:admin@shopqi.com'
+          #copyright.center.clear
+            %p==© 2011-2012 ShopQi Inc. | #{Setting.domain.record}
+            %p
+              ShopQi
+              %a(href="#{url_with_port}") Cloud Store
+              \- 3 minutes quick shop
+    =render 'shared/baidu'

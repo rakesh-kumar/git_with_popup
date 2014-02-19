@@ -1,0 +1,10 @@
+#head
+  %h1 Inquiry #{@name} Results
+-if !@results.empty?
+  %ul
+    -@results.each do |r|
+      %li
+        =link_to r[:name],"/#{r[:name]}"
+        %span==(Match#{r[:count]}个)
+-else
+  There is no matching record

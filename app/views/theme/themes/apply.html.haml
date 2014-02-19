@@ -1,0 +1,29 @@
+-@content_class = 'divider'
+
+=content_for :login do
+  =render 'shop'
+
+.message-box
+  -if @result['error']
+    %h2 Theme unsuccessful installation
+    %p
+      =@result['error']
+      You can go to the store
+      %a(href="#{shop_url}/admin/themes") Theme Manager
+      Or return
+      =succeed "." do
+        %a(href="/") Theme Store
+  -else
+    %h2 Your topics are replacing...
+    %p
+      Replacement may be necessary to complete the theme twelve minutes of time.
+      %br/
+      You can check
+      %a(href="#{shop_url}") Your Store
+      To see if the theme has been updated to the new
+      %br/
+      Or go to
+      %a(href="#{shop_url}/admin") Store Management
+      ; Need to choose other topics can be returned
+      =succeed "." do
+        %a(href="/") Theme Store

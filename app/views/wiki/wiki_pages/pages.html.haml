@@ -1,0 +1,7 @@
+%h1 All wiki pages
+-if !@results.empty?
+  %ul
+    -@results.each do |r|
+      %li=link_to Translation.get_value(r.name),r.name
+-else
+  This wiki has not created any pages

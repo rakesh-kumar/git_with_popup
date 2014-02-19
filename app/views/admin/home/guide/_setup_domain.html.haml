@@ -1,0 +1,19 @@
+%h1
+  ==#{shop.name} 已经完成
+  %strong 86%
+  Only one step up!
+#what-is-next.clearfix
+  =image_tag "admin/icons/progressbar/#{@task.name}.jpg"
+  #next-step-description
+    %h2
+      %strong The next step:
+      Domain name
+    %p
+      In
+      %a(data-guide-position="left" data-guide-target="#network a" data-guide-text="Click here to manage your domain" href="##{@task.name}" class="show_#{@task.name}_guide")
+        %em.icon
+        %strong.triangle
+        DNS &amp; Domain page
+      Bind a domain name
+  / #name
+/ #what-is-next

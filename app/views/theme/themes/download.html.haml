@@ -1,0 +1,22 @@
+-@content_class = 'divider'
+
+=content_for :login do
+  =render 'shop'
+
+.col-16
+  #theme-download
+    %h1==You are about to #{shop_host} Shop Installation #{theme.name} Theme style
+    %p
+      %a#apply-theme.standard-button(data-confirm="This will replace your current common theme, and move it to the theme unpublished, and easy to modify and preview it, are you sure you want to replace the theme?" data-method="post" href="/themes/#{handle}/styles/#{style_handle}/apply" rel="nofollow")
+        Install and publish to my store common theme
+        %br/
+        %small Your current general theme will be revised as unpublished state
+      -#
+        Or
+        %a(href="/themes/#{handle}/styles/#{style_handle}/download_file" onclick="alert('This feature is not supported');return false") With. Zip format Download this topic
+  %p.hint(style="text-align: center; margin-top: 30px;")
+    Choose any of these operations indicate that you
+    %br/
+    I have read and agree
+    = succeed "." do
+      %a(href="#{url_with_port}#{agreement_path}#themes") ShopQi service agreement

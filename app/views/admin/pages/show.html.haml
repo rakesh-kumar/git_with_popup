@@ -1,0 +1,57 @@
+-use_kindeditor
+
+%h2#title= link_to page.title, "/pages/#{page.handle}", title: 'View this page in your store', target: '_blank'
+#action-links
+  %ul
+    %li.no-icon
+      %a#page-edit-link(href="#pages/edit") Modification
+    %li.no-pad
+      = link_to image_tag('admin/icons/trash.gif'), page_path(page), remote: true, method: :delete, title: 'Remove it', class: :del, data: { confirm: 'Are you sure you want to delete?' }
+
+.page-edit
+  .group(style="margin-top:0")
+    =form_for page do |f|
+      #page-form.group-fields
+        %dl
+          %dt=f.label :title
+          %dd=f.text_field :title, class: [:big, :sb]
+          %dt#edit-handle-label(style="font-size:85%") Permalink
+          %dd#edit-handle.ssb
+            %span.note==#{shop.primary_domain.url}/pages/
+            =f.text_field :handle, style: 'width: 175px'
+            %span.note
+              (
+              %a(href="#{wiki_url_with_port}/Handle" target="_blank")> What's this?
+              )
+          %dt
+            %label(for="page_body_html") Write your page
+          %dd(style="margin-bottom:0")=f.text_area :body_html, id: 'kindeditor', style: "width: 895px; height: 282px;"
+      .group-actions
+        %input#submit-page-btn.btn(name="commit" type="submit" value="Save")
+        Or
+        = link_to 'Cancel', '#'
+
+#page-show.box2.article(style="cursor: pointer" title="Click Edit")
+  #page-body.textile.pgroup
+    / Table Wrapper to prevent the layout from breaking due to invalid user text!
+    %table.table-wrapper(style="width: 100%")
+      %tr
+        %td
+          %p=raw page.body_html
+.box2.sst
+  / The parent is needed for the nested resource Article (blog is the parent)
+  %h3 Visibility page
+  %p.sb.note
+    If you do not need this page to be displayed in your shop, you can set its visibility to
+    = succeed "." do
+      %em Hide
+  =form_for page, remote: true, html: {id: 'edit_page_form'} do |f|
+    =f.select :published, [['Show', true], ['Hide', false]], {}, style: "width: 120px; font-size: 13px", onchange: "$('#edit_page_form').submit();"
+
+:javascript
+  App.init = function(){
+    new App.Controllers.Pages();
+    Backbone.history.start();
+  }
+
+  task_name = 'add_content';

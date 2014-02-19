@@ -1,0 +1,80 @@
+- @body_style = "background:#fff"
+
+#originalbanner
+  #header.frontpage
+    #createanonlinestore.banner.createanonlinestore
+      %h1(style="position:absolute; top:20px; left:0px")
+        =image_tag 'banners/text-createanonlinestore.jpg'
+      =link_to 'Sign up now', services_signup_path, class: 'blue-signup-button png_bg'
+-#
+  #feature-bar
+    .content
+      .quote.col-6(style="margin: 0pt; padding: 30px 60px 10px 10px; width: 400px; text-align: left;")
+        #cnet-grey.sprites
+        %blockquote(style="color: rgb(85 85 85); font-size: 18px; line-height: 22px;")
+          \&ldquo;ShopQi The design is very simple ，Makes the establishment of an online store very easy.&rdquo;
+        %p(style="font-size: 12px; color: rgb(119 119 119);") — Domestic Technology Media
+      #client-logos.col-6.last
+        #amnestyinternational-grey.sprites
+        #teslamotors-grey.sprites
+        #foofighters-grey.sprites
+        %br/
+        #indianapolisstar-grey.sprites
+        #pennyarcade-grey.sprites
+        #evisu-grey.sprites
+#new-container
+  .content
+    %ul
+      %li
+        =link_to image_tag('icons/globe_48.png'), tour_intro_path
+        %h4=link_to 'Cloud store most worry', tour_intro_path
+        %p Based on cloud computing technology architecture, users simply registered account, select appearance, upload products, you can create a store three minutes.
+      %li
+        =link_to image_tag('icons/monitor_48.png'), tour_store_path
+        %h4=link_to 'Gorgeous store interface', tour_store_path
+        %p Offers a variety of professionally designed theme skin for your store       choice, elegant interface.
+      %li
+        =link_to image_tag('icons/gear_48.png'), tour_design_path
+        %h4=link_to '100% Customizable', tour_design_path
+        %p Shops can bind TLDs, use your own Logo logo. Support HTML &amp; CSS二 Development times。
+      %li.last
+        =link_to image_tag('icons/shield_48.png'), tour_security_path
+        %h4=link_to 'Multiple levels of security', tour_security_path
+        %p We have a dedicated security team to protect your online store security.。
+-#
+  #clients
+    .content
+      .col-6.clearfix
+        .col-3
+          %h3#title-appstore
+            %span#box16.sprites>
+            ShopQi App Store
+          %p
+            This
+            %a(href="http://apps.shopqi.com/" target="_blank") App Store
+            Allows you to add new features to your online store you can also develop custom ShopQi API functions.
+        .col-3.last
+          %h3#title-partner
+            %span#people16.sprites>
+            Collaborator
+          %p
+            If you are a Web designer or programmer, you can register for our
+            = succeed "," do
+              %a(href="/partners/" target="_blank") Collaborator
+            And obtain income from ShopQi.
+        .quote(style="margin-left: 0; padding-top: 40px")
+          #techcrunch.sprites
+          %blockquote &ldquo;Manufacturers do not need any technical personnel, within a few minutes, you can create a very professional e-commerce website.&rdquo;
+          %p &mdash; Well-known technology media
+      .col-6.last
+        %h3 Our customers
+        .client
+          #ericmueller.sprites
+          %p &ldquo;I remember when I first saw ShopQi, the first impression is: wow ~ This is what I need.&rdquo;
+          %a(href="#") Details of the interview
+          %span ShopQi customers
+#bottom-signup
+  .content
+    %a(href="/tour") See functional demo
+    %span Or
+    =link_to image_tag('buttons/btn-pricing-signup-lighter.png', width: 191, height: 61, class: :png_bg), services_signup_path

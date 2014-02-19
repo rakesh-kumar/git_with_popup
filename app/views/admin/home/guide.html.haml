@@ -1,0 +1,17 @@
+=render partial:"shared/noscript"
+=render partial:"shared/upgrade_ie"
+#store-completion
+  =render "admin/home/guide/#{@task.name}"
+  #progress-bar=render 'progress_task'
+  -unless @task.is_launch?
+    .skip-setup
+      =form_tag skip_tutorial_path, method: :post, class: :button_to do
+        =submit_tag 'Skip store settings, enable direct store', class: 'skip-tutorial', data: { confirm: 'Are you sure you want to exit the current settings guide, now enabled stores?' }
+    / .skip-setup
+/ #store-completion
+
+:javascript
+  $('#launch a').live('click',function(){
+    $('#launch_btn').click();
+    return false;
+    });

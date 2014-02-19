@@ -1,0 +1,22 @@
+#container
+  #dialog
+    .status
+      %p Accounts program changes
+    =form_for :consumption, url: confirm_plan_account_index_path do |f|
+      .ppb
+        %p.sb
+          %strong Please confirm that you want to upgrade your ShopQi account:
+        %p.sb
+          ==You will upgrade your account to #{raw high_color plan_type.name} 方案，此方案单价为#{raw high_color plan_type.price}元/年，
+        %p.sb
+          Default payment of one year, you can choose to pay
+        %p.sb
+          =f.select :quantity, options_for_select((1..5).map{|c|[c,c]}, 1)
+          =hidden_field_tag :code, params[:code]
+          年
+        %p.sb
+          Program will take effect after your successful payment! Point goes to confirm payment confirmation page!
+      .actions
+        =f.submit '确认',class: 'btn'
+        =w('or')
+        =link_to w('cancel'),account_index_path

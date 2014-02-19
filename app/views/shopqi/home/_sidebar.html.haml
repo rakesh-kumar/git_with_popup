@@ -1,0 +1,23 @@
+%ul
+  %li(class=@current_intro)=link_to "Brief introduction", tour_intro_path, class: :overview
+  %li(class=@current_store)=link_to "Run your shop", tour_store_path, class: :order
+  -#
+    %li
+      %a.marketing(href="/tour/marketing/") Marketing
+  %li(class=@current_design)=link_to "Custom themes appearance", tour_design_path, class: :design
+  %li(class=@current_security)=link_to "Managed Services & Security", tour_security_path, class: :security
+  -#
+    %li
+      %a.appstore(href="/tour/appstore/") App Store
+    %li
+      %a.mobile(href="/tour/mobile/") Mobile
+%ul.list-secondary-features
+  -#
+    %li
+      %a.designers(href="/tour/for-designers/") Are you a designer?
+  %li=link_to "Features List", tour_features_path, class: ['full-list', @current_features]
+
+:javascript
+  $(function(){
+    $("a.cboxelement").fancybox({autoScale: false});
+  });
