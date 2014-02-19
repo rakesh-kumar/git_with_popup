@@ -31,3 +31,4 @@ describe District do
     District.city('440305').should eql '440300'
   end
 end
+

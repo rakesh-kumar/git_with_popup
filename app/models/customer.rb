@@ -158,3 +158,4 @@ class CustomerTag < ActiveRecord::Base
     super(only: :name)['customer_tag']
   end
 end
+
