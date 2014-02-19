@@ -18,7 +18,7 @@ App.Views.Shipping.New = Backbone.View.extend
 
   save: ->
     code = _.last(_.compact([$('#province').val(), $('#city').val(), $('#district').val()]))
-    code = '<%= District::CHINA %>' unless code?
+    code = '<%#= District::CHINA %>' unless code?
     @collection.create code: code
     false
 
