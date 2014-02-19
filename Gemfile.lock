@@ -130,8 +130,6 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.2.0.alpha.93)
-    compass-rails (1.0.2)
-      compass (>= 0.12.0, < 0.14)
     crack (0.1.8)
     database_cleaner (0.6.7)
     debugger (1.6.5)
@@ -432,7 +430,6 @@ DEPENDENCIES
   chinese_pinyin
   client_side_validations
   coffee-rails
-  compass-rails
   database_cleaner
   debugger
   decent_exposure
