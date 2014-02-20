@@ -157,7 +157,7 @@ class Wiki::WikiPagesController < Wiki::AppController
         if admin_user_signed_in?
           render action: :new
         else
-          render text: '没有找到对应的页面',layout: true
+          render text: 'Did not find the corresponding page',layout: true
         end
       end
     end

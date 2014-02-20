@@ -70,8 +70,8 @@ App.Views.Signup.Index = Backbone.View.extend
   ###### private methods #####
   validate: ->
     check_list =
-      shop_name: '请给您的商店取个名字'
-      domain_subdomain: '请为您的商店挑选Web地址'
+      shop_name: 'Please give your store a name'
+      domain_subdomain: 'Please choose a Web address for your store'
     errors = {}
     _(check_list).each (msg, key) ->
       errors[key] = msg if $("##{key}").val() is ''
