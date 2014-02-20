@@ -1,11 +1,11 @@
-%h2#title 商品管理
+%h2#title Commodity Management
 #action-links
   %ul
     %li#add-prod
-      =link_to "新增商品",new_product_path
+      =link_to "New Product",new_product_path
     -#
       %li.csv
-        %a(href="#" onclick="$('export-products').toggle(); return false;") 导出商品
+        %a(href="#" onclick="$('export-products').toggle(); return false;") Export of goods
       %li.csv
         %a(href="/admin/product_imports") 导入商品
 =render "shared/noscript"
