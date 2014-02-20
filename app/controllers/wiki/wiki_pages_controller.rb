@@ -10,7 +10,7 @@ class Wiki::WikiPagesController < Wiki::AppController
     if @page
       render text: @page.formatted_data, layout: true
     else
-      render text: "请创建<a href='/home'>wiki首页</a>", layout: true
+      render text: "Create<a href='/home'>wiki Home</a>", layout: true
     end
   end
 
