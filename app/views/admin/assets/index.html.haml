@@ -10,6 +10,7 @@
       .box2
         .fl.st(style="margin-right: 15px")
           %a(href="#")=image_tag 'admin/icons/arrow-up-large.gif'
+
         %h3 Import
         %p.note Use your own theme or customize an existing theme.
         %a(href="#") Upload a theme
@@ -30,16 +31,19 @@
       .box2
         .fl.st(style="margin-right: 15px")
           %a(href="/admin/themes/current.zip")=image_tag 'admin/icons/arrow-down-large.gif'
+
         %h3 Export
         %p.note Export your current theme is a zip file for offline editing.
         %a(href="/admin/themes/current.zip") Download your theme
 -if shop.theme == theme
   #theme-edit-announcement.announcement.box2.c
     %p Changes you make will directly take effect theme. Shops visitors will immediately see the contents of the modified.
+
 #theme-editor.container
   #theme-editor-sidebar.col-3
     #theme-editor-sidebar-top
       .section.cl
+
         %h3.section-header Layout
         .section-content
           %ul#theme-layout.nobull.clearfix
@@ -75,6 +79,7 @@
               %option(value="customers/order") customers/order
               %option(value="customers/password") customers/password
             %span#new-template-called
+
           %input#new_template_btn.sst(type="button" value="New Templates")
           Or
           %a(href="#") Cancel 
@@ -110,6 +115,7 @@
           Modification
           %code settings.html
           The content will be displayed in the theme configuration form.
+
         %ul#theme-config.nobull.clearfix
   .col-9.last
     #current-asset
@@ -118,14 +124,17 @@
           %li#status-message
           %li#status-errorlist(style="font-weight: bold")
         #asset-buttons(style="display:none")
+
           %input#save-button.btn(type="button" value="Save")
           %input#open-button.btn.sr(type="button" value="Open in a new window")
         %h3#asset-title Do not select the file
+
         %span#asset-info(style="display: none")
         %ul#asset-links.nobull.clearfix(style="visibility:hidden")
         %p#asset-hint.hint.sst.ssb
           %span#asset-hint-noselect
             %span(style="font-size: 20px; color: #ccc; position: relative; top: 3px; ") &larr;
+
             Select a file on the left to start modifying it
           %span#asset-hint-liquid.hide
             Please refer to the
@@ -144,6 +153,7 @@
             And
             = succeed "." do
               %a(href="#{wiki_url_with_port}/FilterReference" target="wiki" title="Open Wiki in a new window") Filter
+
       #preview-image.preview-image(style="display:none;")
         %a(target="_blank")
           %img#preview-image-asset/
@@ -155,6 +165,7 @@
       =image_tag 'admin/textmate-logo.gif'
     %h3 Textmate Bundle
     %p
+
       If your editor is used to modify the
       = succeed "," do
         %a(href="http://macromates.com/") Textmate
@@ -175,6 +186,7 @@
       {{#each commits}}
       %option(tree_id='{{{tree}}}') {{{message}}}
       {{/each}}
+
     Or
     %a(href="#") Cancel 
 %script(id="asset-link-rollback-item" type="text/x-handlebars-template")
@@ -189,6 +201,7 @@
 %script(id="asset-rename-form-item" type="text/x-handlebars-template")
   %li#asset-rename-form
     %input#asset-basename-field(type="text")/
+
     %a.update(href="#") Submit
     Or
     %a.cancel(href="#") Close

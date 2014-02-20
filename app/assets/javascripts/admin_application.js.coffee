@@ -196,6 +196,7 @@ $(document).ready ->
     .appendTo(ul)
 
   #外观、设置
+
   NavigationDropdown 'apps-link': 'Application', 'theme-link': 'Exterior', 'preferences-link': 'Set up'
 
   #下拉框

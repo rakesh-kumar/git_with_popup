@@ -1,6 +1,7 @@
 %h2#title ShopQi API
 #action-links
   %ul
+
 %h3 Private Applications
 %p
   Using proprietary applications ShopQi API is a way to interact with the store.
@@ -10,6 +11,7 @@
   -#%a{:href => "http://wiki.shopqi.com/Private_apps", :target => "_blank"} 查看私有应用帮助文档
 %br/
 %p#new-api
+
   %a.btn Generate a new application
 %script(id="show-api-client-item" type="text/html")
   %h3.with-settings
@@ -20,6 +22,7 @@
       %td.l api key
       %td {{{ api_key }}}
     %tr
+
       %td.l Password
       %td {{{ password }}}
     %tr
@@ -27,6 +30,7 @@
       %td {{{ shared_secret }}}
     %tr
       %td.l URL format
+
       %td https://apikey:password@hostname/api/resource.xml
 :javascript
   App.api_clients = new App.Collections.ApiClients();

@@ -8,6 +8,7 @@ module Admin::OrdersHelper
 
   def orders_menu_label
     size = orders_size
+
     size > 0 ? "Orders (#{size})" : "Orders"
   end
 

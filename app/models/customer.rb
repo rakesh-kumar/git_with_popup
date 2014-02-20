@@ -137,7 +137,9 @@ class CustomerAddress < ActiveRecord::Base
   end
 
   def detail_address
-    "#{province_name}#{city_name}#{district_name}#{address1}".gsub(/市县/,'市').gsub(/市辖区/,'')
+    "#{province_name}#{city_name}#{district_name}#{address1}".gsub(/市County/,'市').gsub(/City area/,'')
+
+    
   end
 
 end
