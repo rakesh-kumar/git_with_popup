@@ -96,27 +96,27 @@ cn:
         product: 主题详情商品截图
       shop:
         permanent_domain: 二级域名
-        name: 网店名
+        name: Shop Name
         plan: 类型
         zip_code: 邮政编码
         keywords: 关键字
-        phone: 电话
-        theme: 主题
-        deadline: 到期时间
+        phone: Phone
+        theme: Theme
+        deadline: Expiry Date
         password: 密码
-        email: 邮箱
+        email: Mailbox
         address: 详细地址
         order_number_format: 订单号格式
         province: 省份
         city: 城市
         district: 地区
         password: 密码
-        password_enabled: 商店密码启用
+        password_enabled: Store password enabled
         password_message: 提示信息
-        customer_accounts: 顾客付款设置
-        guided: 是否完成指南任务
-        created_at: 创建时间
-        updated_at: 更新时间
+        customer_accounts: Customer payment settings
+        guided: The task is complete guide
+        created_at: Created
+        updated_at: Update
       subscribe:
         address: 邮件地址
       blog:
