@@ -33,7 +33,7 @@ App.Views.Signup.Index = Backbone.View.extend
               $('#spinner').hide()
               $('#domain-available').html template attrs
         else
-          $('#domain-available').html "<span class='negative'>子域名最少需要4个字符<span>"
+          $('#domain-available').html "<span class='negative'>Subdomain requires a minimum of 4 characters<span>"
     , 2000
 
   render: ->
