@@ -125,10 +125,10 @@ module KeyValues
 
     class Currency < KeyValues::Base # 币种
       self.data = [
-        {id: 1, name: '人民币 (CNY)', code: 'CNY', html_unit: '&#165;{{amount}} 元' , html: '&#165;{{amount}}' , email_unit: '¥{{amount}} 元' , email: '¥{{amount}}' },
-        {id: 2, name: '美元 (USD)'  , code: 'USD', html_unit: '${{amount}} USD'     , html: '${{amount}}'      , email_unit: '${{amount}} USD', email: '${{amount}}' } ,
-        {id: 3, name: '欧元 (EUR)'  , code: 'EUR', html_unit: '&euro;{{amount}} EUR', html: '&euro;{{amount}}' , email_unit: '€{{amount}} EUR', email: '€{{amount}}' } ,
-        {id: 4, name: '港元 (HKD)'  , code: 'HKD', html_unit: 'HK${{amount}}'       , html: '${{amount}}'      , email_unit: 'HK${{amount}}'  , email: '${{amount}}' } ,
+        {id: 1, name: 'Yuan (CNY)', code: 'CNY', html_unit: '&#165;{{amount}} 元' , html: '&#165;{{amount}}' , email_unit: '¥{{amount}} 元' , email: '¥{{amount}}' },
+        {id: 2, name: 'Dollar (USD)'  , code: 'USD', html_unit: '${{amount}} USD'     , html: '${{amount}}'      , email_unit: '${{amount}} USD', email: '${{amount}}' } ,
+        {id: 3, name: 'Euro (EUR)'  , code: 'EUR', html_unit: '&euro;{{amount}} EUR', html: '&euro;{{amount}}' , email_unit: '€{{amount}} EUR', email: '€{{amount}}' } ,
+        {id: 4, name: 'Dollar (HKD)'  , code: 'HKD', html_unit: 'HK${{amount}}'       , html: '${{amount}}'      , email_unit: 'HK${{amount}}'  , email: '${{amount}}' } ,
       ]
     end
 
