@@ -4,9 +4,9 @@
 cn:
   activerecord:
     models:
-      theme: 主题
+      theme: Theme
       user: 用户
-      shop: 商店
+      shop: Shop
       product: 商品
       custom_collection: 集合
       blog: 博客
@@ -15,7 +15,7 @@ cn:
       order: 订单
       subscribe: 订阅信息
       payment: 支付信息
-      shop_domain: 商店域名
+      shop_domain: Shops domain
     attributes:
       user:
         name: 姓名
