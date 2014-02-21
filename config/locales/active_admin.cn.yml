@@ -7,7 +7,7 @@ cn:
     view: "View"
     edit: "Editor"
     delete: "Delete"
-    delete_confirmation: "确定删除?"
+    delete_confirmation: "OK to delete?"
     new_model: "New%{model}"
     edit_model: "New%{model}"
     delete_model: "删除%{model}"

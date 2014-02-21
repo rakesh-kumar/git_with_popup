@@ -138,8 +138,8 @@ module KeyValues
 
     class Role < KeyValues::Base # 发布类型
       self.data = [
-        {id: 1, name: '普通', code: 'main'  },
-        {id: 2, name: '手机', code: 'mobile'},
+        {id: 1, name: 'General', code: 'main'  },
+        {id: 2, name: 'Mobile', code: 'mobile'},
       ]
     end
 
