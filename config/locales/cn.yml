@@ -18,10 +18,10 @@ cn:
       shop_domain: Shops domain
     attributes:
       user:
-        name: 姓名
-        phone: 电话
-        avatar_image: 头像信息
-        bio: 个人介绍
+        name: Full name
+        phone: Phone
+        avatar_image: Picture information
+        bio: Introduction
         email: Mailbox
         current_password: 当前密码
         password: Password
@@ -399,4 +399,4 @@ cn:
     or: 或者
     published: 发布
     hidden: 隐藏
-    upgrade: 升级
+    upgrade: Upgrade
