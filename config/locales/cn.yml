@@ -74,26 +74,26 @@ cn:
         name: 选项名称
       page:
         title: 标题
-        description: 描述
+        description: Description
       theme:
-        name: 名称
-        handle: 名称handle
-        style: 风格
-        style_handle: 风格handle
-        role: 角色
-        price: 价格
-        color: 颜色
-        desc: 描述
-        shop: demo网店的子域名
-        site: 作者官网
-        author: 作者
-        email: 作者Email
-        published: 是否启用
-        position: 排序序号
-        file: 主题压缩文件
-        main: 主题列表截图
-        collection: 主题详情集合截图
-        product: 主题详情商品截图
+        name: Name
+        handle: Name handle
+        style: Style
+        style_handle: Style handle
+        role: Role
+        price: Price
+        color: Color
+        desc: Description
+        shop: demoShop subdomain
+        site: On the official website
+        author: Author
+        email: AuthorEmail
+        published: Whether to enable
+        position: Sort numbers
+        file: Theme compressed file
+        main: Topic List Screenshot
+        collection: Details of the collection theme screenshot
+        product: Theme Details Product Screenshot
       shop:
         permanent_domain: 二级域名
         name: Shop Name
