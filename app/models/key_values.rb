@@ -111,15 +111,15 @@ module KeyValues
 
     class SignupSource < KeyValues::Base # 注册来源
       self.data = [
-        {id: 1, name: '我不确定'    , code: 'not_sure'    },
-        {id: 2, name: '其他公司介绍', code: 'from_company'},
-        {id: 3, name: '朋友介绍'    , code: 'from_frient' },
-        {id: 4, name: '博客'        , code: 'blog'        },
-        {id: 5, name: '搜索引擎'    , code: 'search'      },
-        {id: 6, name: '网络广告'    , code: 'web_ad'      },
-        {id: 7, name: '杂志广告'    , code: 'magazine_ad' },
-        {id: 8, name: '书籍'        , code: 'book'        },
-        {id: 9, name: '其他'        , code: 'other'       },
+        {id: 1, name: 'I am not sure'    , code: 'not_sure'    },
+        {id: 2, name: 'Other companies introduced', code: 'from_company'},
+        {id: 3, name: 'Friends'    , code: 'from_frient' },
+        {id: 4, name: 'Blog'        , code: 'blog'        },
+        {id: 5, name: 'Search Engine'    , code: 'search'      },
+        {id: 6, name: 'Online Advertising'    , code: 'web_ad'      },
+        {id: 7, name: 'Magazine ads'    , code: 'magazine_ad' },
+        {id: 8, name: 'Books'        , code: 'book'        },
+        {id: 9, name: 'Other'        , code: 'other'       },
       ]
     end
 
