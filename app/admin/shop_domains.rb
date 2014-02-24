@@ -10,7 +10,7 @@ ActiveAdmin.register ShopDomain do
   end
 
    form do |f| # 编辑页面
-     f.inputs "基本信息" do
+     f.inputs "Basic Information" do
        f.input :host
        f.input :record
        f.input :verified
