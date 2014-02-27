@@ -1,9 +1,9 @@
 - use_kindeditor
 
-%h2#title 新增商品
+%h2#title New Product
 #action-links
   %ul
-    %li.no-icon=link_to "返回", products_path
+    %li.no-icon=link_to "Return", products_path
 =render "shared/noscript"
 =render "shared/upgrade_ie"
 =form_for product, validate: true, html: { multipart: true } do |f|
@@ -12,31 +12,31 @@
     %tbody
       %tr
         %td#product-details(colspan="2")
-          .section-header 新商品
+          .section-header New Products
           %dl.padding
             %dt.top
               =f.label :title
               %br/
-              %span.note 例如: 新一代Iphone4
+              %span.note For example: New generation Iphone4
             %dd=f.text_field :title,  style:"float:none;", id: :product_title, class: :big
             %dt.sst=f.label :body_html
           .container=f.text_area :body_html, id: :kindeditor
       %tr
         %td
           =f.fields_for :variants, child_index: '' do |v|
-            .section-header.sst(style="margin-top:0") 属性
+            .section-header.sst(style="margin-top:0") Property
             .padding
               %dl
                 %dt
               %p=f.label :product_type
-              %span.note 例如: 服装,电脑,家用电器
+              %span.note For example: Clothing,Computer,Household appliances
               %dd
                 %select#product-type-select
                   =options_for_select types_options
                 =f.text_field :product_type, class: :hide
               %dt.sst
               %p=f.label :vendor
-              %span.note 产品制造商。例子：IBM，TCL
+              %span.note Manufacturers。Example：IBM，TCL
               %dd
                 %select#product-vendor-select
                   =options_for_select vendors_options
@@ -48,7 +48,7 @@
                     %th.clean=v.label :weight
                     %th.clean
                       =v.label :compare_at_price
-                      %span.note 非必填
+                      %span.note Optional
                   %tr
                     %td
                       =v.text_field :price, style: 'width: 50px'
@@ -65,36 +65,36 @@
                       -#=v.check_box :requires_shipping, class: :requires_shipping, id: :variant_requires_shipping
                       =check_box_tag 'product[variants_attributes][][requires_shipping]', 1, product.variants.first.requires_shipping, id: :variant_requires_shipping, class: :requires_shipping
                       =v.label :requires_shipping, nil, for: :variant_requires_shipping
-                      %span.hint 服务性质或者数字之类的商品不需要勾选
+                      %span.hint Nature of the services or digital goods do not need to check the class
               #options
-                %h3 商品选项
-                %p.note.sb 选项可以让顾客区分商品的各种款式.
+                %h3 Product Options
+                %p.note.sb Option allows the customer to distinguish between various models of goods.
                 %input#enable-options{name:"create-options", type:"checkbox", checked:params['create-options']}
                 %label(for="enable-options")
-                  此商品有
-                  %strong 多个
-                  不同的款式.
-                %p.note.ssb(style="padding-left: 20px") 例如: 大小 和 颜色
+                  This product has
+                  %strong Multiple
+                  Different styles.
+                %p.note.ssb(style="padding-left: 20px") For example: Size And Color
                 #create-options-frame.hide
                   %table#product-properties.data2(cellpadding="0" cellspacing="0")
                     %tbody
                       %tr
-                        %th.clean(style="width: 180px;") 选项名称
-                        %th.clean(style="width: 170px;") 默认值
+                        %th.clean(style="width: 180px;") Option Name
+                        %th.clean(style="width: 170px;") The default value
                       %tr#add-option-bt
                         %td
-                          %a.add-option(href="#") 新增另一个选项
+                          %a.add-option(href="#") Add another option
                           %br/
-                          %span.note 例如：颜色、大小
+                          %span.note For example：Color、Size
                         %td &nbsp;
-            .section-header 库存
+            .section-header Stock
             .padding
               %dl.ssb
                 %dt
                   %label(for="variant_sku") SKU
                   %span.note (非必填)
                   %br/
-                  %span.note 唯一标识符.
+                  %span.note Unique identifier.
                 %dd=v.text_field :sku
                 %dd
                   %p=v.select :inventory_management, inventory_managements, {}, class: :inventory_management
@@ -109,31 +109,31 @@
                       =v.radio_button :inventory_policy, policy.code
                       %label.inline(for="product_variants_attributes__inventory_policy_#{policy.code}")=policy.name
                       %br/
-          .section-header 标签
+          .section-header Tag
           .padding
             %dl(style="margin: 0;")
               %dd#multi-options
-                %p.note 标签是用来帮助顾客寻找他们所需商品的关键词,关键词之间用逗号(,)隔开。
+                %p.note Tags are keywords used to help customers find the product they need,Keywords with commas(,)Apart。
                 =f.text_field :tags_text, size: 50
               %dd
-                %p.note{:style => "clear: both"} 最近使用过的标签，单击增加。
+                %p.note{:style => "clear: both"} Recently used tags，Click to increase。
                 %ul#tag-list.tag-list.clearfix.nobull.st
                   -tags.each do |tag|
                     %li
                       %a(href="#")=tag.name
                 .cl
-          .section-header.sst 集合
+          .section-header.sst Set
           .padding
             %dl(style="margin: 0;")
               %dd
-                %p.note 选择此商品所属的自定义集合:
+                %p.note Select a custom collection this product belongs:
                 %ul.nobull.pgroup.clearfix=render partial: "collection", collection: custom_collections
         / product images
         %td#product-right-col
-          %h3.section-header(style="margin-bottom: 0") 商品图片
+          %h3.section-header(style="margin-bottom: 0") Product Image
           #upload-area
-            %h4.st 上传图片
-            %p.note 允许上传文件类型( .gif, .jpg, .jpeg, .png)
+            %h4.st Upload pictures
+            %p.note Allowed to upload file types( .gif, .jpg, .jpeg, .png)
             %p#file-input.st.sb
               =file_field_tag 'product[images][]', :class => 'multi nofixed'
 
@@ -152,7 +152,7 @@
     %input(name="product[options_attributes][][value]" size="16" type="text" value="{{value}}")
     {{#if destroyable}}
     %span.fr.sr(style="margin-top: 5px")
-      %a.del-option(href="#")=image_tag 'admin/icons/trash.gif', alt: '删除'
+      %a.del-option(href="#")=image_tag 'admin/icons/trash.gif', alt: 'Delete'
     {{/if}}
 
 :javascript

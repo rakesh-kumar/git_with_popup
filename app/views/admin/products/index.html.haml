@@ -7,17 +7,17 @@
       %li.csv
         %a(href="#" onclick="$('export-products').toggle(); return false;") Export of goods
       %li.csv
-        %a(href="/admin/product_imports") 导入商品
+        %a(href="/admin/product_imports") Import of goods
 =render "shared/noscript"
 =render "shared/upgrade_ie"
 #export-products.box2.ssb.sst.hide
-  %h3 导出您的商品
+  %h3 Export your product
   %p.sb
-    您的商品将导出为一个
-    %strong .csv 文件
-    (以逗号分隔商品属性).
-  %a.btn(href="/admin/products.csv") 导出当前显示的商品
-  %a.btn.sl(href="/admin/product_exports.csv") 导出所有商品
+    Your goods will be exported as a
+    %strong .csv File
+    (Product attributes separated by commas).
+  %a.btn(href="/admin/products.csv") Export of goods currently displayed
+  %a.btn.sl(href="/admin/product_exports.csv") Export all commodities
 #table-filters.box2.sst
   Show
   %a#vendor-filter-link(href="#")=search_label :vendor, 'All manufacturers'
@@ -27,22 +27,22 @@
   #vendor-status-select.filter-select
     %ul.dropdown.hide(style='left: -153px')
       %li
-        %strong 厂商
+        %strong Firm
       -vendors.each do |vendor|
         %li=link_to vendor.name, product_search_path(vendor_eq: vendor.name)
-      %li.filter-show-all.current=link_to "显示所有", product_search_path(vendor_eq: nil)
+      %li.filter-show-all.current=link_to "Show all", product_search_path(vendor_eq: nil)
   #type-status-select.filter-select
     %ul.dropdown.hide(style='left: -86px')
       %li
-        %strong 商品类型
+        %strong Product Type
       -types.each do |product_type|
         %li=link_to product_type.name, product_search_path(product_type_eq: product_type.name)
-      %li.filter-show-all.current=link_to "显示所有", product_search_path(producty_type_eq: nil)
+      %li.filter-show-all.current=link_to "Show all", product_search_path(producty_type_eq: nil)
   %ul.segmented.fr
     %li
-      %a.btn.active(href="#{products_path}") 列表视图
+      %a.btn.active(href="#{products_path}") List view
     %li
-      %a.btn(href="#{inventory_products_path}")> 库存视图
+      %a.btn(href="#{inventory_products_path}")> Inventory view
 / PRODUCTS LIST
 .listing.sst
   -if products.size.zero?
@@ -58,34 +58,34 @@
                 %tr#product-controls.hide
                   %th.bulk-editor(colspan=10 style="width:907px")
                     %select#product-select(name="operation")
-                      %option(selected="selected" style="color: rgb(136, 136, 136);" value="") 选择操作…
-                      %option.indent(value="publish") 发布
-                      %option.indent(value="unpublish") 隐藏
-                      %option.indent(value="destroy") 删除
-                      %optgroup(label="加入自定义集合:")
+                      %option(selected="selected" style="color: rgb(136, 136, 136);" value="") Select an action ...
+                      %option.indent(value="publish") Release
+                      %option.indent(value="unpublish") Hide
+                      %option.indent(value="destroy") Delete
+                      %optgroup(label="Adding custom collection:")
                         -custom_collections.each do |collection|
                           %option(value="add_to_collection-#{collection.id}")=collection.title
                     -#
                       #multipage-page.hide
-                        所有
+                        All
                         %b#multipage-page-count ###
-                        在此页中已选中的商品.
+                        On This Page has been selected commodities.
                         %a#multipage-select-link(href="#" onclick="return false")
-                          选择所有
+                          Select all
                           %b#multipage-page-total ###
-                          商品
+                          Commodity
                       #multipage-all(style="display: none")
                         %b#multipage-all-count ###
-                        所有页面已选中的商品.
-                        %a#multipage-clear-link(href="#" onclick="return false")  清除选中项
+                        All pages have been selected commodities.
+                        %a#multipage-clear-link(href="#" onclick="return false")  Clear selected items
                     %span#product-count
                 %tr
                   %th.nosort.sortcol(style="width: 16px;")
                     %input#select-all(type="checkbox")/
                   %th.nosort.sortcol(style="width: 12px; text-align: center ! important;") &nbsp;
-                  %th#product-col.sortcol.sortasc(style="padding-left: 3px; min-width: 150px;") 商品
-                  %th.nosort.sortcol 库存
-                  %th.sortcol.number(style="text-align: center;") 总数
+                  %th#product-col.sortcol.sortasc(style="padding-left: 3px; min-width: 150px;") Commodity
+                  %th.nosort.sortcol Stock
+                  %th.sortcol.number(style="text-align: center;") Total
               %tbody
 #btm-nav.act-screen
   #pagination
@@ -98,8 +98,8 @@
       %img(src="{{{index_photo}}}")
   %td(style="padding-left: 3px; vertical-align: middle;")
     %p
-      %a(href="/admin/products/{{{id}}}" title="固定链接: {{{handle}}}") {{{title}}}
-      %span(class="status-hidden {{#if published}}hide{{/if}}" style="margin:0") 隐藏
+      %a(href="/admin/products/{{{id}}}" title="Permalink: {{{handle}}}") {{{title}}}
+      %span(class="status-hidden {{#if published}}hide{{/if}}" style="margin:0") Hide
     %p.list-product-type {{{product_type}}}
     %p.list-vendor {{{vendor}}}
   %td.list-variants

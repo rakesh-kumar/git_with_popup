@@ -1,5 +1,5 @@
 %form(action='#' onsubmit='return false')
-  .section-header.sst 新的款式
+  .section-header.sst New models
   %table.data.no-border(cellpadding="0" cellspacing="0" style="width: 650px")
     %tr
       %td(colspan="4")
@@ -7,7 +7,7 @@
           #errorExplanation.errorExplanation
             %ul
         %p.sb
-          %span.note.highlight-alt 您的顾客可以通过以下选项选择此款式:
+          %span.note.highlight-alt Your customers can choose the following options for this style:
           {{#each_with_index options}}
           .new-variant-option
             %label(for="product_variant_option{{index_plus}}" class="option-{{index_plus}}") {{item.attributes.name}}
@@ -20,23 +20,23 @@
       %td
         %label(for="variant_sku")
           SKU
-          %span.note 库存量单位
+          %span.note Inventory units
         %br
         %input.st(name='product_variant[sku]' type='text' size=20)
       %td
-        %label(for="variant_price") 销售价格
+        %label(for="variant_price") Sales Price
         %br
         %input.st(name='product_variant[price]' value='{{price}}' type='text' size=8)
         元
       %td
         %label(for="variant_compare_at_price")
-          市场价
-          %span.note (非必填)
+          Market
+          %span.note (Optional)
         %br
         %input.st(name='product_variant[compare_at_price]' value='{{compare_at_price}}' type='text' size=8 style='width: 80px')
         元
       %td
-        %label(for="variant_weight") 重量
+        %label(for="variant_weight") Weight
         %br
         %input.st.requires_shipping_relate(name='product_variant[weight]' value='{{weight}}' type='text' size=8 style='width: 40px')
         kg
@@ -45,14 +45,14 @@
         %table.secondary-variant-options
           %tr.no-border
             %td.secondary-header
-              %label(for="product_variant_requires_shipping") 要求收货地址
+              %label(for="product_variant_requires_shipping") Requested delivery address
             %td
               %input(name="product_variant[requires_shipping]" type="hidden" value="0")
               %input.requires_shipping(name='product_variant[requires_shipping]' type='checkbox' checked='checked' value="1")
-              %span.hint 服务性质或者数字之类的商品不需要勾选
+              %span.hint Nature of the services or digital goods do not need to check the class
           %tr.no-border
             %td.secondary-header
-              %label(for="inventory-select-new") 库存
+              %label(for="inventory-select-new") Stock
             %td
               %select.inventory_management(name='product_variant[inventory_management]' type='check_box')
                 =options_for_select inventory_managements
@@ -60,7 +60,7 @@
                 %div
                   .inventory-option.sst.inventory_management_relate.hide
                     %p.soft
-                      %label(for="product_variant_inventory_quantity") 现有库存量?
+                      %label(for="product_variant_inventory_quantity") Existing stocks?
                       %input#product_variant_inventory_quantity.small.r.digit-2(name="product_variant[inventory_quantity]" size="6" type="text")
                 %p.soft(style="margin: 10px 0 0 0")
                   -inventory_policies.each do |policy|
@@ -68,6 +68,6 @@
                     %label.inline(for="product_variant_inventory_policy_#{policy.code}")=policy.name
                     %br/
   .group-actions
-    %input.btn(name="commit" type="submit" value="保存")
+    %input.btn(name="commit" type="submit" value="Save")
     =w('or')
     %a.cancel(href="#")=w('cancel')
