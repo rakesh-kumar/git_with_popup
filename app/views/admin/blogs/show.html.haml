@@ -3,41 +3,41 @@
 #action-links
   %ul
     %li#add-entry.icon
-      =link_to "新增文章",new_blog_article_path(blog)
+      =link_to "New Posts",new_blog_article_path(blog)
     %li.no-icon
-      =link_to "修改",edit_blog_path(blog),id:"blog-edit-link"
+      =link_to "Modification",edit_blog_path(blog),id:"blog-edit-link"
     %li.no-icon
-      = link_to image_tag('admin/icons/trash.gif'), blog_path(blog), remote: true, method: :delete, title: '删除它', class: :del, data: { confirm: '您确定要删除?' }
+      = link_to image_tag('admin/icons/trash.gif'), blog_path(blog), remote: true, method: :delete, title: 'Remove it', class: :del, data: { confirm: 'Are you sure you want to delete?' }
 / begin action_links
 #table-filters.box2.sst.ssb{:style => ""}
-  显示
+  Show
   #article-status-select.filter-select
-    %a#status-filter-link(href= "#")=search_label :published, '任何状态',status
+    %a#status-filter-link(href= "#")=search_label :published, 'Any state',status
     %ul.dropdown{:style => "display: none"}
       %li
-        %strong 文章状态
+        %strong Article status
       -status.each_pair do |code,name|
         %li=link_to name,blog_search_path(blog,published_eq: code)
       %li.filter-show-all.current=link_to '显示所有',blog_search_path(blog,published_eq: nil)
   的文章 由
   #author-select.filter-select
-    %a#author-filter-link(href= "#")=search_label :author, '任一作者'
+    %a#author-filter-link(href= "#")=search_label :author, 'Either author'
     %ul.dropdown{:style => "display: none"}
       %li
-        %strong 作者
+        %strong Author
       -authors.each do |author|
         %li=link_to author,blog_search_path(blog,author_eq: author)
       %li.filter-show-all.current=link_to '显示所有',blog_search_path(blog,author_eq: nil)
   和
   #tag-select.filter-select
-    %a#tag-filter-link(href= "#")=search_label :tags_name, '任一'
+    %a#tag-filter-link(href= "#")=search_label :tags_name, 'Either'
     %ul.dropdown{:style => "display: none"}
       %li
-        %strong 标签
+        %strong Tag
       -tags.each do |tag|
         %li=link_to tag,blog_search_path(blog,tags_name_eq: tag)
-      %li.filter-show-all.current=link_to '显示所有',blog_search_path(blog,tags_name_eq: nil)
-  标签
+      %li.filter-show-all.current=link_to 'Show all',blog_search_path(blog,tags_name_eq: nil)
+  Tag
 #blog-show
   %p.note.r{:style => "margin-bottom: 5px"}
     ==此博客有#{articles.size}篇文章
@@ -47,10 +47,10 @@
         %thead
           %tr
             %th{:width => "20%"}==文章
-            %th{:width => "10%"} 评论
-            %th{:width => "17%"} 标签
-            %th{:width => "13%"} 作者
-            %th{:width => "8%"} 更新时间
+            %th{:width => "10%"} Comment
+            %th{:width => "17%"} Tag
+            %th{:width => "13%"} Author
+            %th{:width => "8%"} Update
             %th{:width => "5%"} &nbsp;
         %tbody=render articles
   / PAGINATION LINKS

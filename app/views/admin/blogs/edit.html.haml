@@ -9,21 +9,21 @@
       %dl
         %dt.nst=f.label :title
         %dd=f.text_field :title
-        %dt#edit-handle-label{:style => "font-size: 85%"} 固定链接
+        %dt#edit-handle-label{:style => "font-size: 85%"} Permalink
         %dd#edit-handle.ssb{:style => ""}
           %span.note==#{show_shop_url}/blogs/
           =f.text_field :handle,style: 'width: 175px'
           %span.note
             (
-            %a(href="#{wiki_url_with_port}/Handle" target="_blank")> 这是什么?
+            %a(href="#{wiki_url_with_port}/Handle" target="_blank")> What's this?
             )
       %dt 评论
       %dd.choice
         =f.select :commentable,options_for_select(commentable_types,blog.commentable)
     .group-actions
-      %input.btn{:name => "commit", :type => "submit", :value => "保存"}/
-      或者
-      =link_to '返回', pages_path
+      %input.btn{:name => "commit", :type => "submit", :value => "Save"}/
+      Or
+      =link_to 'Return', pages_path
 / end div.main
 
 :javascript

@@ -9,7 +9,7 @@
               -if custom_collection
                 = link_to custom_collection.title, custom_collection_path(custom_collection), title: "固定链接: #{custom_collection.handle}"
                 -unless custom_collection.published
-                  %span.status-hidden(style='margin:0') 隐藏
+                  %span.status-hidden(style='margin:0') Hide
                 %p==#{custom_collection.products.size} 个Commodity
                 %p
   #pagination
