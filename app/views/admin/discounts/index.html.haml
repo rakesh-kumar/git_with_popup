@@ -18,11 +18,11 @@
             %dd
               %input#discount_code.big(name="discount[code]" size="30" type="text")/
             %dt
-              %label(for="value") 代金券金额
+              %label(for="value") The amount of vouchers
             %dd#discount-group.clearfix.ssb
               %input#discount_value.r(name="discount[value]" size="10" type="text")/
             %dt.cb
-              %label(for="discount_usage_limit") 代金券数量
+              %label(for="discount_usage_limit") The number of vouchers
             %dd
               %input#discount_usage_limit.r(name="discount[usage_limit]" size="10" type="text")/
         / .new-coupon
@@ -30,7 +30,7 @@
       .group-actions
         %input.btn(name="commit" type="submit" value="新增优惠码")/
         或者
-        %a.cancel(href="#") 取消
+        %a.cancel(href="#") Cancel
       / .group-actions
   / new code
   %h3 Promo Code
@@ -60,13 +60,13 @@
   %td.note
     {{#if usage_limit}}
     %ul
-      %li 已使用 {{used_times}} 次
-      %li 剩余 {{usage_limit}} 次
+      %li Used {{used_times}} 次
+      %li Surplus {{usage_limit}} 次
     {{else}}
     \—
     {{/if}}
   %td.r
-    %a.destroy(href="#")=image_tag 'admin/icons/trash.gif', alt: '删除'
+    %a.destroy(href="#")=image_tag 'admin/icons/trash.gif', alt: 'Delete'
 %script(id="none-item" type="text/x-handlebars-template")
 
 :javascript
