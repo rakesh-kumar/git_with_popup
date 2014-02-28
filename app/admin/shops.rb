@@ -14,7 +14,7 @@ ActiveAdmin.register Shop do
      end
      column "Shops recovery" do |shop|
        unless shop.access_enabled
-         link_to "恢复商店",restore_active_admin_shop_path(shop),method: :put
+         link_to "Restoration shop",restore_active_admin_shop_path(shop),method: :put
        end
      end
      column :password_enabled

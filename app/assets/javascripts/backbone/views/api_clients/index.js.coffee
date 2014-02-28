@@ -18,4 +18,4 @@ App.Views.ApiClient.Index = Backbone.View.extend
   save: ->
     @collection.create {},
       success: ->
-        msg '新增成功！'
+        msg 'New success！'
