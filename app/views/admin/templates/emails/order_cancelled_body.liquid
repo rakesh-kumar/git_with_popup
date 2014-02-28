@@ -1,8 +1,8 @@
-尊敬的{{ customer.name }},
+Dear{{ customer.name }},
 
-  您的订单{{ name }}已取消！取消原因是:{{ cancel_reason }} 。{% unless cancel_reason == '没有及时付款'%} 如果您已付款，我们将会把款项返回给您！ {% endunless %}
+  Your order{{ name }}Canceled！The reason is canceled:{{ cancel_reason }} 。{% unless cancel_reason == 'Did not make timely payments'%} If you have already paid，We will return the money to you！ {% endunless %}
 
-  如果，您有任何疑问，可以回复此邮件！
+  If，Do you have any questions，You can reply to this message！
   
-  欢迎您再次到{{ shop_name }}购物，祝您购物愉快！
+  Welcome to the re-{{ shop_name }}Shopping，I wish you a happy shopping！
 

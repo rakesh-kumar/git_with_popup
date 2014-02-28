@@ -9,7 +9,7 @@
             %div(class="col-9 last")
               %dl(class="clearfix")
                 {{#unless admin }}
-                %dt 权限:
+                %dt Competence:
                 %dd
                   %ul
                     {{#if can_delete }}
@@ -17,25 +17,25 @@
                     {{#if radio_checked }}
                     %li
                       %input(type="radio" name="user[permissions][]" value="full" checked="checked" class="mark_all" id="user_{{ id }}_mark_all")
-                      %label {{ name }} 拥有所有权限
+                      %label {{ name }} Has all permissions
                     %li
                       %input(type="radio" name="user[permissions][]" value="limited_access" class="limited_access" id="user_{{id}}_limited_access")
-                      %label  选择权限
+                      %label  Select Permissions
                     {{else}}
                     %li
                       %input(type="radio" name="user[permissions][]" value="full"  class="mark_all" id="user_{{id}}_mark_all")
-                      %label {{ name }} 拥有所有权限
+                      %label {{ name }} Has all permissions
                     %li
                       %input(type="radio" name="user[permissions][]" value="limited_access" checked="checked"  class="limited_access" id="user_{{id}}_limited_access")
-                      %label  选择权限
+                      %label  Select Permissions
                     {{/if}}
 
                     {{else}}
 
                     {{#if radio_checked }}
-                    %label {{ name }} 拥有所有权限
+                    %label {{ name }} Has all permissions
                     {{else}}
-                    %label 限制的
+                    %label Restrictions
                     {{/if }}
 
                     {{/if }}
@@ -59,7 +59,7 @@
                 {{/unless }}
         {{#if can_delete }}
         %div(class="table-slider-actions")
-          %input(name="commit" type="submit" value= "保存" class="btn")
-          或者
-          %a(href= "#" class='action cancel') 取消
+          %input(name="commit" type="submit" value= "Save" class="btn")
+          Or
+          %a(href= "#" class='action cancel') Cancel
         {{/if }}

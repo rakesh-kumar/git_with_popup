@@ -1,7 +1,7 @@
 #container
   #dialog
     .status
-      %p==重置密码#{resource.email}
+      %p==Reset Password#{resource.email}
     = form_for(resource, :as => resource_name, :url => user_password_path, :html => { :method => :put }) do |f|
       =message_block on: [resource]
       .lform
@@ -13,6 +13,6 @@
           = f.label :password_confirmation
           = f.password_field :password_confirmation
         .actions
-          = f.submit "修改密码",class: 'btn'
+          = f.submit "Change Password",class: 'btn'
           =w('or')
           =link_to w('cancel'),new_user_session_path
