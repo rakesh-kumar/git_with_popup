@@ -1,35 +1,35 @@
 - use_kindeditor
 
-%h2#title 新增智能集合
+%h2#title New smart collection
 #action-links
   %ul
-    %li.no-icon=link_to "取消", custom_collections_path
+    %li.no-icon=link_to "Cancel", custom_collections_path
 =form_for smart_collection do |f|
   %div(style="margin:0;padding:0;display:inline")
     %dl
       %dt.top
-        %label 标题
+        %label Title
       %dd
         =f.text_field :title, class: :big
         =f.hidden_field :handle
       %dt
-        %label 描述
-        %span.note (非必填)
+        %label Description
+        %span.note (Optional)
       %dd(style="margin-bottom:0")=f.text_area :body_html, id: 'kindeditor', style: "width: 895px; height: 200px;"
   #smart-form.pgroup.sst
-    %h3 设置条件
-    %p.hint 你可以通过右边的按钮新增多个条件
+    %h3 Set Conditions
+    %p.hint You can add multiple conditions by the right button
     %ul#smartcollectionform.nobull(style="margin:0;padding:0")
       =render partial: "rule", collection: smart_collection.rules
   .pgroup.sst
     %p.hint
-      如果你需要为集合挑选指定的商品，请使用
-      %a(href="/admin/custom_collections/new") 自定义集合
+      If you need to specify a set of selected commodities，Use
+      %a(href="/admin/custom_collections/new") Custom Collection
       \.
   .group-actions
-    %input#submit-collection-btn.btn(name="commit" type="submit" value="保存")
-    或者
-    =link_to "取消", custom_collections_path, class: :cancel
+    %input#submit-collection-btn.btn(name="commit" type="submit" value="Save")
+    Or
+    =link_to "Cancel", custom_collections_path, class: :cancel
 
 :javascript
   App.init = function(){
