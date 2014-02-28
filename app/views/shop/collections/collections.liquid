@@ -1,12 +1,12 @@
 {% if collections.all.size == 0 %}
-<em>该商店没有任何集合</em>
+<em>The store does not have any collections</em>
 {% else %}
-<h1> 商品集合 </h1>
+<h1> Product collections </h1>
 <ul>
   {% for collection in collections.all  %}
     <li class="collection">
       <strong><a href="{{ collection.url }}">{{ collection.title }}</a></strong>
-      <small class="hint">共有{{ collection.products.size }}件商品</small>
+      <small class="hint">共有{{ collection.products.size }}Item</small>
     </li>
   {% endfor %}
 </ul>
