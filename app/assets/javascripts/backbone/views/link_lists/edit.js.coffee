@@ -38,7 +38,7 @@ App.Views.LinkList.Edit = Backbone.View.extend
         handle: @$("input[name='link_list[handle]']").val(),
       },
       success: (model, resp) ->
-        msg '修改成功!'
+        msg 'Successfully modified!'
         self.cancel()
     return false
 

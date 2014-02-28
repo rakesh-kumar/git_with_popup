@@ -1,4 +1,4 @@
-# 新增处理
+# New deal
 App.Views.Asset.Index.Sidebar = Backbone.View.extend
   el: '#theme-editor-sidebar-top'
 
@@ -73,7 +73,7 @@ App.Views.Asset.Index.Sidebar = Backbone.View.extend
     self = this
     source = $('#new-template-selectbox').children('option:selected')
     unless source[0]
-      error_msg '没有候选模板!'
+      error_msg 'No candidate templates!'
       return
     [key, name] = ["templates/#{source.val()}.liquid", "#{source.text()}.liquid"]
     name = "#{name}.liquid" unless StringUtils.endsWith(name, '.liquid')

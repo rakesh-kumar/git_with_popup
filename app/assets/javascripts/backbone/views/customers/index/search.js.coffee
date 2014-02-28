@@ -9,7 +9,7 @@ App.Views.Customer.Index.Search = Backbone.View.extend
     self = this
     @model = App.customer_group
     @model.bind 'change', -> self.render()
-    # 未输入内容时显示提示
+    # When prompted to enter the content is not displayed
     $("input[data-hint]").focus ->
       hint = $(this).attr('data-hint')
       $(this).css color: ''
@@ -18,11 +18,11 @@ App.Views.Customer.Index.Search = Backbone.View.extend
       hint = $(this).attr('data-hint')
       $(this).val(hint).css(color: '#888') unless $(this).val()
     .blur()
-    # 初始化过滤器
+    # Initialization filter
     $('#search-filter_primary').change()
     $("#customer-search_limit").change -> self.search()
 
-  # 显示过滤器列表
+  # Display filter list
   render: ->
     self = this
     term_field = $('#customer-search_field')
@@ -44,7 +44,7 @@ App.Views.Customer.Index.Search = Backbone.View.extend
     if value isnt hint
       @model.set term: value
 
-  search: (page = 1)-> # 查询
+  search: (page = 1)-> # Inquiry
     self = this
     [value, filters] = [@model.get('term'), @model.filters()]
     value = '' unless value

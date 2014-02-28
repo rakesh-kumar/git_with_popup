@@ -24,13 +24,13 @@ App.Views.LinkList.Show = Backbone.View.extend
     $(@el).addClass('default-menu') if @model.get('system_default')
 
   destroy: ->
-    if confirm '您确定要删除吗'
+    if confirm 'Are you sure you want to delete it'
       self = this
       this.model.destroy
         success: (model, response) ->
           App.link_lists.remove self.model
           self.remove()
-          msg '删除成功!'
+          msg 'Deleted successfully!'
     return false
 
   edit: ->

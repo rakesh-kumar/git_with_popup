@@ -12,7 +12,7 @@ App.Views.Customer.Index.Index = Backbone.View.extend
     new App.Views.Customer.Index.Search collection: @collection
     this.render()
     @collection.bind 'refresh', -> self.render()
-    $(document).click -> $('.display_message').fadeOut('slow') # 弹出的顾客tip
+    $(document).click -> $('.display_message').fadeOut('slow') # Customers tip pops up
 
   render: ->
     $('#customer-search_msg').html("找到 #{@collection.total_count}位 顾客").css('background-image', 'none')
@@ -20,12 +20,12 @@ App.Views.Customer.Index.Index = Backbone.View.extend
     _(@collection.models).each (model) -> new App.Views.Customer.Index.Show model: model
 
 
-  # 商品复选框全选操作
+  # Select the check boxes of goods operation
   selectAll: ->
     this.$('.selector').attr 'checked', (@$('#select-all').attr('checked') is 'checked')
     this.changeCustomerCheckbox()
 
-  # 商品复选框操作
+  # Commodity box operation
   changeCustomerCheckbox: ->
     checked = @$('.selector:checked') is 'checked'
     all_checked = (checked.size() == this.$('.selector').size())
@@ -36,7 +36,7 @@ App.Views.Customer.Index.Index = Backbone.View.extend
     else
       $('#customer-table_status').hide()
 
-  # 操作面板修改
+  # Modify the control panel
   changeCustomerSelect: ->
     operation = this.$('#customer-select').val()
     checked_ids = _.map this.$('.selector:checked'), (checkbox) -> checkbox.value

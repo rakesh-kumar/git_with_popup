@@ -21,14 +21,14 @@ App.Views.LinkList.Links.Edit = Backbone.View.extend
     $(@el).addClass cycle
 
   destroy: ->
-    if confirm '您确定要删除吗?'
+    if confirm 'Are you sure you want to delete it?'
       self = this
       collection = @model.collection
       this.model.destroy
         success: (model, response) ->
           collection.remove self.model
           self.remove()
-          msg '删除成功!'
+          msg 'Deleted successfully!'
     false
 
   select: ->

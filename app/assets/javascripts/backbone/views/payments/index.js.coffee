@@ -48,7 +48,7 @@ App.Views.Payment.Index = Backbone.View.extend
     action = $('form#checkout-config').attr('action')
     attrs = $('form#checkout-config').serialize()
     $.post action, attrs, ->
-      msg '修改成功！'
+      msg 'Successfully modified!'
 
   save: ->
     $('form input#payment_submit').attr('disabled', true).val '正在保存...'
@@ -63,9 +63,9 @@ App.Views.Payment.Index = Backbone.View.extend
         message: attrs.message
       },
       success: (model, resp) ->
-        msg '新增成功！'
-        $('form input#payment_submit').attr('disabled', false).val '保存'
+        msg 'New success!'
+        $('form input#payment_submit').attr('disabled', false).val 'Save'
         false
       error: (model,error)  ->
         error_msg error
-        $('form input#payment_submit').attr('disabled', false).val '保存'
+        $('form input#payment_submit').attr('disabled', false).val 'Save'

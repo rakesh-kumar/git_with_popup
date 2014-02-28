@@ -17,12 +17,12 @@ App.Views.Discount.Show = Backbone.View.extend
     $(@el).html template attrs
 
   destroy: ->
-    if confirm '您确定要删除吗'
+    if confirm 'Are you sure you want to delete it'
       self = this
       this.model.destroy
         success: (model, response) ->
           App.discounts.remove self.model
           self.remove()
-          msg '删除成功!'
+          msg 'Deleted successfully!'
           $('#none-item').show() if _.isEmpty(App.discounts.models)
     return false

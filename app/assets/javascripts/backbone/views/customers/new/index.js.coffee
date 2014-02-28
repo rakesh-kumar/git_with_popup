@@ -6,7 +6,7 @@ App.Views.Customer.New.Index = Backbone.View.extend
     Utils.Tag.init()
     Utils.Region.init()
 
-    # 即时显示
+    # Real-time display
     this.instantText '#customer_name', '#preview_customer_first_name'
     this.instantText '#customer_email', '#preview_customer_email'
     this.instantText '#customer_addresses_attributes__phone', '#preview_customer_phone'

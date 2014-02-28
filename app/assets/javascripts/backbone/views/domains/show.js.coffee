@@ -46,10 +46,10 @@ App.Views.Domain.Show = Backbone.View.extend
 
   destroy: ->
     self = this
-    if confirm '您确定要删除吗'
+    if confirm 'Are you sure you want to delete it'
       @model.destroy
         success: (model, response) ->
           self.remove()
           self.collection.remove self.model
-          msg '删除成功!'
+          msg 'Deleted successfully!'
     false

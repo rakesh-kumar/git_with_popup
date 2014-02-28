@@ -5,12 +5,12 @@ App.Views.CustomerGroup.Index.Index = Backbone.View.extend
     "click .customer-group": 'active'
 
   initialize: ->
-    @model = App.customer_group # 与查询面板交互的桥梁
+    @model = App.customer_group # Interact with the query panel bridge
     self = this
     this.render()
     @model.bind 'change:id', -> self.switch()
     @model.set id: -1
-    $('#save_group_button').live 'click', -> self.save() # 弹出的保存窗口
+    $('#save_group_button').live 'click', -> self.save() # Pop-up window to save
     @collection.bind 'add', (model, collection) ->
       new App.Views.CustomerGroup.Index.Show model: model # 回显新增分组
       self.model.set id: model.id

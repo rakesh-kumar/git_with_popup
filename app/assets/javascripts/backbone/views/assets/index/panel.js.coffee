@@ -45,13 +45,13 @@ App.Views.Asset.Index.Panel = Backbone.View.extend
       editor.moveCursorTo(0,0)
     false
 
-  showRename: -> # 显示重命名表单
+  showRename: -> # Show Rename Form
     model = TemplateEditor.current
     $('#asset-link-rename').replaceWith $('#asset-rename-form-item').html()
     $('#asset-basename-field').val(model.get('name')).focus()
     false
 
-  rename: -> # 重命名
+  rename: -> # Renaming
     self = this
     model = TemplateEditor.current
     basename = $('#asset-basename-field').val()
@@ -69,17 +69,17 @@ App.Views.Asset.Index.Panel = Backbone.View.extend
   destroy: ->
     self = this
     model = TemplateEditor.current
-    if confirm("您确定要删除#{model.get('name')}吗?")
+    if confirm("Are you sure you want to delete#{model.get('name')}吗?")
       attrs = key: model.get('key'), _method: 'delete'
       $.post "/admin/themes/#{theme_id}/assets/0", attrs, (data) ->
         $('#asset-buttons, #asset-info').hide()
-        $('#asset-title').text('没有选择文件')
+        $('#asset-title').text('Do not select the file')
         $('#asset-links').css('visibility', 'hidden').html ''
         $('#asset-hint, #asset-hint-noselect').show()
         $('#asset-hint-liquid').hide()
         $('#template-editor').hide()
         $('#preview-image').hide()
-        msg "#{model.get('key')} 已经删除"
+        msg "#{model.get('key')} Has been deleted"
         model.view.remove()
         TemplateEditor.current = null
     false
