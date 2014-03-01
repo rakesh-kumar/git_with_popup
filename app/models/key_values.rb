@@ -199,15 +199,15 @@ module KeyValues
 
     class Type < KeyValues::Base
         self.data = [
-          {id: 10, name: '订单确认提醒'            , code: 'order_confirm'                 , des: '当订单创建时，给客户发送此邮件'                                  },
-          {id: 20, name: '新订单提醒'              , code: 'new_order_notify'              , des: '当有新订单创建时，给网店管理者发送此邮件'                        },
+          {id: 10, name: 'Order confirmation alert'            , code: 'order_confirm'                 , des: '当订单创建时，给客户发送此邮件'                                  },
+          {id: 20, name: 'New orders alert'              , code: 'new_order_notify'              , des: '当有新订单创建时，给网店管理者发送此邮件'                        },
           #{id: 25, name: '新订单提醒(手机)'        , code: 'new_order_notify_mobile'       , des: '当有新订单创建时，给网店管理者发送此手机短信'                    },
-          {id: 26, name: '订单支付确认提醒'        , code: 'order_paid'                    , des: '当订单支付时，给客户发送此邮件'                                  },
-          {id: 27, name: '订单支付提醒'            , code: 'order_paid_notify'             , des: '当订单支付时，给网店管理者发送此邮件'                            },
-          {id: 30, name: '货物发送提醒'            , code: 'ship_confirm'                  , des: '当客户的订单的货物发送时，给客户发送此邮件'                      },
-          {id: 40, name: '货物发送信息更改提醒'    , code: 'ship_update'                   , des: '当订单的发送信息变更时，给客户发送此邮件'                        },
+          {id: 26, name: 'New orders alert...'        , code: 'order_paid'                    , des: '当订单支付时，给客户发送此邮件'                                  },
+          {id: 27, name: 'Orders payment confirmation alert'            , code: 'order_paid_notify'             , des: '当订单支付时，给网店管理者发送此邮件'                            },
+          {id: 30, name: 'Cargo send reminders'            , code: 'ship_confirm'                  , des: '当客户的订单的货物发送时，给客户发送此邮件'                      },
+          {id: 40, name: 'Send message changes to remind goods'    , code: 'ship_update'                   , des: '当订单的发送信息变更时，给客户发送此邮件'                        },
           #{id: 50, name: '联系买家'                , code: 'contact_buyer'                 , des: '在订单页面点击"发送邮件"时显示的邮件内容'                        },
-          {id: 60, name: '订单取消提醒'            , code: 'order_cancelled'               , des: '当订单取消时，给客户发送此邮件'                                  },
+          {id: 60, name: 'Order Cancellation reminder'            , code: 'order_cancelled'               , des: '当订单取消时，给客户发送此邮件'                                  },
           #{id: 70, name: '顾客帐号激活提醒'        , code: 'customer_account_activation'   , des: '当客户创建帐号时，告知客户如何激活帐户,给客户发送此邮件'         }, # 暂不需要
           #{id: 80, name: '顾客帐号密码更改提醒'    , code: 'customer_password_reset'       , des: '当客户需要密码变更时，给客户发送此邮件'                          },
           #{id: 90, name: '顾客帐号确认提醒'        , code: 'customer_account_welcome'      , des: '当客户激活了帐户时，给客户发送此邮件'                            }
@@ -232,15 +232,15 @@ module KeyValues
 
       class Manage < KeyValues::Base
         self.data = [
-          {id: 1, name: '不需要跟踪库存情况'            , code: ''      },
-          {id: 2, name: '需要ShopQi跟踪此款式的库存情况', code: 'shopqi'}
+          {id: 1, name: 'No need to track inventory'            , code: ''      },
+          {id: 2, name: 'This style requires ShopQi inventory tracking', code: 'shopqi'}
         ]
       end
 
       class Policy < KeyValues::Base
         self.data = [
-          {id: 1, name: '库存不足时拒绝用户购买此款商品'    , code: 'deny'    },
-          {id: 2, name: '允许用户购买此款商品，即使库存不足', code: 'continue'}
+          {id: 1, name: 'Deny users insufficient inventory purchasing this product'    , code: 'deny'    },
+          {id: 2, name: 'Allows the user to buy this product, even if inventory shortage', code: 'continue'}
         ]
       end
 
