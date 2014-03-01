@@ -39,7 +39,7 @@ App.Views.User.Permission = Backbone.View.extend
     access_flag =$("input[name='user[permissions][]']:radio:checked").val()
     attr = { access_flag: access_flag ,resource_ids: ids , _method: 'put'}
     $.post "/admin/users/#{@model.id}/update_permissions", attr , ->
-      msg '更新成功!'
+      msg 'Updated successfully!'
       self.hide_permission_tr()
     false
 

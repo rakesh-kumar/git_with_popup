@@ -18,7 +18,7 @@ App.Views.Theme.Index = Backbone.View.extend
   upload: ->
     if (App.published_themes.length + App.unpublished_themes.length) >= 8
       $('#exceed_message').show()
-      error_msg '不能上传主题!最多只能安装8个主题!'
+      error_msg 'Can not upload themes!Can only install eight topics!'
       return false
     self = this
     unless @uploader
@@ -37,15 +37,15 @@ App.Views.Theme.Index = Backbone.View.extend
           $('#indicator').hide()
           $(document).unbind 'mousemove'
           if responseJSON['error_type']
-            error_msg("上传失败，请确定上传的文件类型为zip压缩格式", 5000)
+            error_msg("Upload Failed，Make sure to upload the file type zip compression format", 5000)
           else if responseJSON['missing']
-            error_msg("上传失败，缺少 #{responseJSON['missing']}", 5000)
+            error_msg("Upload Failed，Lack #{responseJSON['missing']}", 5000)
           else if responseJSON['exceed'] # 超过个数限制(注意要计算解压失败后的theme记录role=wait，这些记录不会在页面中显示)
             $('#exceed_message').show()
-            error_msg '不能上传主题!最多只能安装8个主题!'
+            error_msg 'Can not upload themes!Can only install eight topics!'
           else if responseJSON['storage_full'] # 商店容量已经用完
             $('#storage_full_message').show()
-            error_msg '操作不成功!商店容量已用完!'
+            error_msg 'Operation unsuccessful!Shops capacity has been exhausted!'
           else if responseJSON['id'] # 上传成功，校验通过
             self.cancel()
             $('#theme-progress-bar').show()

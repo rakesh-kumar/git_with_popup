@@ -42,9 +42,9 @@ App.Views.Theme.Settings.Preset.Index = Backbone.View.extend
   destroy: ->
     self = this
     name = $('#theme_load_preset').children('option:selected').val()
-    if confirm('您确定要删除此预设吗?')
+    if confirm('Are you sure you want to delete this default?')
       $.post '/admin/themes/#{theme_id}/delete_preset', name: name, ->
-        msg '删除成功!'
+        msg 'Deleted successfully!'
         preset = self.collection.detect (model) -> model.get('name') is name
         self.collection.remove preset
     false

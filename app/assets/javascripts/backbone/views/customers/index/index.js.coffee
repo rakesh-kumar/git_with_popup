@@ -15,7 +15,7 @@ App.Views.Customer.Index.Index = Backbone.View.extend
     $(document).click -> $('.display_message').fadeOut('slow') # Customers tip pops up
 
   render: ->
-    $('#customer-search_msg').html("找到 #{@collection.total_count}位 顾客").css('background-image', 'none')
+    $('#customer-search_msg').html("Found #{@collection.total_count}Position Customer").css('background-image', 'none')
     $('#customer-table_list').html('')
     _(@collection.models).each (model) -> new App.Views.Customer.Index.Show model: model
 
@@ -31,7 +31,7 @@ App.Views.Customer.Index.Index = Backbone.View.extend
     all_checked = (checked.size() == this.$('.selector').size())
     $('#select-all').attr 'checked', all_checked
     if checked[0]
-      this.$('#customer-count').text "已选中 #{checked.size()} 个顾客"
+      this.$('#customer-count').text "Checked #{checked.size()} A customer"
       $('#customer-table_status').show()
     else
       $('#customer-table_status').hide()
