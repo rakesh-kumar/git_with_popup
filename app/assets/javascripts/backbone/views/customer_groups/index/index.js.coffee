@@ -18,8 +18,8 @@ App.Views.CustomerGroup.Index.Index = Backbone.View.extend
   render: ->
     # 默认分组:所有顾客、当前查询
     @collection.add [
-      { id: -1, name: '所有顾客', term: '', query: '' },
-      { id: 0 , name: '当前查询', term: '', query: '' }
+      { id: -1, name: 'All Customers', term: '', query: '' },
+      { id: 0 , name: 'Current query', term: '', query: '' }
     ]
     @collection.comparator = (model) -> model.id
     @collection.sort()
@@ -40,7 +40,7 @@ App.Views.CustomerGroup.Index.Index = Backbone.View.extend
   save: ->
     name = $('#new_group_name').val()
     if !name
-      error_msg '名称不能为空'
+      error_msg 'Name can not be empty'
       return false
     self = this
     group = App.customer_groups.get(0)

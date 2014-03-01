@@ -1,7 +1,7 @@
 App.Controllers.SmartCollections = Backbone.Controller.extend
 
   initialize: ->
-    #限制条件选项，字符串类型不能选择"大于"、"等于"，否则meta_search插件会报错
+    #限制条件选项，字符串类型不能选择"大于"、"Equal"，否则meta_search插件会报错
     $('#smartcollectionform').delegate "select[name='smart_collection[rules_attributes][][column]']", 'change', ->
       clazz = $(this).children(':selected').attr('clazz')
       next_select = $(this).next()

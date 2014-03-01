@@ -17,7 +17,7 @@ App.Views.Customer.Index.Filter.Index = Backbone.View.extend
   render: ->
     self = this
     this.showFilter() if @collection.length > 0
-    $('#search-filter_summary .filter-message').text "已有#{@collection.length}个过滤器"
+    $('#search-filter_summary .filter-message').text "Has#{@collection.length}Filters"
     $('#search-filter_summary').toggle(@collection.length > 0)
     margin_top = if @collection.length > 0 then '10' else '0'
     $('#customer-search_filters').html('').css('margin-top', "#{margin_top}px")

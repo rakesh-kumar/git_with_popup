@@ -24,9 +24,9 @@ App.Views.Asset.Index.Panel = Backbone.View.extend
   save: ->
     model = TemplateEditor.current
     value = TemplateEditor.editor.getSession().getValue()
-    $('#asset-info').html("正在保存 #{model.get('name')} &hellip;").show()
+    $('#asset-info').html("Saving #{model.get('name')} &hellip;").show()
     $.post "/admin/themes/#{theme_id}/assets/0", key: model.get('key'), value: value, _method: 'put', ->
-      $('#asset-info').html("您的文件已经保存.").fadeOut(5000)
+      $('#asset-info').html("Your file has been saved.").fadeOut(5000)
       model.view.setModified false
 
   versions: ->
