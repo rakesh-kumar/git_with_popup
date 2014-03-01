@@ -18,11 +18,11 @@ module KeyValues
 
   class CancelReason < KeyValues::Base
     self.data = [
-      {id: 1, name: '很难使用'    , code: 'difficulty_to_use' },
-      {id: 2, name: '需要其它功能', code: 'need_new_feature'  },
-      {id: 3, name: '帮助不详细'  , code: 'cant_find_help'    },
-      {id: 4, name: '费用太贵'    , code: 'plan_are_expensive'},
-      {id: 5, name: '其它'        , code: 'difficulty_to_use' },
+      {id: 1, name: 'Difficult to use'    , code: 'difficulty_to_use' },
+      {id: 2, name: 'Other features needed', code: 'need_new_feature'  },
+      {id: 3, name: 'Help is not detailed'  , code: 'cant_find_help'    },
+      {id: 4, name: 'Too expensive'    , code: 'plan_are_expensive'},
+      {id: 5, name: 'Other'        , code: 'difficulty_to_use' },
     ]
   end
 
@@ -30,16 +30,16 @@ module KeyValues
     include ActiveHash::Associations
     belongs_to :resource_type , class_name: 'KeyValues::ResourceType'
     self.data = [
-      {id: 1 , name: '首页'        , code: 'home'              ,resource_type_id: 1},
-      {id: 2 , name: '顾客'        , code: 'customers'         ,resource_type_id: 1},
-      {id: 3 , name: '订单'        , code: 'orders'            ,resource_type_id: 1},
-      {id: 4 , name: '促销'        , code: 'marketing'         ,resource_type_id: 1},
-      {id: 5 , name: '商品&集合'   , code: 'products'          ,resource_type_id: 2},
-      {id: 6 , name: '外观'        , code: 'themes'            ,resource_type_id: 2},
-      {id: 7 , name: '博客&页面'   , code: 'pages'             ,resource_type_id: 2},
-      {id: 8 , name: '链接列表'    , code: 'link_lists'        ,resource_type_id: 2},
-      {id: 9 , name: '应用'        , code: 'applications'      ,resource_type_id: 3},
-      {id: 10, name: '设置'        , code: 'preferences'       ,resource_type_id: 3},
+      {id: 1 , name: 'Home'        , code: 'home'              ,resource_type_id: 1},
+      {id: 2 , name: 'Customer'        , code: 'customers'         ,resource_type_id: 1},
+      {id: 3 , name: 'Orders'        , code: 'orders'            ,resource_type_id: 1},
+      {id: 4 , name: 'Promotions'        , code: 'marketing'         ,resource_type_id: 1},
+      {id: 5 , name: 'Commodity&Collections'   , code: 'products'          ,resource_type_id: 2},
+      {id: 6 , name: 'Exterior'        , code: 'themes'            ,resource_type_id: 2},
+      {id: 7 , name: 'Blog & page'   , code: 'pages'             ,resource_type_id: 2},
+      {id: 8 , name: 'Link List'    , code: 'link_lists'        ,resource_type_id: 2},
+      {id: 9 , name: 'Application'        , code: 'applications'      ,resource_type_id: 3},
+      {id: 10, name: 'Set up'        , code: 'preferences'       ,resource_type_id: 3},
     ]
   end
 
@@ -47,52 +47,52 @@ module KeyValues
     include ActiveHash::Associations
     has_many :resources , class_name: 'KeyValues::Resource'
     self.data = [
-      {id: 1, name: '商店管理'},
-      {id: 2, name: '商店内容'},
-      {id: 3, name: '商店设置'},
+      {id: 1, name: 'Store management'},
+      {id: 2, name: 'Store content'},
+      {id: 3, name: 'Store settings'},
     ]
   end
 
   #支付类型
   class PaymentType < KeyValues::Base
     self.data = [
-      {id: 1, name: '在线支付-支付宝', link: 'https://b.alipay.com/order/productSign.htm?action=newsign&productId=2011011904422299'},
-      {id: 2, name: '在线支付-财付通', link: 'http://union.tenpay.com/mch/mch_register.shtml'},
-      {id: 3, name: '在线支付-快钱'  , link: 'http://www.99bill.com'}
+      {id: 1, name: 'Online Payment - Paypal', link: 'https://b.alipay.com/order/productSign.htm?action=newsign&productId=2011011904422299'},
+      {id: 2, name: 'Online Payment - TenPay', link: 'http://union.tenpay.com/mch/mch_register.shtml'},
+      {id: 3, name: 'Online Payment - quick money'  , link: 'http://www.99bill.com'}
     ]
   end
 
   #评论状态
   class CommentableType < KeyValues::Base
     self.data = [
-      {id: 1, name: '禁用评论'              , code: 'no'},
-      {id: 2, name: '允许评论,需审核'       , code: 'moderate'},
-      {id: 3, name: '允许评论，并且自动发布', code: 'yes'},
+      {id: 1, name: 'Disable Comments'              , code: 'no'},
+      {id: 2, name: 'Allow Comments,Required audit'       , code: 'moderate'},
+      {id: 3, name: 'Allow Comments，And automatically release', code: 'yes'},
     ]
   end
 
   class PolicyType < KeyValues::Base
     self.data = [
-      {id: 1, name: '退款政策'},
-      {id: 2, name: '隐私政策'},
-      {id: 3, name: '服务条款'}
+      {id: 1, name: 'Refund Policy'},
+      {id: 2, name: 'Privacy Policy'},
+      {id: 3, name: 'Terms of Service'}
     ]
   end
 
   # 是否发布
   class PublishState < KeyValues::Base
     self.data = [
-      {id: 1, name: '公开', code: 'true'},
-      {id: 2, name: '隐藏', code: 'false'},
+      {id: 1, name: 'Public', code: 'true'},
+      {id: 2, name: 'Hide', code: 'false'},
     ]
   end
 
   #评论状态
   class CommentState < KeyValues::Base
     self.data = [
-      {id: 1, name: '垃圾的', code: 'spam'},
-      {id: 2, name: '未接收的'  , code: 'unapproved'},
-      {id: 3, name: '公开的'  , code: 'published'},
+      {id: 1, name: 'Garbage', code: 'spam'},
+      {id: 2, name: 'Unreceived'  , code: 'unapproved'},
+      {id: 3, name: 'Open'  , code: 'published'},
     ]
   end
 
@@ -149,9 +149,9 @@ module KeyValues
 
     class Custom < KeyValues::Base
         self.data = [
-          {id: 1   ,name: '银行转账' , code: 'bank_transfer'},
-          {id: 2   ,name: '邮局汇款' , code: 'pos'},
-          {id: 3   ,name: '货到付款' , code: 'cod'}
+          {id: 1   ,name: 'Bank transfer' , code: 'bank_transfer'},
+          {id: 2   ,name: 'Remittance' , code: 'pos'},
+          {id: 3   ,name: 'Cash on delivery' , code: 'cod'}
         ]
     end
 
@@ -159,9 +159,9 @@ module KeyValues
 
       class Service < KeyValues::Base # 支付接口
         self.data = [
-          {id: 1, name: '即时到帐'  , code: ActiveMerchant::Billing::Integrations::Alipay::Helper::CREATE_DIRECT_PAY_BY_USER     },
-          {id: 2, name: '担保交易'  , code: ActiveMerchant::Billing::Integrations::Alipay::Helper::CREATE_PARTNER_TRADE_BY_BUYER },
-          {id: 3, name: '双功能收款', code: ActiveMerchant::Billing::Integrations::Alipay::Helper::TRADE_CREATE_BY_BUYER         }
+          {id: 1, name: 'Instant arrive'  , code: ActiveMerchant::Billing::Integrations::Alipay::Helper::CREATE_DIRECT_PAY_BY_USER     },
+          {id: 2, name: 'Secured Transactions'  , code: ActiveMerchant::Billing::Integrations::Alipay::Helper::CREATE_PARTNER_TRADE_BY_BUYER },
+          {id: 3, name: 'Dual function receivables', code: ActiveMerchant::Billing::Integrations::Alipay::Helper::TRADE_CREATE_BY_BUYER         }
         ]
       end
 
@@ -171,8 +171,8 @@ module KeyValues
 
       class Service < KeyValues::Base # 支付接口
         self.data = [
-          {id: 1, name: '即时到帐交易'  , code: 'direct' },
-          {id: 2, name: '中价担保交易'  , code: 'protect'}
+          {id: 1, name: 'Immediately arrived Trading'  , code: 'direct' },
+          {id: 2, name: 'The price of secured transactions'  , code: 'protect'}
         ]
       end
 
@@ -183,10 +183,10 @@ module KeyValues
   module Plan
     class Type < KeyValues::Base
       self.data = [
-        {id: 1   ,name:'旗舰版'  , code: 'unlimited'    , skus: 1000 , storage: 1000, price: 9988 },
-        {id: 2   ,name:'企业版'  , code: 'business'     , skus: 500  , storage: 500 , price: 5988 },
-        {id: 3   ,name:'专业版'  , code: 'professional' , skus: 100  , storage: 100 , price: 2988 },
-        {id: 4   ,name:'免费版'  , code: 'free'         , skus: 50   , storage: 50  , price: 0    }
+        {id: 1   ,name:'Ultimate'  , code: 'unlimited'    , skus: 1000 , storage: 1000, price: 9988 },
+        {id: 2   ,name:'Enterprise Edition'  , code: 'business'     , skus: 500  , storage: 500 , price: 5988 },
+        {id: 3   ,name:'Professional Edition'  , code: 'professional' , skus: 100  , storage: 100 , price: 2988 },
+        {id: 4   ,name:'Free'  , code: 'free'         , skus: 50   , storage: 50  , price: 0    }
       ]
 
       def free?
@@ -429,8 +429,8 @@ module KeyValues
     #排序
     class Order < KeyValues::Base
       self.data = [
-        {id: 1 , name: '按标题拼音升序: A-Z'  , code: 'title.asc'      },
-        {id: 2 , name: '按标题拼音降序: Z-A'  , code: 'title.desc'     },
+        {id: 1 , name: 'Ascending order by title Pinyin: A-Z'  , code: 'title.asc'      },
+        {id: 2 , name: 'Pinyin descending by title: Z-A'  , code: 'title.desc'     },
         #{id: 3, name: '按销售量排序'         , code: 'best-selling'   },
         {id: 4 , name: '按创建日期: 最近-最远', code: 'created_at.desc'},
         {id: 5 , name: '按创建日期: 最远-最近', code: 'created_at.asc' },

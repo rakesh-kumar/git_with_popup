@@ -145,15 +145,15 @@ cn:
         zip: 邮编
         phone: 电话
       order_shipping_address:
-        name: 姓名
-        company: 公司
+        name: Full name
+        company: Company
         country_code: 国家
         province: Province
         city: 城市
-        address1: 地址
+        address1: Address
         address2: 地址 续
-        zip: 邮编
-        phone: 电话
+        zip: Zip Code
+        phone: Phone
       customer:
         name: 姓名
         email: 邮箱
