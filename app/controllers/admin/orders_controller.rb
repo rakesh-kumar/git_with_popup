@@ -64,7 +64,7 @@ class Admin::OrdersController < Admin::AppController
       data = [{
         'trade_no' => order.trade_no,
         'amount' => transaction.amount,
-        'reason' => '协商退款'
+        'reason' => 'Negotiation refund'
       }]
       @refund_apply_url = Gateway::Alipay::Refund.apply_url(payment.account, payment.key, payment.email, 'batch_no' => transaction.batch_no, 'data' => data, 'notify_url' => "#{request.protocol}#{shop.domains.myshopqi.host}#{alipay_refund_notify_order_path(order)}")
     end

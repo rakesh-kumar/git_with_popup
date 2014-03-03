@@ -46,7 +46,7 @@ class Admin::SmartCollectionsController < Admin::AppController
   #更新排序
   def update_order
     smart_collection.save
-    flash.now[:notice] = '重新排序成功!'
+    flash.now[:notice] = 'Reorder success!'
   end
 
   #手动调整排序
