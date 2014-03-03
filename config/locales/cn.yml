@@ -120,7 +120,7 @@ cn:
       subscribe:
         address: 邮件地址
       blog:
-        title: Title
+        title: 标题
       article:
         title: 标题
         author: 作者
