@@ -1,6 +1,6 @@
 -if blog.commentable == 'no'
   %p.description.highlight(style="text-align: center")
-    ==此博客评论已被禁用，You can#{link_to "启用评论",edit_blog_path(blog)}
+    ==Comments have been disabled for this blog，You can#{link_to "Enable Comments",edit_blog_path(blog)}
 -else
   -unless article.comments.blank?
     #comments

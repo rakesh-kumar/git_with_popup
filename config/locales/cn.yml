@@ -120,12 +120,12 @@ cn:
       subscribe:
         address: 邮件地址
       blog:
-        title: 标题
+        title: Title
       article:
-        title: 标题
-        author: 作者
-        body_html: 内容
-        tags: 标签
+        title: Title
+        author: Author
+        body_html: Content
+        tags: Tag
       custom_collection:
         title: Title
         body_html: Description
@@ -383,7 +383,7 @@ cn:
     cancel: Cancel
     back: 返回
     list: 列表
-    edit: 编辑
+    edit: Editor
     new: 新增
     show: 查看
     delete: 删除

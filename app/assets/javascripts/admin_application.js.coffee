@@ -200,8 +200,8 @@ $(document).ready ->
   NavigationDropdown 'apps-link': 'Application', 'theme-link': 'Exterior', 'preferences-link': 'Set up'
 
   #下拉框
-  UpdateableSelectBox $('#product-type-select'), '新增类型'
-  UpdateableSelectBox $('#product-vendor-select'), '新增厂商'
-  UpdateableSelectBox $('#select_custom_payment_method'), '新增普通付款方式'
+  UpdateableSelectBox $('#product-type-select'), 'New Type'
+  UpdateableSelectBox $('#product-vendor-select'), 'New vendors'
+  UpdateableSelectBox $('#select_custom_payment_method'), 'New common payment method ...'
 
   $('.blockOverlay,.shopqi-dialog-title-close,.close-lightbox').live 'click', -> $.unblockUI() # 关闭弹出窗口

@@ -19,7 +19,7 @@
       -status.each_pair do |code,name|
         %li=link_to name,blog_search_path(blog,published_eq: code)
       %li.filter-show-all.current=link_to '显示所有',blog_search_path(blog,published_eq: nil)
-  的文章 由
+  The article by the
   #author-select.filter-select
     %a#author-filter-link(href= "#")=search_label :author, 'Either author'
     %ul.dropdown{:style => "display: none"}
@@ -27,8 +27,8 @@
         %strong Author
       -authors.each do |author|
         %li=link_to author,blog_search_path(blog,author_eq: author)
-      %li.filter-show-all.current=link_to '显示所有',blog_search_path(blog,author_eq: nil)
-  和
+      %li.filter-show-all.current=link_to 'Show all',blog_search_path(blog,author_eq: nil)
+  And
   #tag-select.filter-select
     %a#tag-filter-link(href= "#")=search_label :tags_name, 'Either'
     %ul.dropdown{:style => "display: none"}
@@ -40,13 +40,13 @@
   Tag
 #blog-show
   %p.note.r{:style => "margin-bottom: 5px"}
-    ==此博客有#{articles.size}篇文章
+    ==This blog has#{articles.size}Articles
   #articles
     #page-list{:style => ""}
       %table.standard-table.ssb{:cellspacing => "0"}
         %thead
           %tr
-            %th{:width => "20%"}==文章
+            %th{:width => "20%"}==Article
             %th{:width => "10%"} Comment
             %th{:width => "17%"} Tag
             %th{:width => "13%"} Author

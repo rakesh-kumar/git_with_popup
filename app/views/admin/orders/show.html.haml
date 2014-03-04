@@ -9,7 +9,7 @@
     %li#note=link_to 'Remark', '#'
     -#%li.csv=link_to '导出', '#'
     %li#print
-      %a(href="#" onclick="window.print();; return false;") 打印
+      %a(href="#" onclick="window.print();; return false;") Print
     -if order.closed_at
       %li#locko=link_to "Reopen this order", open_order_path(order), method: :post
       %li.no-icon= link_to image_tag('admin/icons/trash.gif'), order_path(order), method: :delete, data: { confirm: 'Are you sure you want to delete?' }

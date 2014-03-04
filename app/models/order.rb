@@ -189,7 +189,7 @@ class Order < ActiveRecord::Base
   end
 
   def title
-    "订单 #{name}"
+    "Orders #{name}"
   end
 
   def pay!(amount, trade_no = nil)

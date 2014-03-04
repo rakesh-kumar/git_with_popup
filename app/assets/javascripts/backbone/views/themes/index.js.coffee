@@ -55,7 +55,7 @@ App.Views.Theme.Index = Backbone.View.extend
               self.check_status(responseJSON)
             , 5000
     $('.qq-upload-list').hide() # 不显示上传文件列表
-    $(".qq-upload-button").contents().first().replaceWith("选择文件")
+    $(".qq-upload-button").contents().first().replaceWith("Select the file")
     $('#upload-theme').show()
     $('#theme-progress-bar').hide()
     $('#finished-dialog').hide()

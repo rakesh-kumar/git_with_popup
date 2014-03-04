@@ -42,7 +42,7 @@ describe "Blogs", js:true do
 
       it "should be validate" do # 校验
         visit blog_path(blog)
-        click_on '新增文章' #新增文章(title为nil时)
+        click_on 'New Posts' #新增文章(title为nil时)
         page.execute_script("$.fn.off = true")
         find('#kindeditor').visible?.should be false
         click_on '新增'
