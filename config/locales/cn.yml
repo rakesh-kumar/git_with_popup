@@ -42,7 +42,7 @@ cn:
         service: 接口类型
         number: 序号
         apply: 申请
-        name: 方式
+        name: Mode
 
       price_based_shipping_rate:
         name: 名称
