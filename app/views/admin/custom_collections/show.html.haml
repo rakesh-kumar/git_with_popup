@@ -33,7 +33,7 @@
             )
         %dt.sst
           =f.label :body_html
-          %span.note (非必填)
+          %span.note (Optional)
         %dd(style="margin-bottom:0")=f.text_area :body_html, id: 'kindeditor', style: "width: 895px; height: 200;"
     .group-actions
       %input#submit-collection-btn.btn(name="commit" type="submit" value="#{w('save')}")

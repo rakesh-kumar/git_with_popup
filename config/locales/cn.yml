@@ -69,11 +69,11 @@ cn:
         compare_at_price: Market
         sku: 商品唯一标识符
         requires_shipping: Requirements shipping address
-        inventory_quantity: 现有库存量?
+        inventory_quantity: Existing stocks?
       product_option:
         name: 选项名称
       page:
-        title: 标题
+        title: Title
         description: Description
       theme:
         name: Name
@@ -127,8 +127,8 @@ cn:
         body_html: 内容
         tags: 标签
       custom_collection:
-        title: 标题
-        body_html: 描述
+        title: Title
+        body_html: Description
       smart_collection:
         title: 标题
         body_html: 描述
@@ -172,7 +172,7 @@ cn:
         header: ""
         body: ""
       messages:
-        blank: 不能为空
+        blank: Can not be empty
         taken: 已经存在
         too_short: 长度不能少于%{count}个字符
         too_long: 长度不能超过%{count}个字符
@@ -379,7 +379,7 @@ cn:
 
   #页面中的文字
   web:
-    save: 保存
+    save: Save
     cancel: Cancel
     back: 返回
     list: 列表

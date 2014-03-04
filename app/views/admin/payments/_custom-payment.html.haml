@@ -10,7 +10,7 @@
       %form(accept-charset= "UTF-8" action = "#" method= "post" id="custom-payment" onsubmit="return false" )
         .group-fields
           .sb
-            %label(for= "name_manual_payment_gateway_{{id}}") 方式:
+            %label(for= "name_manual_payment_gateway_{{id}}") Mode:
             %p.credential
               %input(name= "payment[name]" size= "30" type= "text" value= "{{ name }}")
           .sb

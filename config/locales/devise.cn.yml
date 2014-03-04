@@ -10,7 +10,7 @@ cn:
 
   devise:
     failure:
-      unauthenticated: '继续操作前请注册或者登录.'
+      unauthenticated: 'Please register or log in before proceeding..'
       unconfirmed: '请先激活您的帐号'
       locked: '您的帐号已被锁定.'
       invalid: 'E-mail or password is incorrect'
