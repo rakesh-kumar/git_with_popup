@@ -23,7 +23,7 @@ ActiveAdmin.register Shop do
    end
 
    form do |f| # 编辑页面
-     f.inputs "基本信息" do
+     f.inputs "Basic Information" do
        f.input :name
        f.input :plan    , collection: KeyValues::Plan::Type.options
        f.input :deadline

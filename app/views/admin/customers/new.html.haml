@@ -60,7 +60,7 @@
               =a.text_field :phone, class: :phone
           .pb.clearfix.region
             .fl(style="margin-right:10px")
-              %label(for="customer_addresses_0_province") 地区
+              %label(for="customer_addresses_0_province") Area
               =a.select :province, District.list, {include_blank: '- State -'}, style: 'width: 106px'
               =a.select :city, District.list(customer.addresses.first.province), {include_blank: '- City -'}, style: 'width: 106px'
               =a.select :district, District.list(customer.addresses.first.city), {include_blank: '- Area -'}, style: 'width: 106px'
@@ -83,7 +83,7 @@
       Tag
       %span.instruction Optional
     .customer-group.white.ssb
-      %p.note.sb 多个关键词之间用逗号(,)隔开。
+      %p.note.sb Multiple keywords with commas (,) separated。
       =f.text_field :tags_text, id: :tags_text
       -if tags.empty?
         %p.note For example: VIP
@@ -95,7 +95,7 @@
               %a(href="#")=tag.name
     .group-actions
       %input.btn(name="commit" type="submit" value="Save")
-      或者
+      Or
       =link_to "Cancel", customers_path
 
 :javascript
