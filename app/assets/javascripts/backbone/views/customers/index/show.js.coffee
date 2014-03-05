@@ -26,5 +26,5 @@ App.Views.Customer.Index.Show = Backbone.View.extend
     this.$('.display_message').fadeIn('slow')
     false
 
-  nop: -> #不向下传递事件
+  nop: -> #Do not pass the event down
     false

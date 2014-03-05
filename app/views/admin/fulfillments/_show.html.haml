@@ -4,42 +4,42 @@
       -#
         %tr
           %td
-            %strong 服务
+            %strong Service
           %td 手动
       %tr
         %td
-          %strong 已经发货商品总数
+          %strong Total merchandise has been shipped
         %td {{{line_items.length}}}
       {{#each line_items}}
       %tr
         %td
-          %strong 发货商品
+          %strong Delivery of goods
         %td {{{title}}}
       {{/each}}
       %tr
         %td
-          %strong 快递单号
+          %strong Express a single number
         %td
           %div(id="#edit_tracking_number_fulfillment_{{{id}}}")
             %input.tracking-number(name="tracking_number" size="20" type="text" value="{{{tracking_number}}}")
             %span.hide
-              通过
+              By
               %select(name="tracking_company")=options_for_select tracking_companies
             .st
               %input(id="fulfillment_notify_customer_{{{id}}}" checked="checked" name="notify_customer" type="checkbox" value="1")
-              %label.note(for="fulfillment_notify_customer_{{{id}}}") 发送物流信息给顾客
-              %input(name="commit" type="submit" value="更新")
+              %label.note(for="fulfillment_notify_customer_{{{id}}}") Send logistics information to the customer
+              %input(name="commit" type="submit" value="Update")
       %tr
         %td
-          %strong 消息
-        %td 商品已经发货
+          %strong News
+        %td Merchandise has been shipped
       %tr
         %td
-          %strong 状态
-        %td 成功
+          %strong Status
+        %td Success
       %tr
         %td
-          %strong 创建时间
+          %strong Created
         %td
           {{{date created_at}}}
           -#%span.hint (2011-06-18 03:53AM)

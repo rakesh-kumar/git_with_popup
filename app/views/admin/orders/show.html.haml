@@ -6,17 +6,17 @@
 #action-links
   %ul
     -#%li#email=link_to '联系顾客', '#', class: 'closeure-lightbox'
-    %li#note=link_to '备注', '#'
+    %li#note=link_to 'Remark', '#'
     -#%li.csv=link_to '导出', '#'
     %li#print
-      %a(href="#" onclick="window.print();; return false;") 打印
+      %a(href="#" onclick="window.print();; return false;") Print
     -if order.closed_at
-      %li#locko=link_to "重新打开此订单", open_order_path(order), method: :post
-      %li.no-icon= link_to image_tag('admin/icons/trash.gif'), order_path(order), method: :delete, data: { confirm: '您确定要删除?' }
+      %li#locko=link_to "Reopen this order", open_order_path(order), method: :post
+      %li.no-icon= link_to image_tag('admin/icons/trash.gif'), order_path(order), method: :delete, data: { confirm: 'Are you sure you want to delete?' }
     -elsif !order.cancelled?
-      %li#lock=link_to "关闭此订单", close_order_path(order), method: :post
+      %li#lock=link_to "Close this order", close_order_path(order), method: :post
       -unless order.financial_status == 'abandoned'
-        %li#cancel-order=link_to "取消此订单", '#'
+        %li#cancel-order=link_to "Cancel this order", '#'
 =render "shared/noscript"
 =render "shared/upgrade_ie"
 -if order.closed_at or order.cancelled_at
@@ -30,9 +30,9 @@
 #previous
   .tools.hide
     =link_to previous_order_path(order), class: :message do
-      %em 上一订单
+      %em Previous orders
       %br
-      %span.key 按'j'键
+      %span.key Press'j'Key
     %br
     .bg
 #next
@@ -56,14 +56,14 @@
               %br
               =address.phone
       %tr
-        %td.attribute 营销
+        %td.attribute Marketing
         %td.value.image
           %span.o-authorized==#{customer.accepts_marketing ? "" : "不愿意"}接收营销邮件
   #ship-addr.customer-col
     .tools.hide
       .map-link
-        %a(href="#" onclick="window.open('http://maps.google.com/maps?q=china,+shenzhen,+518057,+China','popup','directories=no,location=no,resizable=yes,scrollbars=yes'); return false;") 显示地图
-    %h3 收货人地址
+        %a(href="#" onclick="window.open('http://maps.google.com/maps?q=china,+shenzhen,+518057,+China','popup','directories=no,location=no,resizable=yes,scrollbars=yes'); return false;") Show Map
+    %h3 Receiver Address
     #shipping-address.vcard
       %address.adr
         %span
@@ -71,40 +71,40 @@
             =address.full_info
             =raw clippy(address.full_info)
           -else
-            此商品不需要收货地址
+            This product does not require shipping address
       %a.email.hide(href="mailto:mahb45@gmail.com")
   #other-orders-box.customer-col.hide
-    %h3(title="显示此顾客其他待处理的订单，方便一起发货") 此顾客其他订单
+    %h3(title="Show this customer order other pending，Together to facilitate delivery") This customer other orders
     #other-orders
 .col-8.last
   -#=render :payment_credit
   .box2.sst(style="padding-top: 0")
     -if order.financial_status == 'abandoned'
-      %h3 此订单已经被放弃
-      %p.note.sb 放弃订单表示顾客选择商品后，没有完成购买操作
+      %h3 This order has been abandoned
+      %p.note.sb After the orders that customers choose to abandon goods，Did not complete the purchase operation
       %p.note
-        如果您联系了顾客，并且知道对方需要继续完成购买操作，您可以将
+        If you contact the customer，And know each other need to continue to complete the purchase operation，您可以将
         = succeed "." do
-          %a(href="https://checkout.shopqi.com/orders/#{shop.id}/#{order.token}/pay") 此链接地址
-        发送给顾客
+          %a(href="https://checkout.shopqi.com/orders/#{shop.id}/#{order.token}/pay") This link address
+        Sent to the customer
     -else
       #order-status.order-action-line.separator.clearfix
       #order-fulfillment.order-action-line
         #unshipped-goods.fr.r
         .sb.shipping-method
-          %h3 配送方式
-          %p=address ? order.shipping_rate : '不需要配送'
+          %h3 Shipping & Delivery
+          %p=address ? order.shipping_rate : 'Does not require distribution'
       %form#batch_fulfillment_form(action="#" onsubmit="return false")
         #mark-shipped.hide
           .sb.order-action-line
-            %h3 发货
-            %p 选择您已经发货的商品
+            %h3 Ship
+            %p Select your merchandise has been shipped
           %table.data(cellpadding="0" cellspacing="0")
           #manual_shipping_options.sb.sst.fulfillment_service_shipping_options.group(style="margin: 20px 0")
             #manual_tracking_number_container
               %h4
-                快递单号
-                %span.hint 可以稍后加入
+                Express a single number
+                %span.hint Can be added later
               %p
                 %input#manual_tracking_number.tracking-number(name="shipping_options[manual][tracking_number]" type="text" value="#{latest_tracking_number}")
                 %span#manual_tracking_company_area.hide
@@ -114,38 +114,38 @@
           .btns(style="background: none")
             .sb
               %input#notify_customer(checked="checked" name="notify_customer" type="checkbox" value="true")
-              %label.note(for="notify_customer") 发送邮件通知顾客
+              %label.note(for="notify_customer") Send e-mail notifications customer
             %div
-              %input#fulfill-items.btn(name="commit" type="submit" value="发货")
-              或者
-              %a.cancel(href="#") 取消
+              %input#fulfill-items.btn(name="commit" type="submit" value="Ship")
+              Or
+              %a.cancel(href="#") Cancel
   #order-note.message.pgroup.hide
-    %h3 订单备注
+    %h3 Orders Remarks
     #note-body
   #note-form.message.group.hide
     %form.edit_order(action="#" onsubmit='return false')
       %p.sb
-        %strong 输入您的备注:
+        %strong Enter your notes:
       %textarea#order_note(cols="40" name="order[note]" rows="10")
       %p.hint
       %p.actions-close
-        %input.btn(name="commit" type="submit" value="保存备注")
+        %input.btn(name="commit" type="submit" value="Save notes")
         或者
-        %a.cancel(href="#") 取消
+        %a.cancel(href="#") Cancel
   #order
     %table.data(cellspacing="0")
       %thead
         %tr
           %th(style="width: 16px; padding: 0 3px") &nbsp;
-          %th.left 商品
-          %th 价格
-          %th(style="text-align:center") 数量
-          %th.total-col 金额
+          %th.left Commodity
+          %th Price
+          %th(style="text-align:center") Quantity
+          %th.total-col Money
       %tbody#line-items
       %tbody#discount
       %tbody#price-summary
   #order-history
-    %h3 订单历史
+    %h3 Order History
     %table#order-history-table(cellspacing="0")
 
 %script(id="other-orders-item" type="text/x-handlebars-template")
@@ -156,27 +156,27 @@
   .fr.r
     {{#if payed}}
     {{#if refunded}}
-    %h3 已退款
+    %h3 Refunded
     {{else}}
-    %h3 已支付
-    %p 您已经收到此订单的款项
+    %h3 Paid
+    %p You have received payment for this order
     -if @refund_apply_url
       %p.warn
-        订单已取消，请点击
-        %a(href="#{@refund_apply_url}" title="请使用 IE 浏览器，支付宝退款数字证书只支持 IE 浏览器") 退款
-        前往支付网关完成退款操作
+        Order canceled，Please click
+        %a(href="#{@refund_apply_url}" title="Use IE Browser，Paypal refunds only support digital certificates IE Browser") Refund
+        To complete the refund payment gateway operation
     {{/if}}
     {{else}}
     %form#transaction_new.transaction_new(action="#" onsubmit="return false")
       %input#transaction_kind(name="transaction[kind]" type="hidden" value="capture")
-      %input.btn(name="commit" type="submit" value="已收到款项")
-    %p.instruction.r 您还未收到此订单的款项
+      %input.btn(name="commit" type="submit" value="Payment has been received")
+    %p.instruction.r You have not received payment for this order
     %p.note
-      如果您联系了顾客，对方需要继续完成购买操作，可将
-      %a(href="#{show_shop_url}/orders/#{order.token}") 此链接地址
-      发送给顾客
+      If you contact the customer，Need to continue to complete the purchase of the other operations，You can
+      %a(href="#{show_shop_url}/orders/#{order.token}") This link address
+      Sent to the customer
     {{/if}}
-  %h3 支付方式
+  %h3 Payment
   %p {{gateway}}
 %script(id="order-history-table-item" type="text/x-handlebars-template")
   {{#loop}}
@@ -196,13 +196,13 @@
 
 %script(id="unshipped-goods-item" type="text/x-handlebars-template")
   {{#if fulfilled}}
-  %h3 完成发货
-  %p.instruction 此订单的所有商品已经发货
+  %h3 Completion of delivery
+  %p.instruction All of this order has been shipped
   {{else}}
-  %input.btn(type="button" value="发货")
+  %input.btn(type="button" value="Ship")
   %p.instruction
-    您需要准备
-    %strong {{{unshipped_line_items.length}}} 款商品
+    You need to prepare
+    %strong {{{unshipped_line_items.length}}} Commodity funds
   {{/if}}
 %script(id="edit-fulfillment-item" type="text/x-handlebars-template")
   %td(style="width: 24px; vertical-align:middle")
@@ -220,12 +220,12 @@
         {{#if product_deleted}}
         {{title}}}
         {{else}}
-        %a.product-link(href="/admin/products/{{{product_id}}}" title="前往商品页面") {{{title}}}
+        %a.product-link(href="/admin/products/{{{product_id}}}" title="Go to the product page") {{{title}}}
         {{/if}}
     \- {{{variant_title}}}
     %br
     {{#if fulfilled}}
-    %span(class="note") 已于{{{date fulfillment_created_at}}}发货
+    %span(class="note") Was{{{date fulfillment_created_at}}}Ship
     {{/if}}
   %td
     %label(for="line-item-{{{id}}}")
@@ -238,12 +238,12 @@
         {{#if product_deleted}}
         {{title}}}
         {{else}}
-        %a.product-link(href="/admin/products/{{{product_id}}}" title="前往商品页面") {{{title}}}
+        %a.product-link(href="/admin/products/{{{product_id}}}" title="Go to the product page") {{{title}}}
         {{/if}}
     \- {{{variant_title}}}
     %br
     {{#if fulfilled}}
-    %span(class="note") 已于{{{date fulfillment_created_at}}}发货
+    %span(class="note") Was{{{date fulfillment_created_at}}}Ship
     {{/if}}
   %td.line-price {{{price}}}
   %td.line-qty.c {{{quantity}}}
@@ -252,18 +252,18 @@
   %tr
     %td
     %td.discount-line(colspan="3")
-      %strong 优惠码
+      %strong Promo Code
       \- {{{code}}}
     %td.total-col -{{{amount}}}
 %script(id="price-summary-item" type="text/x-handlebars-template")
   %tr#sep.summary
-    %td.r(colspan="4") 小计:
+    %td.r(colspan="4") Subtotal:
     %td.r.subtotal.total-col {{{subtotal_price}}}
   %tr.summary
-    %td.r(colspan="4") 配送费用 (快递):
+    %td.r(colspan="4") Distribution costs (Express delivery):
     %td.r.primary.total-col {{{ shipping_rate_price }}}
   %tr#total.summary
-    %td.totalnum.r(colspan="4") 总金额:
+    %td.totalnum.r(colspan="4") The total amount:
     %td.r.totalnum.total-col {{{total_price}}}
 %script#cancel-order-item(type="text/x-handlebars-template")=render 'cancel'
 

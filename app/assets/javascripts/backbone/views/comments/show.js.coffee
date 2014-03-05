@@ -43,12 +43,12 @@ App.Views.Comment.Show = Backbone.View.extend
     $(@el).toggleClass 'active', (@$('.selector').attr('checked') is 'checked')
 
   destroy: ->
-    if confirm '您确定要删除吗'
+    if confirm 'Are you sure you want to delete it'
       self = this
       this.model.destroy
         success: (model, response) ->
           self.remove()
-          msg '删除成功!'
+          msg 'Deleted successfully!'
     false
 
   spam: ->

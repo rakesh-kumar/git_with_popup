@@ -58,7 +58,7 @@
         %span.status.ok Normal
       -else
         %span.status.error Error
-    %td.desc Sunspot可能未启动
+    %td.desc Sunspot may not start
     %td.view=link_to 'View', "#{Sunspot.config.solr.url}/admin", target: :_blank
   %tr
     %td.title Solr server supports utf-8 encoding(Get)
@@ -158,7 +158,7 @@
       %td.view
     -if @shop_product_photo =~ /media/
       %tr
-        %td.title 是否能显示商店图片
+        %td.title Can display store pictures
         %td#shop_product_photo.state
           :javascript
             check404('#shop_product_photo', '#{@shop_product_photo}');
@@ -168,7 +168,7 @@
       %tr
         %td.status.warn(colspan=3)
           Store merchandise not upload pictures
-          =link_to "访问", "#{@shop.primary_domain.url}#{request.port_string}", target: :_blank
+          =link_to "Visit", "#{@shop.primary_domain.url}#{request.port_string}", target: :_blank
   -else
     %tr
       %td.status.warn(colspan=4) Do not store，Css can check the store after registration Shops,js accessories are properly loaded

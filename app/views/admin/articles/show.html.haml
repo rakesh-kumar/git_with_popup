@@ -5,11 +5,11 @@
 #action-links
   %ul
     %li.no-icon
-      =link_to "所有文章", blog_path(blog)
+      =link_to "All articles", blog_path(blog)
     %li.no-icon
-      %a#article-edit-link.editButton(href="#") 修改
+      %a#article-edit-link.editButton(href="#") Modification
     %li.no-pad
-      = link_to image_tag('admin/icons/trash.gif'), blog_article_path(blog,article), remote: true, method: :delete, title: '删除它', class: :del, data: { confirm: '您确定要删除?' }
+      = link_to image_tag('admin/icons/trash.gif'), blog_article_path(blog,article), remote: true, method: :delete, title: 'Remove it', class: :del, data: { confirm: 'Are you sure you want to delete?' }
 =render partial:"shared/noscript"
 =render partial:"shared/upgrade_ie"
 #article-edit{:style => "display: none;"}
@@ -19,11 +19,11 @@
         %dl
           =render partial:"form",locals:{f:f,article:article}
       .group-actions
-        %input#submit-article-btn.btn{:name => "commit", :type => "submit", :value => "保存"}
-        或者
-        %a.cancel{:href => "#"} 返回
+        %input#submit-article-btn.btn{:name => "commit", :type => "submit", :value => "Save"}
+        Or
+        %a.cancel{:href => "#"} Return
         / inline padding
-#article-show.box2.article(style="cursor: pointer" title="点击修改")
+#article-show.box2.article(style="cursor: pointer" title="Click Edit")
   %h3#article-ttl==#{article.title}
   #body-show.textile
     / Table Wrapper to prevent the layout from breaking due to invalid user text!

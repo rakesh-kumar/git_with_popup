@@ -21,12 +21,12 @@ App.Views.Payment.Show = Backbone.View.extend
     $('#manual_payment_gateways').before @el
 
   destroy: ->
-    if confirm '您确定要删除吗'
+    if confirm 'Are you sure you want to delete it'
       self = this
       this.model.destroy
         success: (model, response) ->
           self.remove()
-          msg '删除成功!'
+          msg 'Deleted successfully!'
     false
 
   edit: ->
@@ -56,7 +56,7 @@ App.Views.Payment.Show = Backbone.View.extend
           message: attrs.message
         },
         success: (model, resp) ->
-          msg '修改成功！'
+          msg 'Successfully modified!'
           $("#account_manual_payment_gateway_#{model.id}").hide()
           $("#activate_manual_payment_gateway_#{model.id}").show()
           $('.submit').attr('disabled', false).val '保存'

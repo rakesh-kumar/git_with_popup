@@ -11,4 +11,4 @@
     -articles = blog.articles
     =render partial: 'admin/articles/article' , collection: articles, locals: {blog: blog}
     %tr.last-article
-      %td{:colspan => "6"}=link_to "管理 #{blog.title}", blog_path(blog),class: 'view-all-articles'
+      %td{:colspan => "6"}=link_to "Management #{blog.title}", blog_path(blog),class: 'view-all-articles'

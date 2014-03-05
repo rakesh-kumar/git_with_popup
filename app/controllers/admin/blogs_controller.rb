@@ -23,7 +23,7 @@ class Admin::BlogsController < Admin::AppController
 
   def create
     if blog.save
-      redirect_to blog_path(blog), notice: "新增成功!"
+      redirect_to blog_path(blog), notice: "New success!"
     else
       render action:'new'
     end

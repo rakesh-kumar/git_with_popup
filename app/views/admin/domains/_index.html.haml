@@ -1,15 +1,15 @@
 .section
-  %h3 域名管理
+  %h3 Domain Management
   %p.note
-    这些是您的商店当前使用的域名.
+    These are your store currently using the domain name
     = succeed "." do
-      =link_to '了解如何在ShopQi设置您的域名', "#{wiki_url_with_port}/DNS"
+      =link_to 'Learn how to set up your domain in ShopQi', "#{wiki_url_with_port}/DNS"
   %table#domains.standard-table.domainlisting(cellpadding="0" cellspacing="0")
     %thead
       %tr
-        %th(scope="col") 域名
-        %th(scope="col") 备案号
-        %th.c(scope="col" style="text-align: center" width="100px") DNS绑定至商店
+        %th(scope="col") Domain name
+        %th(scope="col") Record number
+        %th.c(scope="col" style="text-align: center" width="100px") DNS Binding to shop
         %th(colspan="2" scope="col" width="140px") &nbsp;
     %tbody.items
     %tbody
@@ -17,31 +17,31 @@
         %td.action-link(colspan="5")
           %a(href="#")
             %span.plus +
-            新增一个您已经拥有的域名
+            Add a domain you already own
   #add-domain.group(style="display:none;")
     #errorExplanation.errorExplanation(style="display:none;")
-      %h2 保存时发生1个错误
+      %h2 An error occurred while saving
       %ul
-        %li 域名 不能为空
+        %li Domain name Can not be empty
     %form(action="/admin/domains" method="post")
       .group-fields
         .instructions
           %p
-            %strong 请在下方输入您的域名
+            %strong Please enter your domain name below
           %p
             http://
             %input#domain_host(name="domain[host]" size="32" type="text")
         .instructions
           %p
-            %strong 请输入域名备案号(此备案号通过ShopQi审核后，域名才能被正常访问)
+            %strong Please enter the domain name for the record number(This record number after an audit by ShopQi，Domain name in order to be a normal visit)
           %p
             %input#domain_record(name="domain[record]" size="32" type="text")
         / instructions
       / .group-fields
       .group-actions
-        %input.btn(name="commit" type="submit" value="绑定此域名")
-        或者
-        %a.cancel(href="#") 取消
+        %input.btn(name="commit" type="submit" value="Bind this domain")
+        Or
+        %a.cancel(href="#") Cancel
       / .group-actions
   / .group
 -#=render 'buy'
@@ -51,13 +51,13 @@
     %span.note http://
     %span
       %a.host(href="http://{{{host}}}") {{{host}}}
-  %td.record {{{record}}}({{#if verified}}审核通过{{else}}待审核或审核不通过{{/if}})
+  %td.record {{{record}}}({{#if verified}}The audit by{{else}}Not subject to audit or review by{{/if}})
   %td.c
     %span.dns-check=image_tag 'spinner.gif'
   %td(style="text-align: left; padding: 10px")
     {{#if primary}}
     %p(style="margin: 0 0 7px")
-      %strong 主域名
+      %strong Primary domain name
     %p#force-domain(style="margin: 0")
       %small
         {{#if force_domain}}
@@ -65,14 +65,14 @@
         {{else}}
         %input#shop_force_domain(name="shop[force_domain]" type="checkbox" value="1")
         {{/if}}
-        %label(for="shop_force_domain" style="font-weight: normal") 总是重定向顾客到这里?
+        %label(for="shop_force_domain" style="font-weight: normal") Customers are always redirected to here?
     {{else}}
     %small
-      %a.btn(href="#") 作为主域名
+      %a.btn(href="#") As a primary domain name
     {{/if}}
   %td.deletions
     {{#unless is_myshopqi}}
-    %a.del(href='#')=image_tag 'admin/icons/trash.gif', alt: '删除'
+    %a.del(href='#')=image_tag 'admin/icons/trash.gif', alt: 'Delete'
     {{/unless}}
 %script(id="dns-wiki-item" type="text/x-handlebars-template")
-  %a(href="#{wiki_url_with_port}/DNS#CNAME_Status" target="_blank") 失败
+  %a(href="#{wiki_url_with_port}/DNS#CNAME_Status" target="_blank") Failure

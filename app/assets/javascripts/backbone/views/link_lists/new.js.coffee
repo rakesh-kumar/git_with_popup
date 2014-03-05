@@ -12,7 +12,7 @@ App.Views.LinkList.New = Backbone.View.extend
     @collection.bind 'add', (model, collection) ->
       model.with_links()
       self.cancel()
-      msg '新增成功!'
+      msg 'New success!'
       new App.Views.LinkList.Show model: model
     $('#list_title').focus()
 

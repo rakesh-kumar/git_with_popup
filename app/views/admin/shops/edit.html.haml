@@ -21,9 +21,9 @@
               %td.region{:colspan => "2"}
                 %label{:for => "shop_address1"} Address
                 %br/
-                =f.select :province, District.list, {include_blank: '--省份--'}, style: 'width: 106px'
-                =f.select :city, District.list(shop.province), {include_blank: '--城市--'}, style: 'width: 106px'
-                =f.select :district, District.list(shop.city), {include_blank: '--地区--'}, style: 'width: 106px'
+                =f.select :province, District.list, {include_blank: '- State -'}, style: 'width: 106px'
+                =f.select :city, District.list(shop.province), {include_blank: '- City -'}, style: 'width: 106px'
+                =f.select :district, District.list(shop.city), {include_blank: '- Area -'}, style: 'width: 106px'
             %tr
               %td{:style => "padding-right: 5px"}
                 =f.label :address

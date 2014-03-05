@@ -28,7 +28,7 @@ App.Views.ProductOption.Edit = Backbone.View.extend
         self.$('.option-selector').val(this.value)
         false
     $('#add-option-bt').before @el
-    UpdateableSelectBox @$('.option-selector'), '自定义'
+    UpdateableSelectBox @$('.option-selector'), 'Custom'
     #默认值(有值时不设置默认值)
     @setDefaultValue() unless @model.attributes.value
     @disableOption()
@@ -46,7 +46,7 @@ App.Views.ProductOption.Edit = Backbone.View.extend
   destroy: ->
     undestroy_product_options = _(@model.collection.models).reject (model) -> typeof(model._destroy) isnt "undefined" and model._destroy
     if undestroy_product_options.length == 1
-      alert '最后一个商品选项不能删除. 商品至少需要一个选项.'
+      alert 'Finally, a commodity options can not be deleted. Store at least one option.'
       return false
     if @model.id
       @model._destroy = true

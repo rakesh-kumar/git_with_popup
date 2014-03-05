@@ -3,12 +3,12 @@
     %tr
       %th.checkbox{:width => "5%"}
         %input#select-all{:type => "checkbox"}/
-      %th{:width => "17%"} 评论人
-      %th{:width => "55%"} 内容
+      %th{:width => "17%"} Commentator
+      %th{:width => "55%"} Content
       %th{:width => "22%"} &nbsp;
   %tbody
     %tr.more-comments
-      %td{:colspan => "4"}=link_to "管理所有评论", comments_path,class: 'view-all-comments'
+      %td{:colspan => "4"}=link_to "Manage all comments", comments_path,class: 'view-all-comments'
 =render partial: 'admin/comments/comment_template'
 :javascript
   App.init = function(){

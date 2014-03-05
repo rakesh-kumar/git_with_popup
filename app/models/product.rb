@@ -51,7 +51,7 @@ class Product < ActiveRecord::Base
     if self.options.empty?
       option_name = KeyValues::Product::Option.first.name
       self.options.build name: option_name
-      self.variants.first.option1 = "默认#{option_name}"
+      self.variants.first.option1 = "Default#{option_name}"
     end
   end
 

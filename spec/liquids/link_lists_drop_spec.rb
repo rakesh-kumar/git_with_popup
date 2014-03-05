@@ -19,7 +19,7 @@ describe LinkListsDrop do
 
       it 'should get links title' do
         variant = "{% for link in linklists.main-menu.links %}<span>{{ link.title }}</span>{% endfor %}"
-        result = "<span>首页</span><span>商品列表</span><span>关于我们</span>"
+        result = "<span>首页</span><span>商品列表</span><span>商品列表</span>"
         liquid(variant).should eql result
       end
 

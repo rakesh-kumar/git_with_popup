@@ -56,11 +56,11 @@ App.Views.Signup.Index = Backbone.View.extend
         else # 有错误
           data = data.errors
           errors = {}
-          errors['shop.domains.host'] = "商店Web地址已经存在" if data['shop.domains.host']?
-          errors['email'] = "Email地址已经注册" if data.email?
-          errors['password'] = "密码与确认密码需要保持一致，长度不能少于6个字符" if data.password?
-          errors['verify_code'] = "手机校验码不正确" if data.verify_code?
-          errors['shop.address'] = "地址 #{data['shop.address']}" if data['shop.address']?
+          errors['shop.domains.host'] = "Store Web address already exists" if data['shop.domains.host']?
+          errors['email'] = "Email address is already registered" if data.email?
+          errors['password'] = "Password and Confirm Password need to be consistent，Length can not be less than six characters" if data.password?
+          errors['verify_code'] = "Mobile checksum is incorrect" if data.verify_code?
+          errors['shop.address'] = "Address #{data['shop.address']}" if data['shop.address']?
           self.message errors
           self.reset()
     else # 校验不通过
@@ -84,9 +84,9 @@ App.Views.Signup.Index = Backbone.View.extend
               $("##{key}").children('option:first').text().substr(2,2)
             else #'text'
               $("label[for='#{key}']").text()
-          errors[key] = "#{text} 不能为空"
+          errors[key] = "#{text} Can not be empty"
       if $('#shop_terms_and_conditions').attr('checked') isnt 'checked'
-        errors['shop_terms_and_conditions'] = "请您先阅读并接受服务条款"
+        errors['shop_terms_and_conditions'] = "Please read and accept the terms of service"
     this.message errors
     _.isEmpty errors
 

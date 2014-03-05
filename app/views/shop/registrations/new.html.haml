@@ -1,7 +1,7 @@
 #template
   #customer_regist
     .template_header
-      %h2.title 用户注册
+      %h2.title Register
     =form_for resource,as: resource_name, url: customer_registration_path do |f|
       #login_name.clearfix.large_form
         =f.label :name
@@ -16,7 +16,7 @@
         =f.label :password_confirmation
         =f.password_field :password_confirmation,class: 'large'
       .action_bottom
-        =f.submit '注册', class:'btn'
+        =f.submit 'Registration', class:'btn'
         %span.note
           =w('or')
-          %a(href="#{shop.primary_domain.url}#{request.port_string}") 取消，然后返回商店
+          %a(href="#{shop.primary_domain.url}#{request.port_string}") Cancel，And then return to the store

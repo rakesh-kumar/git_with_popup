@@ -74,7 +74,7 @@ class Admin::AccountController < Admin::AppController
       @consumption = Consumption.find_by_token(pay_return.order)
       if @consumption
         @consumption.pay! unless @consumption.status # 要支持重复请求
-        flash[:notice] = "支付成功!"
+        flash[:notice] = "Successful payment!"
       else
         raise pay_return.message
       end
@@ -95,7 +95,7 @@ class Admin::AccountController < Admin::AppController
     end
     shop.update_attributes access_enabled: false
     Resque.enqueue_in(90.days, DeleteShop, shop.id)
-    flash[:alert] = "您的商店已成功删除！"
+    flash[:alert] = "Your shop has been deleted!"
     redirect_to home_message_path
   end
 

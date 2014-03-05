@@ -1,10 +1,10 @@
 =form_for shop  do |f|
   .group-fields
-    %h3.light 政策
+    %h3.light Policy
     .pgroup{:style => "margin:0"}
-      %h4 退款，隐私以及服务条款
+      %h4 Refund，Privacy and Terms of Service
       %p.note.st.ssb
-        你可能希望需要将您商店的退款，隐私以及服务条款链接到您商店的付款页面.在对应的地方包含这些纯文本信息
+        You may want to need to store your refund，Privacy and terms of service link to your store's payment page.These locations contain the corresponding plaintext message
         %br/
       =f.fields_for :policies,:title do |v|
         %h4=v.object.title

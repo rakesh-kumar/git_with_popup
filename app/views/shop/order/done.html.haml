@@ -2,13 +2,13 @@
   #logo
     / css hook for logos
   %h1#tagline
-    %span.title= link_to '谢谢您', show_shop_url
-    %span.subtitle 您的订单已经完成支付.
+    %span.title= link_to 'Thank You', show_shop_url
+    %span.subtitle Your order has been completed payment.
 #main
   #content
     .group
       %p
-        您的订单号为：
+        Your order number is：
         %strong=@order.name
       %p
-        =link_to '返回商店', @order.shop.primary_domain.url
+        =link_to 'Return to shop', @order.shop.primary_domain.url

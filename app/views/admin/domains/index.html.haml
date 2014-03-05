@@ -1,4 +1,4 @@
-%h2#title DNS &amp; 域名
+%h2#title DNS &amp; Domain name
 =render "shared/noscript"
 =render "shared/upgrade_ie"
 #action-links
@@ -6,8 +6,8 @@
 .pgroup.st.domain-page(style="margin-bottom: 5px")
   -if shop.plan_free?
     %p
-      免费版无法绑定顶级域名，使用此功能前请先
-      =link_to '升级版本', account_index_path
+      Free top-level domains can not bind，Before using this function, please
+      =link_to 'Upgraded version', account_index_path
       。
   -else
     =render "index"

@@ -1,19 +1,19 @@
-尊敬的{{customer.name}}： 
+Dear{{customer.name}}： 
 
-   您好,恭喜您已经在{{shop_name}}订购商品成功!
+   Hello,Congratulations, you've{{shop_name}}Order product success!
 
-   订单号：{{order_number}}。{% if requires_shipping %} 
+   Order Number：{{order_number}}。{% if requires_shipping %} 
 
-   收货人信息： {{ shipping_address.name}}： 
+   Consignee information： {{ shipping_address.name}}： 
               {{ shipping_address.province}} {{ shipping_address.city}} {{ shipping_address.district}} {{ shipping_address.address1}} {{ shipping_address.phone}} {% endif %}
 
-   订单商品明细： {% for line in line_items %} 
-              {{ line.quantity }} x {{ line.title }}  单价： {{ line.price | money }} {% endfor %}
-   订单总额： {{ total_price | money_with_currency }}  | 商品总额： {{ subtotal_price | money_with_currency }} {% if requires_shipping %} | 发货方式及金额： {{ shipping_name }} - {{ shipping_rate_price | money_with_currency }} {% endif %}
+   Order Product Details： {% for line in line_items %} 
+              {{ line.quantity }} x {{ line.title }}  Unit price： {{ line.price | money }} {% endfor %}
+   Total order： {{ total_price | money_with_currency }}  | Total merchandise： {{ subtotal_price | money_with_currency }} {% if requires_shipping %} | Way of delivery and the amount of： {{ shipping_name }} - {{ shipping_rate_price | money_with_currency }} {% endif %}
    {% unless total_price == 0 %}
-   付款方式： {{ gateway }}   
+   Payment： {{ gateway }}   
    
-   如果您尚未付款，请您尽快付款。您可以通过以下链接地址(复制到浏览器地址栏)返回订单付款页面：
+   If you have not paid，Please pay as soon as possible。You can be the link address(Copy into your browser address bar) to return order payment page：
    {{ pay_url }} {% endunless %}
 
- 欢迎您再次到{{shop_name}}购物，祝您购物愉快！
+ Welcome to the re-{{shop_name}}Shopping，I wish you a happy shopping！

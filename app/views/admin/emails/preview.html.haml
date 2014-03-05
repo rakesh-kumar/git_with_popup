@@ -3,7 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
   %body
-    %p==主题:#{@subject}
+    %p==Theme:#{@subject}
     %pre
       %code
         = params[:view_type] == 'html' ? raw(@body) : @body

@@ -3,7 +3,7 @@
 #=require "ace/mode-html"
 #=require "ace/mode-css"
 #=require "ace/mode-javascript"
-# 弹出窗口
+# Pop-up window
 App.Views.Asset.Index.Edit = Backbone.View.extend
   el: '#asset-details'
 

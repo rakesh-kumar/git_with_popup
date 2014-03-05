@@ -58,11 +58,11 @@ class Admin::EmailsController < Admin::AppController
       id: 9999,
       email: "mahb45@gmail.com",
       shipping_address_attributes: {
-        name: '马海波',
+        name: 'Ma Haibo',
         province: '440000',
         city: '440300',
         district: '440305',
-        address1: '科技园南区6栋311',
+        address1: 'Science and Technology Park in Southern District 6 311',
         zip: '518057',
         phone: '13928452888'
       }

@@ -19,7 +19,7 @@ App.Views.Signup.Theme.Show = Backbone.View.extend
     this.$('.preview').fancybox
       titlePosition: 'over'
       titleFormat: (titleStr) ->
-        titleBtn = $("<a/>").addClass("btn next").html("选择此主题")
+        titleBtn = $("<a/>").addClass("btn next").html("Select this topic")
         titleBtn.click ->
           self.active()
           $.fancybox.close()

@@ -9,13 +9,13 @@
   %form(action="/admin/links/add_list" onsubmit="return false")
     .group-fields
       %p
-        %label(for="list_title") 标题
+        %label(for="list_title") Title
       %p.ssb
         %input#list_title.long(name="title" type="text" value="")
     .group-actions
-      %input.btn(name="commit" type="submit" value="保存")
-      或者
-      %a.cancel(href="#") 取消
+      %input.btn(name="commit" type="submit" value="Save")
+      Or
+      %a.cancel(href="#") Cancel
 #link-lists
   %h3.st.sb Link List
   %p.note.ssb
@@ -30,7 +30,7 @@
   / begin: default Link List items
   .default_container_link_list
     .clearfix
-      %h4.fl.sr.sb(title="固定链接: {{{handle}}}") {{{title}}}
+      %h4.fl.sr.sb(title="Permalink: {{{handle}}}") {{{title}}}
       %span.fl(style="position: relative; font-size: 11px; ")
         %a.editlist-action(href="#") Modify the link list
       {{#unless system_default}}
@@ -45,23 +45,23 @@
   / begin: add new Link
   .add_form_link_container.group-actions.unattached
     .add-action-link
-      %a.btn(href="#") 新增链接
+      %a.btn(href="#") Add a link
     .link(style="display:none;")
       %form(action="#" onsubmit="return false")
         .clearfix.sb
           .add-link-title.link-col
-            %span.add-link-header 新链接的名称
+            %span.add-link-header Name of the new link
             %input.medium(name="title" type="text")
           .add-link-linksto.link-col
-            %span.add-link-header 链接至
+            %span.add-link-header Links to
             %select.selector(name="link_type")
               =options_for_select link_types
             %select.subject(name="subject_handle")
             %input.medium.subject_params.linkform-hint(data-hint="Filter by tags (comma separated)" name="subject_params" type="text" style="display:none")
             %input.long.subject_http.linkform-hint(data-hint="http://shopqi.com" name="url" type="text" style="display:none")
-        %input.btn(name="commit" type="submit" value="新增链接")
-        或者
-        %a.cancel(href="#") 取消
+        %input.btn(name="commit" type="submit" value="Add a link")
+        Or
+        %a.cancel(href="#") Cancel
         / .group-actions
   / begin: edit Link List items
   .edit_form_link_container(style="display:none;")
@@ -76,31 +76,31 @@
       .group-fields
         .link-list-edit-header
           %dl.padding.nst.nsb.nsl.nsr
-            %dt.nst 名称
+            %dt.nst Name
             %dd
               %input.big.sb(name="link_list[title]" size="30" type="text" value="{{{title}}}")
             %dt
-              固定链接
+              Permalink
               %span.note
                 (
-                %a(href="#{wiki_url_with_port}/Handle" target="_blank")> 这是什么?
+                %a(href="#{wiki_url_with_port}/Handle" target="_blank")> What's this?
                 )
             %dd
               {{#if system_default}}
               %input(disabled="disabled" name="link_list[handle]" size="30" type="text" value="{{{handle}}}")
-              %span.hint 默认链接列表的固定链接是不能修改的
+              %span.hint The default list of links fixed link is not modified
               {{else}}
               %input(name="link_list[handle]" size="30" type="text" value="{{{handle}}}")
               {{/if}}
       .faux-table-header
-        %span 链接名称
-        %span 链接至
+        %span Link Name
+        %span Links to
       / edit-link
       %ul.editing-link-list
       .group-actions
-        %input.btn(name="commit" type="submit" value="保存")
-        或者
-        %a.cancel(href="#") 取消
+        %input.btn(name="commit" type="submit" value="Save")
+        Or
+        %a.cancel(href="#") Cancel
 %script(id="edit-link-item" type="text/x-handlebars-template")
   %a.delete.fr(href="#")=image_tag 'admin/icons/trash.gif'
   %input(name="id" type="hidden" value="{{{id}}}")
@@ -108,7 +108,7 @@
   %select.selector.sl(name="link_type" value="{{{link_type}}}")
     =options_for_select link_types
   %select.subject(name="subject_handle" style="display: none" value="{{{subject_handle}}}")
-  %input.medium.subject_params.linkform-hint.hide(data-hint="根据标签过滤(以逗号分隔)" name="subject_params" size="30" type="text" value="{{{subject_params}}}")
+  %input.medium.subject_params.linkform-hint.hide(data-hint="According to the label filter(Separated by commas)" name="subject_params" size="30" type="text" value="{{{subject_params}}}")
   %input.long.subject_http.linkform-hint.hide(data-hint="http://shopqi.com" name="url" size="30" type="text" value="{{{url}}}")
 %script(id="selector-blog-item" type="text/x-handlebars-template")
   =options_for_select blog_types

@@ -1,20 +1,20 @@
-%h2#title 快递
+%h2#title Express delivery
 #action-links
   %ul
     %li.no-icon=link_to w('edit'),'#', onclick: "TogglePair(['shipping-summary', 'shipping-form']); return false;"
-    %li.no-icon=link_to '返回', shippings_path
+    %li.no-icon=link_to 'Return', shippings_path
 #shipping-details.box2
-  %h3  编辑基于重量的运费
+  %h3  Editing based on the weight of freight
   #shipping-summary
     %dl
       %dt
         %label Name
       %dd=weight_based_shipping_rate.name
       %dt
-        %label 重量
+        %label Weight
       %dd== 从 #{weight_based_shipping_rate.weight_low}kg 到 #{weight_based_shipping_rate.weight_high}kg
       %dt
-        %label 运费
+        %label Freight
       %dd== ¥#{weight_based_shipping_rate.price} 元
   #shipping-form{:style => "display:none"}
     =form_for [shipping, weight_based_shipping_rate] do |f|
@@ -22,16 +22,16 @@
       %dl
         %dt
           =f.label :name
-          %span.note 例如：顺丰快递，EMS 等等
+          %span.note For example：SF Express，EMS Etc.
         %dd=f.text_field :name, maxlength: 255,size: 40, style: 'font-size: 150%'
         %dt
-          %label 重量
-          %span.note 仅当订单物品重量在此范围之类才生效
+          %label Weight
+          %span.note Only when the weight of the order items in the class this range takes effect
         %dd
           从
           =f.text_field :weight_low,size: 5,class: 'r'
           %strong kg
-          到
+          To
           =f.text_field :weight_high,size: 5,class: 'r'
           %strong kg
         %dt=f.label :price

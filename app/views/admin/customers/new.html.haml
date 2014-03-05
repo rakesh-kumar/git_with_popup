@@ -1,7 +1,7 @@
-%h2#title 新增顾客
+%h2#title New Customers
 #action-links
   %ul
-    %li.no-icon=link_to "返回", customers_path
+    %li.no-icon=link_to "Return", customers_path
 =render "shared/noscript"
 =render "shared/upgrade_ie"
 =message_block on: customer
@@ -20,7 +20,7 @@
             %br/
             %span#preview_customer_phone
       %tr#address_preview
-        %td.attribute 默认地址
+        %td.attribute The default address
         %td.value
           %span#preview_customer_company
           %span#preview_customer_province
@@ -34,7 +34,7 @@
           %span#preview_customer_zip
 #new-customer-screen.customer.col-8.last
   =form_for customer, validate: false do |f|
-    .section-header(style="margin-top:0;") 顾客信息
+    .section-header(style="margin-top:0;") Customer Information
     .customer-group.white.clearfix
       .pb.clearfix
         .fl
@@ -47,8 +47,8 @@
     #customer-addresses
     %div
       .section-header
-        地址信息
-        %span.instruction 非必填
+        Address Information
+        %span.instruction Optional
       .customer-group.white
         =f.fields_for :addresses, child_index: '' do |a|
           .pb.clearfix
@@ -60,10 +60,10 @@
               =a.text_field :phone, class: :phone
           .pb.clearfix.region
             .fl(style="margin-right:10px")
-              %label(for="customer_addresses_0_province") 地区
-              =a.select :province, District.list, {include_blank: '--省份--'}, style: 'width: 106px'
-              =a.select :city, District.list(customer.addresses.first.province), {include_blank: '--城市--'}, style: 'width: 106px'
-              =a.select :district, District.list(customer.addresses.first.city), {include_blank: '--地区--'}, style: 'width: 106px'
+              %label(for="customer_addresses_0_province") Area
+              =a.select :province, District.list, {include_blank: '- State -'}, style: 'width: 106px'
+              =a.select :city, District.list(customer.addresses.first.province), {include_blank: '- City -'}, style: 'width: 106px'
+              =a.select :district, District.list(customer.addresses.first.city), {include_blank: '- Area -'}, style: 'width: 106px'
           .pb.clearfix
             .fl
               =a.label :address1
@@ -76,27 +76,27 @@
           .fl=f.check_box :accepts_marketing
           .fl=f.label :accepts_marketing
     .section-header
-      备注
-      %span.instruction 非必填
+      Remark
+      %span.instruction Optional
     .customer-group.white=f.text_area :note, size: '40x20'
     .section-header
-      标签
-      %span.instruction 非必填
+      Tag
+      %span.instruction Optional
     .customer-group.white.ssb
-      %p.note.sb 多个关键词之间用逗号(,)隔开。
+      %p.note.sb Multiple keywords with commas (,) separated。
       =f.text_field :tags_text, id: :tags_text
       -if tags.empty?
-        %p.note 例如: VIP
+        %p.note For example: VIP
       -else
-        %p.note(style="clear: both") 最近使用过的标签，单击增加。
+        %p.note(style="clear: both") Recently used tags，Click to increase。
         %ul#tag-list.tag-list.clearfix
           -tags.each do |tag|
             %li
               %a(href="#")=tag.name
     .group-actions
-      %input.btn(name="commit" type="submit" value="保存")
-      或者
-      =link_to "取消", customers_path
+      %input.btn(name="commit" type="submit" value="Save")
+      Or
+      =link_to "Cancel", customers_path
 
 :javascript
   new App.Views.Customer.New.Index();
