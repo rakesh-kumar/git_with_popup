@@ -1,0 +1,408 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ar:
+  activerecord:
+    models:
+      theme: Theme
+      user: المستعمل
+      shop: Shop
+      product: سلعة
+      custom_collection: مجموعة
+      blog: بلوق
+      article: مقالة
+      page: صفحة
+      order: أوامر
+      subscribe: معلومات الاشتراك
+      payment: معلومات الدفع
+      shop_domain: Shops domain
+    attributes:
+      user:
+        name: Full name
+        phone: Phone
+        avatar_image: Picture information
+        bio: Introduction
+        email: Mailbox
+        current_password: كلمة المرور الحالية
+        password: Password
+        password_confirmation: Confirm password
+        remember_me: Remember me
+        shop:
+          permanent_domain: أسماء النطاقات اثنين
+          name: اسم المحل
+      weight_based_shipping_rate:
+        name: اسم
+        price: شحن
+      payment:
+        payment_type: أنواع الدفع
+        remark: كلام
+        key: الصفقة كود الأمن
+        account: الحساب (الحالة أو شريك تجاري رقم)
+        email: حساب باي بال الدخول (عنوان البريد الإلكتروني أو رقم الهاتف)
+        service: واجهة نوع
+        number: لا.
+        apply: تطبيق
+        name: Mode
+
+      price_based_shipping_rate:
+        name: اسم
+        price: شحن
+      product:
+        title: Title
+        body_html: Description
+        product_type: Product Type
+        vendor: Commodity producers
+        variants:
+          price: Price
+          weight: الوزن
+          base: المعرف الفريد البضائع
+          compare_at_price: سوق
+          sku: المعرف الفريد البضائع
+          requires_shipping: عنوان متطلبات الشحن
+        photos:
+          product_image: صورة المنتج
+      photo:
+        product_image: صورة المنتج
+      product_variant:
+        price: Price
+        weight: Weight
+        compare_at_price: Market
+        sku: المعرف الفريد البضائع
+        requires_shipping: Requirements shipping address
+        inventory_quantity: Existing stocks?
+      product_option:
+        name: الخيار اسم
+      page:
+        title: Title
+        description: Description
+      theme:
+        name: Name
+        handle: Name handle
+        style: Style
+        style_handle: Style handle
+        role: Role
+        price: Price
+        color: Color
+        desc: Description
+        shop: demoShop subdomain
+        site: On the official website
+        author: Author
+        email: AuthorEmail
+        published: Whether to enable
+        position: Sort numbers
+        file: Theme compressed file
+        main: Topic List Screenshot
+        collection: Details of the collection theme screenshot
+        product: Theme Details Product Screenshot
+      shop:
+        permanent_domain: أسماء النطاقات اثنين
+        name: Shop Name
+        plan: Type
+        zip_code: Zip code
+        keywords: الكلمة
+        phone: Phone
+        theme: Theme
+        deadline: Expiry Date
+        password: كلمة السر
+        email: Mailbox
+        address: Address
+        order_number_format: Order Number format
+        province: Province
+        city: City
+        district: Area
+        password: Password
+        password_enabled: Store password enabled
+        password_message: Message
+        customer_accounts: Customer payment settings
+        guided: The task is complete guide
+        created_at: Created
+        updated_at: Update
+      subscribe:
+        address: عنوان البريد الإلكتروني
+      blog:
+        title: Title
+      article:
+        title: Title
+        author: Author
+        body_html: Content
+        tags: Tag
+      custom_collection:
+        title: Title
+        body_html: Description
+      smart_collection:
+        title: لقب
+        body_html: وصف
+      order:
+        email: عنوان البريد الإلكتروني
+      order_billing_address:
+        name: الاسم الكامل
+        company: شركة
+        country_code: بلد
+        province: مقاطعة
+        city: مدينة
+        address1: عنوان
+        address2: عنوان المستمر
+        zip: الرمز البريدي
+        phone: هاتف
+      order_shipping_address:
+        name: Full name
+        company: Company
+        country_code: 国家
+        province: Province
+        city: 城市
+        address1: Address
+        address2: 地址 续
+        zip: Zip Code
+        phone: Phone
+      customer:
+        name: Full name
+        email: Mailbox
+        password: 密码
+        password_confirmation: 确认密码
+        accepts_marketing: Receive e-mail marketing
+      customer_address:
+        name: 姓名
+        company: Company
+        country_code: 国家
+        phone: Phone
+        address1: Address
+        zip: Zip Code
+    errors:
+      template:
+        header: ""
+        body: ""
+      messages:
+        blank: Can not be empty
+        taken: 已经存在
+        too_short: طول لا يمكن أن يكون أقل من٪ {عدد} حرفا.
+        too_long: 长度不能超过%{count}个字符
+        not_a_number: 只能是数字
+        invalid: 必须是有效的
+        at_least_one: 至少有一项必填
+        select: 尚未选择
+        confirmation: 和确认密码需一致
+      models:
+        user:
+          attributes:
+            email:
+              blank: لا يمكن أن تكون فارغة
+              taken: 已被占用
+              invalid: 格式不正确
+            password:
+              blank: 不能为空
+              confirmation: 和确认密码需一致
+        shop:
+          attributes:
+            permanent_domain:
+              blank: 不能为空
+              too_short: 必须是3位以上,20位以下的字母组合
+              invalid: 非法字符，只能是数字和字母组合
+              taken: 已被占用
+            name:
+              blank: 不能为空
+            storage:
+              full: 商店容量已经用完，详情请进入[帐号]页面查看
+        product:
+          attributes:
+            title:
+              blank: 不能为空
+
+  activemodel:
+    attributes:
+      contact:
+        name: 姓名
+        email: Email地址
+        body: 内容
+    errors:
+      messages:
+        blank: 不能为空
+
+  doorkeeper:
+    errors:
+      messages:
+        invalid_redirect_uri: 客户端请求的 redirect_uri 与服务端设定值不匹配
+    scopes:
+      read_products: 获取商品信息
+      write_products: 更新商品信息
+      read_orders: 获取订单信息
+      write_orders: 更新订单信息
+
+  # flash message
+  flash:
+    actions:
+      create:
+        notice: "新增成功!"
+        alert: "新增失败!"
+      update:
+        notice: "修改成功!"
+        alert: "修改失败!"
+      destroy:
+        notice: "删除成功!"
+        alert: "删除失败!"
+
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b%d日"
+      long: "%Y年%b%d日"
+    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+    abbr_day_names: [日, 一, 二, 三, 四, 五, 六]
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
+    abbr_month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+    order:
+      - :year
+      - :month
+      - :day
+
+  time:
+    formats:
+      default: "%Y年%b%d日 %A %H:%M:%S %Z"
+      short: "%b%d日 %H:%M"
+      long: "%Y年%b%d日 %H:%M"
+      serial: "%Y年%b%d日"
+    am: "上午"
+    pm: "下午"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "半分钟"
+      less_than_x_seconds:
+        one: "不到一秒"
+        other: "不到 %{count} 秒"
+      x_seconds:
+        one: "一秒"
+        other: "%{count} 秒"
+      less_than_x_minutes:
+        one: "不到一分钟"
+        other: "不到 %{count} 分钟"
+      x_minutes:
+        one: "一分钟"
+        other: "%{count} 分钟前"
+      about_x_hours:
+        one: "大约一小时前"
+        other: "大约 %{count} 小时前"
+      x_days:
+        one: "一天前"
+        other: "%{count} 天前"
+      about_x_months:
+        one: "大约一个月前"
+        other: "大约 %{count} 个月前"
+      x_months:
+        one: "一个月前"
+        other: "%{count} 个月前"
+      about_x_years:
+        one: "大约一年前"
+        other: "大约 %{count} 年前"
+      over_x_years:
+        one: "一年多"
+        other: "%{count} 年多"
+      almost_x_years:
+        one:   "接近一年"
+        other: "接近 %{count} 年"
+    prompts:
+      year:   "年"
+      month:  "月"
+      day:    "日"
+      hour:   "时"
+      minute: "分"
+      second: "秒"
+
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+    currency:
+      format:
+        format: "%u %n"
+        unit: "CN¥"
+        separator: "."
+        delimiter: ","
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: false
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          # 10^-21 zepto, 10^-24 yocto
+          atto: "渺"  # 10^-18
+          femto: "飞" # 10^-15 毫微微
+          pico: "漠"  # 10^-12 微微
+          nano: "奈"  # 10^-9 毫微
+          micro: "微" # 10^-6
+          mili: "毫"  # 10^-3 milli
+          centi: "厘" # 10^-2
+          deci: "分"  # 10^-1
+          unit: ""
+          ten:
+            one: "十"
+            other: "十"  # 10^1
+          hundred: "百"  # 10^2
+          thousand: "千" # 10^3 kilo
+          million: "百万" # 10^6 mega
+          billion: "十亿" # 10^9 giga
+          trillion: "兆" # 10^12 tera
+          quadrillion: "千兆" # 10^15 peta
+          # 10^18 exa, 10^21 zetta, 10^24 yotta
+
+  helpers:
+    select:
+      prompt: "请选择"
+    submit:
+      create: "新增%{model}"
+      update: "更新%{model}"
+      submit: "储存%{model}"
+
+  #页面中的文字
+  web:
+    save: Save
+    cancel: Cancel
+    back: 返回
+    list: 列表
+    edit: Editor
+    new: 新增
+    show: 查看
+    delete: 删除
+    confirm: 您是否确定?
+    created_at: 创建于
+    all: 全部
+    design: 管理网店布局
+    show: 查看网店
+    profile: 个人资料
+    settings: 设置
+    logout: 退出
+    optional: (非必填)
+    or: Or
+    published: 发布
+    hidden: 隐藏
+    upgrade: Upgrade
+
+#Registration
+  store_name: "تعطي متجرك اسم"
+  registration: "تسجيل"
+  creating_account_error: "حدث الخطأ التالي أثناء إنشاء حساب "
+  web_address: "عنوان ويب من متجر ShopQi الخاص"
