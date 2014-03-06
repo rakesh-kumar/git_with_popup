@@ -33,6 +33,7 @@
           %a(href="/")
           %a.logo-shopqi(href="/")=image_tag 'logos/shopqi_bag.gif'
           %ul#nav-primary
+
             %li=link_to 'Home', '/', class: 'top-nav'
             %li(class=@current_tour)=link_to 'Features Demonstration', tour_intro_path, class: 'top-nav'
             -#
@@ -40,6 +41,9 @@
                 %a(href="/examples/") Success Stories
             %li(class=@current_faq)=link_to 'Frequently Asked Questions', faq_path, class: 'top-nav'
             %li(class=@current_signup)=link_to 'Registration', services_signup_path, class: 'top-nav'
+            %li=link_to_unless_current 'العربية' , :locale => 'ar' 
+            %li=link_to_unless_current 'English' , :locale => 'en'
+
             %li.sub-nav
               %ul.utilities
                 %li=link_to 'Theme Appearance', theme_store_url_with_port

@@ -3,3 +3,8 @@
 
 en:
   hello: "Hello world"
+#registration  
+  store_name: "Give your store a name"
+  registration: "Registration"
+  creating_account_error: "The following error occurred while creating the account"
+  web_address: "Web address of your ShopQi store"

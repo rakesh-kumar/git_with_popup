@@ -2,20 +2,25 @@
 
 #banner
   .content
-    %h1(style="font-family:hevletica arial sans-serif") Registration
+    %h1(style="font-family:hevletica arial sans-serif") 
+      =t :registration
   / .content
 / #banner
 .content.subpage
+  .registration
   #signup
     %form#shop_new.shop_new(action="#" method="post" onsubmit="return false")
       #info
         #errorExplanation(style='display: none')
-          %h3 The following error occurred while creating the account:
+          %h3 
+            =t :creating_account_error 
       #top-section.section
-        %h3 Give your store a name
+        %h3 
+          =t :store_name
         %p
           %input#shop_name(name="shop[name]" size="22" style="font-size: 20px; width: 400px" type="text")/
-        %label#subdomain-label(for="domain_subdomain") Web address of your ShopQi store
+        %label#subdomain-label(for="domain_subdomain") 
+          =t :web_address
         #domain-field
           %label#protocol(for="domain_subdomain") http://
           %input#domain_subdomain.large(name="domain[subdomain]" size="22" type="text")/
