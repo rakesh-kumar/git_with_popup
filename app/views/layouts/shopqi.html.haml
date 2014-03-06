@@ -43,6 +43,7 @@
             %li(class=@current_signup)=link_to 'Registration', services_signup_path, class: 'top-nav'
             %li=link_to_unless_current 'العربية' , :locale => 'ar' 
             %li=link_to_unless_current 'English' , :locale => 'en'
+            %li=link_to_unless_current 'português' , :locale => 'po'
 
             %li.sub-nav
               %ul.utilities

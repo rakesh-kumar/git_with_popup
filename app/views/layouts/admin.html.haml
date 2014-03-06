@@ -31,7 +31,9 @@
         %ul
           %li(style="float: left; margin-left: 60px; position: relative;")=link_to show_shop_url, show_shop_url
           %li=link_to_unless_current 'العربية' , :locale => 'ar' 
-          %li=link_to_unless_current 'English' , :locale => 'en'          
+          %li=link_to_unless_current 'English' , :locale => 'en'  
+          %li=link_to_unless_current 'português' , :locale => 'po'
+                 
           %li=link_to "Sign Out", destroy_user_session_path
           %li
             %a(href="/admin/account") Account number
