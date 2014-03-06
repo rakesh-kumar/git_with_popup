@@ -227,40 +227,6 @@ ar:
       read_orders: الوصول إلى معلومات النظام
       write_orders: تحديث ترتيب المعلومات
 
-  # flash message
-  flash:
-    actions:
-      create:
-        notice: "نجاح جديد!"
-        alert: "فشل إضافة!"
-      update:
-        notice: "تعديل بنجاح!"
-        alert: "فشل التعديل!"
-      destroy:
-        notice: "حذف بنجاح!"
-        alert: "فشل حذف!"
-
-  date:
-    formats:
-      default: ! '%Y-%m-%d'
-      long: ! '%B %e, '%Y'
-      short: ! '%e %b'
-    day_names: [الأحد, الإثنين, الثلاثاء, الأربعاء, الخميس, الجمعة, السبت]
-    abbr_day_names: [الأحد, الإثنين, الثلاثاء, الأربعاء, الخميس, الجمعة, السبت]
-    month_names: [~, يناير, فبراير, مارس, ابريل, مايو, يونيو, يوليو, اغسطس, سبتمبر, اكتوبر, نوفمبر, ديسمبر]
-    abbr_month_names: [~, يناير, فبراير, مارس, ابريل, مايو, يونيو, يوليو, اغسطس, سبتمبر, اكتوبر, نوفمبر, ديسمبر]
-      - :year
-      - :month
-      - :day
-
-  time:
-    formats:
-      default: ! '%a %b %d %H:%M:%S %Z %Y'
-      long: ! "%B %d, '%Y %H:%M'
-      short: ! '%d %b %H:%M'
-    am: "صباحا"
-    pm: "مساءا"
-
   #页面中的文字
   web:
     save: Save
