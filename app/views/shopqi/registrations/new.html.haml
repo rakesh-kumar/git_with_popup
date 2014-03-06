@@ -36,64 +36,44 @@
           If you have like
           %strong www.example.com
           Such top-level domain，You can wait to bind it in the background management
-        #current-theme(style="display:none")
-          =image_tag 'themes/themestore.jpg', id: 'theme-image'
-          %p
-            %a(href="#") Select another topic
-      #themes-section.section
-        %h3 Choose a theme Appearance
-        %p#theme-hint.note
-          Uncertainty choose which one? Can choose one or
-          = succeed "," do
-            %a(href="#") Skip this step
-          You can then modify it later point.
-        %ul#initial-themes.themes
-        %ul#more-themes.themes.clearfix(style="display: none")
-          %li#themestore.theme
-            =link_to image_tag('themes/themestore.jpg', style: "width: 198px; height: 254px; z-index: 2"), theme_store_url_with_port
-        %input#selected-theme(name="shop[themes_attributes][][theme_id]" type="hidden" value="")
-        %a#show-more-themes.box.clear(href="#") Show more topics
-      .section
-        %h3(style="margin-bottom: 24px") About You
-        .sidebox
-          %h4
-            Other Information
-            %span.hint Optional
-          -#
-            %p.note Let us know more，In order to provide you with a better service.
-          %label(for="signup_source") Where did you learn ShopQi?
-          %select#signup_source(name="shop[signup_source]")
-            =options_for_select signup_source_options
+        
+        %h3(style="margin-bottom: 24px") 
+          =t :about_you
         .clear
-          %label.inlined(for="user_name") Full name
+          %label.inlined(for="user_name") 
+            =t :full_name
           %input#user_name.input-text.full(name="user[name]" size="18" type="text")
-        .clearfix.inline-form-select.region
-          =select_tag "shop[province]", options_for_select(District.list), {prompt: '- Province -', style: 'width: 111px'}
-          =select_tag "shop[city]", nil, {prompt: '- City -', style: 'width: 111px'}
-          =select_tag "shop[district]", nil, {prompt: '- Area -', style: 'width: 111px'}
-          %em#shop_province_message(style="display: none; color: #fff")
+        
         .multi-input.clearfix
           %span
-            %label.inlined(for="shop_address") Address
+            %label.inlined(for="shop_address") 
+              =t :address
             %input#shop_address.input-text.large(name="shop[address]" size="20" type="text")
           %span
-            %label.inlined(for="shop_zip_code") Zip Code
+            %label.inlined(for="shop_zip_code") 
+              =t :zip_code
             %input#shop_zip_code.input-text.small(name="shop[zip_code]" size="16" type="text")/
         %span
-          %label.inlined(for="shop_phone") Phone
+          %label.inlined(for="shop_phone") 
+            =t :phone
           %input#shop_phone.input-text.large(name="shop[phone]" size="18" type="text")/
-        %h4 Your login information
-        %label.inlined(for="user_email") Email Address
+        %h4 
+          =t :login_information
+        %label.inlined(for="user_email") 
+          =t :email_address
         %input#user_email.input-text.large(name="user[email]" size="26" type="text")/
         .toggle
-          %label.inlined(for="user_password") Password
+          %label.inlined(for="user_password") 
+            =t :password
           %input#user_password.input-text.large(autocomplete="off" name="user[password]" size="26" type="password" value="")/
         .toggle
-          %label.inlined(for="user_password_confirmation") Confirm password
+          %label.inlined(for="user_password_confirmation") 
+            =t :confirm_pass
           %input#user_password_confirmation.input-text.large(autocomplete="off" name="user[password_confirmation]" size="26" type="password" value="")/
         .multi-input.clearfix
           %span
-            %label.inlined(for="user_phone") Mobile
+            %label.inlined(for="user_phone") 
+              =t :mobile
             %input#user_phone.input-text.large(name="user[phone]" size="18" type="text")
           %span#user_phone_hint.hint(style='display:none') Please enter a valid mobile number
         /   -if is_registered?
@@ -104,14 +84,16 @@
         /     %label.inlined(for="phone_verify_code") 手机验证码
         /     %input#phone_verify_code.input-text.large(name="verify_code" size="26" type="text")
       .block.cl
-        %h3 Terms of Service
+        %h3 
+          =t :terms
         %dl
           %dd#user-agreement
-            %p You need to agree before registration ShopQi Terms of Service.
+            %p 
+              =t :terms_agree
             %p
               %input#shop_terms_and_conditions(style="display: inline; margin-bottom: 0" type="checkbox" value="1")
               %label#terms-and-conditions-label(for="shop_terms_and_conditions")
-                I have read and agree
+                =t :notify
                 %a#agreement_link(href="/agreement" target="_blank") Terms of Service
         %p.btns(style="margin-bottom: 0; clear: left")
           %input(name="shop[plan]" type="hidden" value="#{params[:plan]}")
