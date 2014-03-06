@@ -4,6 +4,7 @@ class Admin::HomeController < Admin::AppController
   prepend_before_filter :authenticate_user!, except: [:message]
   skip_before_filter :check_shop_access_enabled, only: :message
   layout 'admin'
+  before_filter :set_locale
 
   expose(:shop) { current_user.shop }
 
@@ -98,6 +99,10 @@ class Admin::HomeController < Admin::AppController
       format.html
       format.json { render json: results_json}
     end
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale].present? 
   end
 
 end

@@ -275,3 +275,14 @@ ar:
   store_web_address: "متجر العنوان على الإنترنت"
   email_login: "البريد الإلكتروني"
   password_login: "كلمة السر"
+
+#Admin Dashboard
+  souqeen_welcome: "Souqueen مرحبا! قبل تمكين مخزن، ونحن سوف توجه لكم من خلال خطوات صغيرة الستة."  
+  next_step: "الخطوة التالية:"
+  commodity: "سلعة"
+  store_product: "متجر لديه أي منتج! تذهب"
+  product_page: "صفحة المنتج"
+  incre_first_product: "وزيادة المنتج الخاص بك أولا."
+  home_enabled_pass: "المتجر الخاص بك الرئيسية تمكين حماية كلمة السر، كلمة المرور:"
+  you_can: "يمكنك"
+  this_pass: "كلمة المرور هذه."

@@ -27,3 +27,14 @@ en:
   store_web_address: "Store Web Address"  
   email_login: "Email"
   password_login: "Password"
+
+#Admin Dashboard
+  souqeen_welcome: "Souqueen Welcome! Before you enable the store, we will guide you through the six small steps."  
+  next_step: "The next step:"
+  commodity: "Commodity"
+  store_product: "Your store has no product! Go"
+  product_page: "Product page"
+  incre_first_product: "And increase your first product."
+  home_enabled_pass: "Your Store Home enable password protection, password:"
+  you_can: "You can"
+  this_pass: "This password."
