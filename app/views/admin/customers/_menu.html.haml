@@ -1,10 +1,11 @@
-%h2#title Customer Management
+%h2#title 
+  =t :customer_management
 #action-links
   %ul
-    %li#customer=link_to "New Customer Information", new_customer_path
+    %li#customer=link_to t(:new_customer_information), new_customer_path
     -#
       %li.csv
-        %a#show_export_customers(href="#") Export Customer Information
+        %a#show_export_customers(href="#") =t :export_customer_information
       %li.csv
         %a(href="/admin/customer_imports") Importing Customer Information
 =render "shared/noscript"

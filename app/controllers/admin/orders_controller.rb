@@ -4,6 +4,7 @@ class Admin::OrdersController < Admin::AppController
   skip_before_filter :check_permission     , only: :alipay_refund_notify
   skip_before_filter :force_domain         , only: :alipay_refund_notify
   layout 'admin'
+  before_filter :set_locale
 
   expose(:shop) { current_user.shop }
   expose(:orders) { shop.orders }
@@ -113,6 +114,10 @@ class Admin::OrdersController < Admin::AppController
   def destroy
     order.destroy
     redirect_to orders_path
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale].present? 
   end
 
   begin 'from pay gateway'

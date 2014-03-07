@@ -2,6 +2,7 @@
 class Admin::ProductsController < Admin::AppController
   prepend_before_filter :authenticate_user!
   layout 'admin'
+  before_filter :set_locale
   expose(:shop) { current_user.shop }
   expose(:products) do
     if params[:search]
@@ -10,6 +11,11 @@ class Admin::ProductsController < Admin::AppController
       shop.products
     end
   end
+  
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale].present? 
+  end
+
   expose(:product)
   expose(:product_json) do
     product.to_json({

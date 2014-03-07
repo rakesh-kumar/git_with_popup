@@ -3,7 +3,8 @@
 .clearfix.ppb(style="padding-bottom:40px;")
   .col-4(style="width:242px; position:relative;")
     #customer-group-container.box2.preview-box
-      .preview Customers grouping
+      .preview 
+        =t :customers_grouping
       %ul#customer-groups
   .col-8.last(style="width:648px;")
     #order-filters
@@ -20,7 +21,8 @@
           #customer-search_filters
       #customer-search_add_filters.toggle-drop.box2(style="display:none;")
         %h3
-          %span.hint Add filter Filtered through a total order of customer information and other conditions
+          %span.hint 
+          =t :add_filter_through_total_order_of_customer 
         .clearfix
           %form#search-filter(onsubmit="return false")
             %select#search-filter_primary(name="primary-value")
@@ -49,12 +51,17 @@
           %tr#customer-search_customer
             %th.nosort(style="width: 16px")
               %input#select-all(type="checkbox" autocomplete="off")
-            %th.sortcol(data-value="last_name_sortable") Full name
+            %th.sortcol(data-value="last_name_sortable") 
+              =t :full_name
             %th &nbsp;
-            %th.sortcol(data-value="location") Address
-            %th.sortcol(data-value="total_spent" style="text-align: right; padding-right: 4px ! important; background-position: 5% center ! important;") The amount of consumption
-            %th.sortcol(data-value="customers_count") Orders
-            %th.sortcol(data-value="last_customer_date") Recent Orders
+            %th.sortcol(data-value="location") 
+              =t :address
+            %th.sortcol(data-value="total_spent" style="text-align: right; padding-right: 4px ! important; background-position: 5% center ! important;") 
+              =t :the_amount_of_consumption
+            %th.sortcol(data-value="customers_count") 
+              =t :orders
+            %th.sortcol(data-value="last_customer_date") 
+              =t :recent_orders
         %tbody#customer-table_list.ssb
       #customer-search_empty.c(style="display:none;") No customer information to meet the query criteria.
     #customer-search_pagination
@@ -62,14 +69,17 @@
 .box2.clearfix
   .fl
     %p
-      Customer accounts are
-      %strong Enable
+      =t :customer_accounts_are
+      %strong 
+        =t :enable
       And
-      %strong Optional
+      %strong 
+        =t :optional
       \.
-      %a(href="/admin/payments#customer-accounts") Modify these configurations
+      %a(href="/admin/payments#customer-accounts") 
+        =t :modify_these_configurations
   .fr
-    Showing the number of:
+    =t :showing_the_number_of_customer
     %select#customer-search_limit(style="width:60px")=options_for_select page_sizes, 50
 #display_message.display_message(style="display:none;")
 #hidden-content(style="display:none;")

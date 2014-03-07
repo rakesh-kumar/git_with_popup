@@ -2,6 +2,8 @@
 class Admin::CustomersController < Admin::AppController
   prepend_before_filter :authenticate_user!
   layout 'admin'
+  before_filter :set_locale
+
 
   expose(:shop) { current_user.shop }
   expose(:customers) { shop.customers }
@@ -102,5 +104,9 @@ class Admin::CustomersController < Admin::AppController
       methods: [ :default_address, :order, :total_spent ],
       except: [ :created_at, :updated_at ]
     )}
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale].present? 
   end
 end
