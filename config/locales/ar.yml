@@ -251,6 +251,31 @@ ar:
     hidden: 隐藏
     upgrade: Upgrade
 
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%e %b"
+      long: "%B %e, %Y"   
+
+    day_names: [الأحد, الإثنين, الثلاثاء, الأربعاء, الخميس, الجمعة, السبت]
+    abbr_day_names: [الأحد, الإثنين, الثلاثاء, الأربعاء, الخميس, الجمعة, السبت]
+    month_names: [~, يناير, فبراير, مارس, ابريل, مايو, يونيو, يوليو, اغسطس, سبتمبر, اكتوبر, نوفمبر, ديسمبر]
+    abbr_month_names: [~, يناير, فبراير, مارس, ابريل, مايو, يونيو, يوليو, اغسطس, سبتمبر, اكتوبر, نوفمبر, ديسمبر]
+
+  time:
+    formats:
+      default: "%a %b %d %H:%M:%S %Z %Y"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+      only_second: "%S"  
+      serial: "%Y年%b%d日"
+
+      datetime:
+        formats:
+        default: "%Y-%m-%dT%H:%M:%S%Z"
+    am: 'صباحا'
+    pm: 'مساءا'
+
 #Registration
   store_name: "تعطي متجرك اسم"
   registration: "تسجيل"
@@ -315,3 +340,9 @@ ar:
   customize_the_appearance: "تخصيص مظهر"
   publish_content: "نشر المحتوى"
   payment_gateway: "بوابة الدفع"
+  logistics_and_distribution: "الخدمات اللوجستية والتوزيع"
+  binding_domain: "مجال ملزمة"
+  enable_your_store: "تمكين متجرك"
+  enable_store: "تمكين متجرك"
+  add_item: "إضافة عنصر"
+  order_management: "إدارة النظام"
