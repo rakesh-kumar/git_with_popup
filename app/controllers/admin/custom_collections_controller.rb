@@ -2,7 +2,7 @@
 class Admin::CustomCollectionsController < Admin::AppController
   prepend_before_filter :authenticate_user!
   layout 'admin'
-
+  before_filter :set_locale
   expose(:custom_collections) { current_user.shop.custom_collections }
   expose(:custom_collection)
   expose(:candidate_products) { current_user.shop.products }
@@ -13,6 +13,10 @@ class Admin::CustomCollectionsController < Admin::AppController
   expose(:orders) { KeyValues::Collection::Order.options }
 
   def new
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale].present? 
   end
 
   def create

@@ -1,7 +1,9 @@
 #smart-collections.pgroup.sst
-  %h3 Intelligence collection
+  %h3 
+    =t :intelligence_collection
   -if smart_collections.empty?
-    %p.note(style="padding-left:10px") You have not added any smart collection..
+    %p.note(style="padding-left:10px") 
+    =t :you_have_not_added_any_smart_collection
   %table.collection-list
     %tbody
       -smart_collections.in_groups_of(3) do |group|

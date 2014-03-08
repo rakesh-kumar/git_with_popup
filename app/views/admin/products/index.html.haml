@@ -1,8 +1,9 @@
-%h2#title Commodity Management
+%h2#title 
+  =t :commodity_management
 #action-links
   %ul
     %li#add-prod
-      =link_to "New Product",new_product_path
+      =link_to t(:new_product),new_product_path
     -#
       %li.csv
         %a(href="#" onclick="$('export-products').toggle(); return false;") Export of goods
@@ -19,11 +20,11 @@
   %a.btn(href="/admin/products.csv") Export of goods currently displayed
   %a.btn.sl(href="/admin/product_exports.csv") Export all commodities
 #table-filters.box2.sst
-  Show
-  %a#vendor-filter-link(href="#")=search_label :vendor, 'All manufacturers'
-  And
-  %a#type-filter-link(href="#")=search_label :product_type, "All types"
-  Goods
+  =t :show
+  %a#vendor-filter-link(href="#")=search_label :vendor, t(:all_manufacturers)
+  =t :and
+  %a#type-filter-link(href="#")=search_label :product_type, t(:all_types)
+  =t :goods
   #vendor-status-select.filter-select
     %ul.dropdown.hide(style='left: -153px')
       %li
@@ -40,9 +41,11 @@
       %li.filter-show-all.current=link_to "Show all", product_search_path(producty_type_eq: nil)
   %ul.segmented.fr
     %li
-      %a.btn.active(href="#{products_path}") List view
+      %a.btn.active(href="#{products_path}") 
+        =t :list_view
     %li
-      %a.btn(href="#{inventory_products_path}")> Inventory view
+      %a.btn(href="#{inventory_products_path}")> 
+        =t :inventory_view
 / PRODUCTS LIST
 .listing.sst
   -if products.size.zero?
@@ -83,9 +86,12 @@
                   %th.nosort.sortcol(style="width: 16px;")
                     %input#select-all(type="checkbox")/
                   %th.nosort.sortcol(style="width: 12px; text-align: center ! important;") &nbsp;
-                  %th#product-col.sortcol.sortasc(style="padding-left: 3px; min-width: 150px;") Commodity
-                  %th.nosort.sortcol Stock
-                  %th.sortcol.number(style="text-align: center;") Total
+                  %th#product-col.sortcol.sortasc(style="padding-left: 3px; min-width: 150px;") 
+                    =t :commodity
+                  %th.nosort.sortcol 
+                    =t :stock
+                  %th.sortcol.number(style="text-align: center;") 
+                    =t :total
               %tbody
 #btm-nav.act-screen
   #pagination

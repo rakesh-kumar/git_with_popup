@@ -4,13 +4,15 @@
 #action-links
   %ul
     %li.no-icon
-      %a(href="#edit") Modification
+      %a(href="#edit") 
+        =t :modification
     %li.no-icon
       = link_to image_tag('admin/icons/trash.gif'), custom_collection_path(custom_collection), method: :delete, title: 'Remove it', class: :del, data: { confirm: 'Are you sure you want to delete?' }
 
 #collection-description(style="cursor: pointer" title="Click Edit")
   .box2
-    %h3 Description
+    %h3 
+      =t :description
     #collection-description-body
       %table.no-style(cellpadding="0" cellspacing="0")
         %tr
@@ -45,11 +47,14 @@
     #browse-view.col-4
       .box2.sst.clearfix
         =form_for custom_collection, url: '#', html: {id: 'custom_collection_available_products_form'} do |f|
-          %h4.st 1. Start typing the product name
+          %h4.st 1. 
+          =t :start_typing_the_product_name
           %input#product-query(type="text" name="q" value="")
           %input.btn.st(name="commit" type="submit" value="Find")
-          %p.note.st You can enter the product name to narrow the scope of the list of goods
-        %h4.sst.sb 2. Select the product you want to add
+          %p.note.st 
+          =t :you_can_enter_the_product_name 
+        %h4.sst.sb 2. 
+        =t :select_the_product
         #product-select
           %ul.small-collection.clearfix
             %li#no-items.hide No candidate commodities
@@ -61,7 +66,7 @@
             %td(style="text-align: left")
               %h4
                 %span#collection-product-count #{products.size}
-                Products Belonging to this collection
+                =t :products_Belonging_to_this_collection
             %td
               %p
                 =form_for custom_collection, url: update_order_custom_collection_path(custom_collection), remote: true, html: {id: 'custom_collection_orders_form'} do |f|
@@ -71,9 +76,10 @@
       #no-products.pgroup.hide
         %em.highlight-alt Click on the left of the goods will add it to this collection
   .pgroup.sst
-    %h3 Visibility collection
+    %h3 
+      =t :visibility_collection
     %p.sb.note
-      If you do not have this custom collections displayed in your store，You can set its visibility to
+      =t :visibility_collection_message
       %em Hide
       \.
     =form_for custom_collection, url: update_published_custom_collection_path(custom_collection), remote: true, html: {id: 'custom_collection_publicshed_form'} do |f|

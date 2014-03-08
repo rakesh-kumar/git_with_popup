@@ -1,5 +1,6 @@
 #custom-collections.pgroup.sst
-  %h3 Custom Collection
+  %h3 
+  =t :custom_collection
   %table.collection-list
     %tbody
       -custom_collections.in_groups_of(3) do |group|
@@ -7,9 +8,11 @@
           -group.each do |custom_collection|
             %td{class: custom_collection && :collection}
               -if custom_collection
-                = link_to custom_collection.title, custom_collection_path(custom_collection), title: "固定链接: #{custom_collection.handle}"
+                = link_to custom_collection.title, custom_collection_path(custom_collection), title: "Permalink: #{custom_collection.handle}"
                 -unless custom_collection.published
-                  %span.status-hidden(style='margin:0') Hide
-                %p==#{custom_collection.products.size} 个Commodity
+                  %span.status-hidden(style='margin:0') 
+                    =t :hide
+                %p==#{custom_collection.products.size} 
+                =t :commodity
                 %p
   #pagination
