@@ -1,8 +1,10 @@
-%h2#title Promotions
+%h2#title 
+  =t :promotions
 #action-links
   %ul
     %li.no-icon.discount-icon
-      %a#add-discount-code-link(href="#") Add coupon code
+      %a#add-discount-code-link(href="#") 
+        =t :add_coupon_code
 =render "shared/noscript"
 =render "shared/upgrade_ie"
 .col-12.ssb
@@ -33,15 +35,20 @@
         %a.cancel(href="#") Cancel
       / .group-actions
   / new code
-  %h3 Promo Code
-  %p.ssb You can customize the discount code to shop
+  %h3 
+  =t :promo_code
+  %p.ssb 
+  =t :you_can_customize_the_discount_code
   #discount_table
     %table#coupons.standard-table(cellspacing="0")
       %thead
         %tr
-          %th(width="30%") Promo Code
-          %th(width="25%") The amount of vouchers
-          %th(width="20%") The number of vouchers
+          %th(width="30%") 
+            =t :promo_code
+          %th(width="25%") 
+            =t :the_amount_of_vouchers
+          %th(width="20%") 
+            =t :the_number_of_vouchers
           %th(width="25%") 
       %tbody
         %tr#none-item.hide

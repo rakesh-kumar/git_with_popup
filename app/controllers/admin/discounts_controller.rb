@@ -2,6 +2,7 @@
 class Admin::DiscountsController < Admin::AppController
   prepend_before_filter :authenticate_user!
   layout 'admin'
+  before_filter :set_locale
 
   expose(:shop) { current_user.shop }
   expose(:discounts) { shop.discounts }
@@ -24,5 +25,9 @@ class Admin::DiscountsController < Admin::AppController
   def update
     discount.save
     render json: discount
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale].present? 
   end
 end

@@ -25,4 +25,7 @@ class Shopqi::HomeController < Shopqi::AppController # 官网首页
     render text: robots, layout: false, content_type: "text/plain"
   end
 
+  def new_home
+  end
+
 end

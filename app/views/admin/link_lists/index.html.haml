@@ -1,8 +1,10 @@
-%h2#title Store Navigation
+%h2#title 
+=t :store_navigation
 #action-links
   %ul
     %li#new-menu
-      %a(href="#") Add a link list
+      %a(href="#") 
+      =t :add_a_link_list
 =render "shared/noscript"
 =render "shared/upgrade_ie"
 #add-menu.group(style="display:none")
@@ -17,11 +19,12 @@
       Or
       %a.cancel(href="#") Cancel
 #link-lists
-  %h3.st.sb Link List
+  %h3.st.sb 
+    =t :link_list
   %p.note.ssb
-    Link list is a collection of links，Customers who click on these links to navigate through the various pages Store；
+    =t :link_list_description
     %br/
-    When you add a new link list，Need to include it in the appearance of the subject to show up；To make this list of links displayed on the store page，Please
+    =t :link_list_description1
     %a(href="/admin/themes/current") Template Editor Modify the template.
   .section
     %ul#menus.nobull.st
@@ -32,15 +35,20 @@
     .clearfix
       %h4.fl.sr.sb(title="Permalink: {{{handle}}}") {{{title}}}
       %span.fl(style="position: relative; font-size: 11px; ")
-        %a.editlist-action(href="#") Modify the link list
+        %a.editlist-action(href="#") 
+        =t :modify_the_link_list
       {{#unless system_default}}
       %span.delete-linklist
         %a.destroy(href="#")=image_tag 'admin/icons/trash.gif'
       {{/unless}}
-      %span.note.lighter.fr {{#if system_default}}Footer...，This is the default list of links.{{/if}}
+      %span.note.lighter.fr {{#if system_default}} 
+      =t :footer
+      This is the default list of links.{{/if}}
     .faux-table-header
-      %span Link Name
-      %span Link path
+      %span 
+        =t :link_name
+      %span 
+        =t :link_path
     %ul.links
   / begin: add new Link
   .add_form_link_container.group-actions.unattached
