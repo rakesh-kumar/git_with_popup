@@ -1,35 +1,42 @@
-%h2#title ShopQi API
+%h2#title 
+  =t :souQueen_api
 #action-links
   %ul
 
-%h3 Private Applications
+%h3 
+  =t :private_applications
 %p
-  Using proprietary applications ShopQi API is a way to interact with the store.
+  =t :private_applications_description
   %br/
-  By using them to establish automated tasks can be more convenient to use the store
+  =t :private_applications_description_next_line
   %br/
   -#%a{:href => "http://wiki.shopqi.com/Private_apps", :target => "_blank"} 查看私有应用帮助文档
 %br/
 %p#new-api
 
-  %a.btn Generate a new application
+  %a.btn 
+    =t :generate_a_new_application_btn
 %script(id="show-api-client-item" type="text/html")
   %h3.with-settings
     {{{ title }}}
     %a.del(href='#')=image_tag('admin/icons/trash.gif')
   %table.aligned.compact
     %tr
-      %td.l api key
+      %td.l 
+        =t :api_key
       %td {{{ api_key }}}
     %tr
 
-      %td.l Password
+      %td.l 
+        =t :api_password
       %td {{{ password }}}
     %tr
-      %td.l Shared key
+      %td.l 
+        =t :shared_key
       %td {{{ shared_secret }}}
     %tr
-      %td.l URL format
+      %td.l 
+        =t :url_format
 
       %td https://apikey:password@hostname/api/resource.xml
 :javascript

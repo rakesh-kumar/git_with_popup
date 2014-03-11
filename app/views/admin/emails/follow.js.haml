@@ -2,6 +2,6 @@ $("#order-notification-list").show();
 $('#add-subscription').before('#{escape_javascript( render(partial: "subscription", locals:{s: subscribe}))}')
 $("#add-subscription").hide();
 $('#subscription-#{subscribe.id}').effect('highlight',{},2000)
-msg("为 #{subscribe.email_address} 增加提醒成功！");
+msg("为 #{subscribe.email_address} Increased remind success！");
 $("#address").val(null);
 $("#number").val(null);

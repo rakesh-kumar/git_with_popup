@@ -2,6 +2,7 @@
 class Admin::LinkListsController < Admin::AppController
   prepend_before_filter :authenticate_user!
   layout 'admin'
+  before_filter :set_locale
 
   expose(:shop) { current_user.shop }
   expose(:link_lists) { shop.link_lists }
@@ -35,5 +36,9 @@ class Admin::LinkListsController < Admin::AppController
   def update
     link_list.save
     render json: link_list
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale].present? 
   end
 end

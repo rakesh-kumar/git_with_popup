@@ -43,7 +43,7 @@ App.Views.Order.Index.Index = Backbone.View.extend
     this.$('#select-all').attr 'checked', all_checked
     if checked[0]
       #已选中款式总数
-      this.$('#order-count').text "已选中 #{checked.size()} 个订单"
+      this.$('#order-count').text "Checked #{checked.size()} Orders"
       $('#order-controls').show()
     else
       $('#order-controls').hide()

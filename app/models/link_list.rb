@@ -7,7 +7,7 @@ class LinkList < ActiveRecord::Base
   accepts_nested_attributes_for :links
 
   before_save do
-    self.title = self.title.blank? ? '未命名' : self.title
+    self.title = self.title.blank? ? 'Untitled' : self.title
     self.make_valid(shop.link_lists)
   end
 end
@@ -18,6 +18,6 @@ class Link < ActiveRecord::Base
   attr_accessible :title, :link_type, :subject_handle, :subject_params, :url, :position
 
   before_save do
-    self.title = self.title.blank? ? '未命名' : self.title
+    self.title = self.title.blank? ? 'Untitled' : self.title
   end
 end

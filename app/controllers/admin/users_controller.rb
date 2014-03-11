@@ -25,11 +25,11 @@ class Admin::UsersController < Admin::AppController
     user.admin = false
     if user.save
       if request.xhr?
-        flash[:notice] = "新增用户成功！"
+        flash[:notice] = "New user successfully!"
         render js: "window.location = '#{account_index_path}';msg('#{flash[:notice]}');"
       end
     else
-      render js: "error_msg('新增用户失败:邮箱格式不正确')"
+      render js: "error_msg('New user fails:E-mail format is incorrect')"
     end
   end
 

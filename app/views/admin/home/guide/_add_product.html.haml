@@ -1,16 +1,18 @@
-%h1 ShopQi Welcome! Before you enable the store, we will guide you through the six small steps.
+%h1 
+  =t :souqeen_welcome
 #what-is-next.clearfix
   =image_tag "admin/icons/progressbar/#{@task.name}.jpg"
   #next-step-description
     %h2
-      %strong The next step:
-      Commodity
+      %strong 
+        =t :next_step
+      =t :commodity
     %p
-      Your store has no product! Go
+      =t :store_product
       %a(data-guide-position="bottom" data-guide-target="#navlist li a[href='/admin/products']" data-guide-text="Click here to add a commodity" href="##{@task.name}" class="show_#{@task.name}_guide")
         %em.icon
         %strong.triangle
-        Product page
-      And increase your first product.
+        =t :product_page
+      =t :incre_first_product
   / #name
 / #what-is-next

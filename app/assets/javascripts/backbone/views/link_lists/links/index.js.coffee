@@ -11,7 +11,7 @@ App.Views.LinkList.Links.Index = Backbone.View.extend
     self = this
     $(@el).html ''
     if _.isEmpty(@collection.models)
-      $(@el).html "<li class='c note' style='padding-top:20px; padding-bottom:20px'>此链接列表还没有加入任何链接</li>"
+      $(@el).html "<li class='c note' style='padding-top:20px; padding-bottom:20px'>This link has not yet added any links list</li>"
     else
       @collection.each (link) -> new App.Views.LinkList.Links.Show model: link
       $(@el).sortable axis: 'y', placeholder: "sortable-placeholder", handle: '.image_handle', update: (event, ui) -> #links排序

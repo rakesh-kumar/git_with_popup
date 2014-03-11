@@ -30,7 +30,11 @@
       #utils
         %ul
           %li(style="float: left; margin-left: 60px; position: relative;")=link_to show_shop_url, show_shop_url
-          %li=link_to "Sign In", destroy_user_session_path
+          %li=link_to_unless_current 'العربية' , :locale => 'ar' 
+          %li=link_to_unless_current 'English' , :locale => 'en'  
+          %li=link_to_unless_current 'português' , :locale => 'po'
+                 
+          %li=link_to "Sign Out", destroy_user_session_path
           %li
             %a(href="/admin/account") Account number
           -#
@@ -51,41 +55,47 @@
           %li#apps-link
             #apps-dropdown.nav-dropdown.dropdown.hide
               -if installed_apps.empty?
-                %h3 Application not installed
+                %h3 
+                  =t :application_not_installed
               -else
-                %h3 Application has been installed
+                %h3 
+                  =t :application_has_been_installed
                 - installed_apps.each do |app|
                   %ul
                     %li=link_to app.name, "#{app.redirect_uri}_login?shop=#{shop.shopqi_domain}"
-              %p=link_to 'Private Applications', api_clients_path
-              %p.nav-manage=link_to 'Management Applications', "#", onclick: "javascript:msg('Coming soon...');return false;", class: 'inactive'
+              %p=link_to t(:private_applications), api_clients_path
+              %p.nav-manage=link_to t(:management_applications), "#", onclick: "javascript:msg('Coming soon...');return false;", class: 'inactive'
               %p.more
-                =link_to 'Get more applications', "#", onclick: "javascript:msg('Coming soon...');return false;"
-                %span Visit the App Store
+                =link_to t(:get_more_applications), "#", onclick: "javascript:msg('Coming soon...');return false;"
+                %span 
+                  =t :visit_the_app_store
           %li#theme-link
             #theme-dropdown.nav-dropdown.dropdown.hide(style="right: 10px")
               -if shop.theme
-                %h3 Modify the appearance of the shop
+                %h3 
+                  =t :modify_the_appearance
                 %ul
-                  %li#nav-theme-settings=link_to "Appearance settings", settings_theme_path(shop.theme), class: check_label_has_right('Exterior')
-                  %li#nav-template-editor=link_to "Template Editor", theme_assets_path(shop.theme), class: check_label_has_right('Exterior')
+                  %li#nav-theme-settings=link_to t(:appearance_settings), settings_theme_path(shop.theme), class: check_label_has_right('Exterior')
+                  %li#nav-template-editor=link_to t(:template_editor), theme_assets_path(shop.theme), class: check_label_has_right('Exterior')
               %p.nav-manage.pb
-                =link_to 'Theme Manager', themes_path, class: check_label_has_right('Exterior')
+                =link_to t(:theme_manager), themes_path, class: check_label_has_right('Exterior')
               %p.more
-                =link_to 'Browse Appearance', "#{theme_store_url_with_port}?shop_url=#{show_shop_url}"
-                %span Visit store appearance
+                =link_to t(:browse_appearance), "#{theme_store_url_with_port}?shop_url=#{show_shop_url}"
+                %span 
+                  =t :visit_store_appearance
           %li#preferences-link
             #preferences-dropdown.nav-dropdown.dropdown.hide
-              %h3 Set your store
+              %h3 
+                =t :set_your_store
               %ul
-                %li#settings=link_to 'General Settings', general_preferences_path, class: check_label_has_right('Set up')
-                %li#payment=link_to 'Payment',payments_path, class: check_label_has_right('Set up')
-                %li#shipping=link_to 'Express delivery',shippings_path, class: check_label_has_right('Set up')
+                %li#settings=link_to t(:general_settings), general_preferences_path, class: check_label_has_right('Set up')
+                %li#payment=link_to t(:payment),payments_path, class: check_label_has_right('Set up')
+                %li#shipping=link_to t(:express_delivery),shippings_path, class: check_label_has_right('Set up')
                 -#
                   %li#fulfillment
                     %a(href="https://github.shopqi.com/admin/fulfillment_services") Other services
-                %li#email=link_to "Email & Remind", notifications_path, class: check_label_has_right('Set up')
-                %li#network=link_to "DNS & Domain name", domains_path, class: check_label_has_right('Set up')
+                %li#email=link_to t(:email_and_remind), notifications_path, class: check_label_has_right('Set up')
+                %li#network=link_to t(:dns_and_domain_name), domains_path, class: check_label_has_right('Set up')
     #container.clearfix
       #main.clearfix.col-12.last.fullscreen
         =render "shared/password_protected" if shop.password_enabled

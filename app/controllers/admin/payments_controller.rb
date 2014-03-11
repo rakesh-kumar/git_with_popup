@@ -1,6 +1,7 @@
 #coding: utf-8
 class Admin::PaymentsController < Admin::AppController
   layout 'admin'
+  before_filter :set_locale
   prepend_before_filter :authenticate_user!
   expose(:shop){ current_user.shop }
   expose(:payments){ shop.payments }
@@ -38,5 +39,9 @@ class Admin::PaymentsController < Admin::AppController
   def destroy
     payment.destroy
     render json: nil
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale].present? 
   end
 end

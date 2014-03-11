@@ -26,7 +26,7 @@ App.Views.Comment.Index = Backbone.View.extend
     all_checked = (checked.size() == this.$('.selector').size())
     this.$('#select-all').attr 'checked', all_checked
     if checked[0]
-      this.$('#comments_count').text "已选中 #{checked.size()} 个评论"
+      this.$('#comments_count').text "Checked #{checked.size()} Comment"
       $('#comment-actions').show()
     else
       $('#comment-actions').hide()

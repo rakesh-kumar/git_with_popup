@@ -12,7 +12,7 @@ App.Views.Discount.New = Backbone.View.extend
     @collection = App.discounts
     @collection.bind 'add', (model, collection) ->
       self.cancel()
-      msg '新增成功!'
+      msg 'New success!'
       new App.Views.Discount.Show model: model
       $('#none-item').hide()# 有记录了不显示"无记录"提示 
     $('#discount_code').focus()

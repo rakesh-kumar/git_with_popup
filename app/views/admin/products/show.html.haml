@@ -1,23 +1,23 @@
 -use_kindeditor
 
-%h2#product_title= link_to product.title, "/products/#{product.handle}", title: '在网店中查看此页面', target: '_blank'
+%h2#product_title= link_to product.title, "/products/#{product.handle}", title: 'View this page in your store', target: '_blank'
 #action-links
   %ul
     %li.no-icon
-      %a.edit-btn(href="#") 修改
+      %a.edit-btn(href="#") Modification
     %li.no-icon
-      %a.dup-btn(href="#") 复制此商品
+      %a.dup-btn(href="#") Copy this product
     %li.no-icon
-      = link_to image_tag('admin/icons/trash.gif'), product_path(product), method: :delete, title: '删除它', class: :del, data: {  confirm: '您确定要删除此商品吗?' }
+      = link_to image_tag('admin/icons/trash.gif'), product_path(product), method: :delete, title: 'Remove it', class: :del, data: {  confirm: 'Are you sure you want to delete this product?' }
 
 #duplicate-product.group.hide
   .group-fields
-    %label.sb(for="duplicate_product_title" style="display:block;") 请输入新商品的标题
+    %label.sb(for="duplicate_product_title" style="display:block;") Please enter a new commodity title
     %input#duplicate_product_title(name="product[title]" size="30" type="text")
   .group-actions
-    %input#duplicate_product_submit.btn(name="commit" type="submit" value="复制商品")
-      或者
-      %a.cancel(href="#") 取消
+    %input#duplicate_product_submit.btn(name="commit" type="submit" value="Copy goods")
+      Or
+      %a.cancel(href="#") Cancel
 
 =form_for product, url: duplicate_product_path(product), method: :post, html: {id: 'new_product'} do |f|
   =hidden_field_tag 'new_product[title]'
@@ -26,8 +26,8 @@
     - if params[:new_product]
       #create-more-products.box2.message.sb
         %h3
-          还有商品?
-          =link_to '增加另一个商品', new_product_path
+          There commodities?
+          =link_to 'Add another commodity', new_product_path
     %table(cellpadding="0" cellspacing="0" style="width:100%")
       %tr
         %td#product-details
@@ -35,7 +35,7 @@
 
           #product-edit.hide
         %td#product-right-col(style="width: 275px; padding: 0 0 0 10px")
-          %h3.section-header(style="margin-bottom: 0") 商品图片
+          %h3.section-header(style="margin-bottom: 0") Product Image
           #product-image-area.group
             #image-show-area=render partial:'upload_photos',locals:{product:product}
             #upload-label.action-container
@@ -43,27 +43,27 @@
                 %span
                   %a.show-upload-link
                     %span.plus +
-                    上传图片
+                    Upload pictures
             .clearfix
           #upload-area.hide
             %p#status.hide
-              =image_tag 'admin/icons/trash.gif', alt: '删除'
+              =image_tag 'admin/icons/trash.gif', alt: 'Delete'
               =image_tag 'spinner.gif',class: 'fr st pad', alt: 'Spinner'
             =form_for [product,photo], html: { multipart: true },remote: true do |p|
-              %h4.st 上传图片
-              %p.note 允许上传文件类型( .gif, .jpg, .jpeg, .png)
+              %h4.st Upload pictures
+              %p.note Allowed to upload file types( .gif, .jpg, .jpeg, .png)
               %p#file-input.st.sb
                 =p.file_field :product_image,id:"add-file",onchange: "$('#new_photo').submit();"
           .sst.pl
-            %h3 商品可见性
+            %h3 Product Visibility
             %p.sb.note
-              如果你不需要此商品显示在您的商店中，您可以设置它的可见性为
-              %em 隐藏
+              If you do not have this product in your store displays，You can set its visibility to
+              %em Hide
               \.
             =form_for product, url: update_published_product_path(product), remote: true, html: {id: 'product_publicshed_form'} do |f|
               =f.select :published, publish_states, {}, style: "width: 120px; font-size: 13px", onchange: "$('#product_publicshed_form').submit();"
   #variant-inventory.pgroup
-    %h3.sb 库存
+    %h3.sb Stock
     %form#batch-form(action='#' onsumbit='return false')
       #variant-options.note(style="margin:10px 0")
       %table#product-controls.hide(cellpadding="0" cellspacing="0")
@@ -85,14 +85,14 @@
         %p
           %a(href="#")
             %span.plus +
-            新增款式
+            New Style
   #new-variant.hide
 
 %script(id="show-product-item" type="text/x-handlebars-template")
   #product-body.textile.ssb
     %table.data.table-wrapper(cellpadding="0" cellspacing="0")
       %tr
-        %th.section-header 描述
+        %th.section-header Description
       %tr
         %td(style="padding: 10px; font-size: 12px")
           %p {{{body_html}}}
@@ -100,27 +100,27 @@
     %table.data(cellpadding="0" cellspacing="0")
       %tbody
         %tr
-          %th.section-header(colspan="2") 属性
+          %th.section-header(colspan="2") Property
         %tr
           %td.cell-title
-            %strong 商品类型:
+            %strong Product Type:
           %td.middle.cell-data
             %span#product-type.small {{{product_type}}}
         %tr
           %td.cell-title
-            %strong 商品生产商:
+            %strong Commodity producers:
           %td.middle.cell-data
             %span#product-vendor.small {{{vendor}}}
         %tr
           %td.cell-title
-            %strong 库存:
+            %strong Stock:
           %td.middle.cell-data &infin;
       %tbody#product-options-list
   #tagging.section
     #product-tags
       %table.data(cellpadding="0" cellspacing="0")
         %tr
-          %th.section-header 标签
+          %th.section-header Tag
         %tr
           %td(style="padding: 15px 10px;")
             %ul.tag-list
@@ -129,19 +129,19 @@
                 %span.list-box.active-tag {{this}}
               {{/each}}
             {{#unless tags}}
-            %p 您还没有添加任何标签到此商品.
+            %p You have not added any tags to this product.
             {{/unless}}
   .section
     #product-collections
       %table.data(cellpadding="0" cellspacing="0")
         %tr
-          %th.section-header 集合
+          %th.section-header Set
         %tr
           %td(style="padding: 15px 10px 0 10px;")
             {{#if collections_empty}}
-            %p 此商品不属于任何集合.
+            %p This product does not belong to any collection.
             {{else}}
-            %p 此商品属于以下集合:
+            %p This product belongs to the following collection:
             {{/if}}
             %ul.product-collection-list.pgroup
               {{#each collections}}
@@ -153,17 +153,17 @@
   =form_for product, class: :edit_product, html: {id: 'product-detail-form', onsubmit: 'return false;'} do |f|
     #product-body-edit.sb
       .section-header
-        %strong 修改此商品
+        %strong Modify this product
       .padding
         #errors_for_product
         %dl(style="background: none; margin-bottom: 0")
           %dt=f.label :title, nil, style: "margin: 0", for: :title
           %dd=text_field_tag :title, '{{{title}}}', class: [:big, :sb]
           %dt#edit-handle-label
-            固定链接
+            Permalink
             %span.note
               (
-              %a(href="#{wiki_url_with_port}/Handle" target="_blank") 这是什么?
+              %a(href="#{wiki_url_with_port}/Handle" target="_blank") What's this?
               )
           %dd#edit-handle.ssb
             %span.note==#{shop.primary_domain.url}/products/
@@ -176,47 +176,47 @@
           %th.section-header(colspan="2") 属性
         %tr
           %td.cell-title
-            %strong 商品类型:
+            %strong Product Type:
           %td
             %select#product-type-select
               =options_for_select types_options
             #new_product_type.st.sb.hide
-              %h4.note 新的商品类型
+              %h4.note The new product type
               =text_field_tag :product_type, '{{{product_type}}}'
         %tr
           %td.cell-title
-            %strong 商品生产商:
+            %strong Commodity producers:
           %td
             %select#product-vendor-select
               =options_for_select vendors_options
             #new_product_vendor.st.sb.hide
-              %h4.note 新的商品生产商:
+              %h4.note The new commodity producers:
               =text_field_tag :vendor, '{{{vendor}}}'
         %tr#add-option-bt.hide
           %td.cell-title
-            %a.add-option(href="#") 新增另一个选项
+            %a.add-option(href="#") Add another option
             %br
-            %span.note 例如. 颜色, 大小
+            %span.note For example. Color, Size
           %td &nbsp;
     #product-edit-tags
-      .section-header 标签
+      .section-header Tag
       %dl.padding(style="background: none; margin: 0;")
         %dd#multi-options
-          %p.note.sb 标签之间以逗号分隔.
+          %p.note.sb Tags separated by commas.
           =text_field_tag :tags_text, '{{{tags_text}}}', size: 50, id: :product_tags_text
         %dd.sst
-          %p.note(style="clear: both") 最近使用过的标签，单击增加.
+          %p.note(style="clear: both") Recently used tags，Click to increase.
           %ul#tag-list.tag-list
             -tags.each do |tag|
               %li
                 %a(href="#")=tag.name
           .cl
     #product-edit-collections
-      .section-header 集合
-      %p.note(style="margin: 10px 0px 5px 5px;") 选择此商品所属的自定义集合:
+      .section-header Set
+      %p.note(style="margin: 10px 0px 5px 5px;") Select a custom collection this product belongs:
       %ul.nobull.pgroup.clearfix=render partial: "collection", collection: custom_collections
     .group-actions
-      =f.submit "保存", id:"update-options", class: :btn
+      =f.submit "Save", id:"update-options", class: :btn
       =w('or')
       %a.cancel(href="#")=w('cancel')
 %script(id="row-head-item" type="text/x-handlebars-template")
@@ -226,28 +226,28 @@
   %th.option-title(id="option-header-{{index_plus}}" option-id="{{item.attributes.id}}" class="option-{{index_plus}}" style="width:15%;")
     {{#unless item.attributes.first}}
     %span.mover.hide(dir="-1" style="position: absolute; margin-left: -15px;")
-      %a(href="#" style="color: #666; text-decoration:none" title="移到左边") ←
+      %a(href="#" style="color: #666; text-decoration:none" title="To the left") ←
     {{/unless}}
     {{item.attributes.name}}
     {{#unless item.attributes.last}}
     %span.mover.hide(dir="1")
-      %a(href="#" style="color: #666; text-decoration:none" title="移到右边") →
+      %a(href="#" style="color: #666; text-decoration:none" title="Move to the right") →
     {{/unless}}
   {{/each_with_index}}
   %th(style="min-width: 150px") SKU
   %th.price-cell(style="width: 90px;")
-    价格
+    Price
     %span.note 元
-  %th.qty-cell(style="width:50px") 库存量
+  %th.qty-cell(style="width:50px") Inventory
   %th.action-cell(style="width: 70px;") &nbsp;
 %script(id="show-variant-item" type="text/x-handlebars-template")
   =render partial: "admin/product_variants/show"
 %script(id="new-variant-item" type="text/x-handlebars-template")
   =render partial: "admin/product_variants/new"
 %script(id="variant-options-item" type="text/x-handlebars-template")
-  选择:
-  %a(href="#" style="color:#000") 所有
-  %a(href="#" style="color:#000") 清空
+  Select:
+  %a(href="#" style="color:#000") All
+  %a(href="#" style="color:#000") Empty
   {{#each_with_index options}}
   %span(class='option-{{index_plus}}')
     {{#each_variant_option ../this index=index_plus}}
@@ -268,24 +268,24 @@
     %span.option-value.small {{{variants_option0}}}
     %span.fr.sr(style="margin-top: 5px")
       %a.del-option(href="#" tabindex="-1")
-        =image_tag 'admin/icons/trash.gif', alt: '删除', class: [:fr, 'delete-option-link']
+        =image_tag 'admin/icons/trash.gif', alt: 'Delete', class: [:fr, 'delete-option-link']
       .option-deletemsg.hide
         %p.small.highlight-alt
-          {{{name}}}将被删除.
-          %a.resume-option(href="#") 恢复
+          {{{name}}}Will be removed.
+          %a.resume-option(href="#") Restoration
 %script(id="show-option-item" type="text/x-handlebars-template")
   %td.cell-title(class="option-{{{position}}}")
     %strong {{{name}}}
   %td.option-values-show.middle.cell-data
     %span.small {{{options}}}
 %script(id="product-select-item" type="text/x-handlebars-template")
-  %option(value="" style="color: #888") 选择操作&hellip;
-  %option.indent(value="price") 修改价格
-  %option.indent(value="inventory_quantity") 修改库存量
-  %option.indent(disabled="disabled" value="destroy") 删除
-  %optgroup(label="复制款式&hellip;")
+  %option(value="" style="color: #888") Select Options & hellip;
+  %option.indent(value="price") Modify the price
+  %option.indent(value="inventory_quantity") Modify inventory
+  %option.indent(disabled="disabled" value="destroy") Delete
+  %optgroup(label="Copy styles & hellip;")
     {{#each_with_index options}}
-    %option(id="dup-option-{{index_plus}}" disabled="disabled" value="duplicate-{{index_plus}}") &hellip;使用另一个{{{item.attributes.name}}}
+    %option(id="dup-option-{{index_plus}}" disabled="disabled" value="duplicate-{{index_plus}}") &hellip;Use another{{{item.attributes.name}}}
     {{/each_with_index}}
 %script(id="product-image-item" type="text/x-handlebars-template")
   =dialog '{{{title}}}' do

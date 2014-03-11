@@ -14,10 +14,10 @@ App.Views.Order.Index.Show = Backbone.View.extend
     attrs['financial_class'] = @model.financial_class()
     attrs['fulfill_class'] = @model.fulfill_class()
     tips = _.map @model.get('line_items'), (line_item) ->
-      name = if line_item.name? then line_item.name else '商品已被删除'
+      name = if line_item.name? then line_item.name else 'Product has been removed'
       "#{line_item.quantity} x #{name}"
     tips.push "#{@model.get('shipping_address')['info']}" if @model.get('shipping_address')?
-    tips.push "配送方式:#{@model.get('shipping_name')}" if @model.get('shipping_name')?
+    tips.push "Shipping & Delivery:#{@model.get('shipping_name')}" if @model.get('shipping_name')?
     attrs['title'] = tips.join "<br/>"
     position = _.indexOf @model.collection.models, @model
     attrs['index'] = (position + 1)

@@ -1,7 +1,8 @@
-%h2#title Product collections
+%h2#title 
+  =t :product_collections
 #action-links
   %ul
-    %li#new-std-lbl=link_to "New custom collection", new_custom_collection_path
-    %li#new-smt-lbl=link_to "New smart collection", new_smart_collection_path
+    %li#new-std-lbl=link_to t(:new_custom_collection), new_custom_collection_path
+    %li#new-smt-lbl=link_to t(:new_smart_collection), new_smart_collection_path
 =render 'admin/smart_collections/index'
 =render 'admin/custom_collections/index'

@@ -2,9 +2,14 @@
 class Admin::ShopsController < Admin::AppController
   prepend_before_filter :authenticate_user!, except: :me
   layout 'admin', only: :edit
+  before_filter :set_locale
 
   expose(:shop) { current_user.shop }
   expose(:currentcy_options) { KeyValues::Shop::Currency.options }
+
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale].present? 
+  end
 
   def update
     if params[:shop][:order_number_format] && !params[:shop][:order_number_format].include?('{{number}}')

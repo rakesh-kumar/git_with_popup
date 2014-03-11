@@ -3,7 +3,7 @@ App.Views.CustomerGroup.Index.Show = Backbone.View.extend
   className: 'customer-group clearfix'
 
   events:
-    "click #save_customer_group_link": 'show' # 显示保存表单
+    "click #save_customer_group_link": 'show' # Save the form displays
     "click .delete": 'destroy'
     "click .update.btn": 'update'
 
@@ -26,7 +26,7 @@ App.Views.CustomerGroup.Index.Show = Backbone.View.extend
 
   change: ->
     this.render()
-    # 已保存的分组可以更新
+    # Saved grouping can be updated
     equals = _.isEqual @model.previous_attributes, @model.attributes
     this.$('.update.btn').toggle(!equals) if @model.id > 0
 
@@ -36,7 +36,7 @@ App.Views.CustomerGroup.Index.Show = Backbone.View.extend
     false
 
   destroy: ->
-    return false unless confirm '您确定要删除吗?'
+    return false unless confirm 'Are you sure you want to delete it?'
     self = this
     collection = @model.collection
     @model.destroy

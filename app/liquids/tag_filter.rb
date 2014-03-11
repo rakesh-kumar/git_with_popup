@@ -53,7 +53,7 @@ module TagFilter
       input_tags = current_tags ? (current_tags - [input]) : []
       input = input_tags.join('+')
       url = ['types', 'vendors'].include?(collection.handle) ? "&constraint=#{input}" : "/#{input}"
-      "<a title='取消#{alt}标签' href='#{collection.url}#{url}'>#{alt}</a>"
+      "<a title='Showed#{alt}Tag' href='#{collection.url}#{url}'>#{alt}</a>"
     end
 
   end

@@ -1,21 +1,21 @@
-%h2#title 快递物流费用
+%h2#title Express logistics costs
 #action-links
   %ul
     %li#add-region
-      %a(href="#") 新增目的地
+      %a(href="#") Add Destination
 #new-region.group(style="display:none")
   %form(action="#" onsubmit="return false")
     .group-fields
       %p
-        %label 目的地
+        %label Destination
       %p.ssb.region
-        =select_tag :province, options_for_select(District.list), {prompt: '全国', style: 'width: 106px'}
-        =select_tag :city, nil, {prompt: '--城市--', style: 'width: 106px'}
-        =select_tag :district, nil, {prompt: '--地区--', style: 'width: 106px'}
+        =select_tag :province, options_for_select(District.list), {prompt: 'Nationwide', style: 'width: 106px'}
+        =select_tag :city, nil, {prompt: '- City -', style: 'width: 106px'}
+        =select_tag :district, nil, {prompt: '- Area -', style: 'width: 106px'}
     .group-actions
-      %input.btn(name="commit" type="submit" value="保存")
-      或者
-      %a.cancel(href="#") 取消
+      %input.btn(name="commit" type="submit" value="Save")
+      Or
+      %a.cancel(href="#") Cancel
 #shipping-rates.cl
   #custom-shipping
 
@@ -36,46 +36,46 @@
       %td.new-rate-link.no-border.action-link(colspan="4")
         %p.add.icon
           %span.action
-            %a.add-weight(href="#" style="display: inline") 新增基于重量的费用
+            %a.add-weight(href="#" style="display: inline") Additional costs based on the weight of
           |
           %span.action
-            %a.add-price(href="#" style="display: inline") 新增基于价格的费用
+            %a.add-price(href="#" style="display: inline") New price is based on the cost of
     %tr.new-standard-rate.hide
       %td(colspan="4" style="padding:0")
         %form(action="#" method="post" onsubmit="return false")
           %table.new-rate-table
             %tr
               %td.new-rate.rate-name(style="padding-left: 10px")
-                %label 名称
+                %label Name
                 %input.standard-rate-name-new(name="name" style="width:100%" type="text")
               %td.new-rate.rate-weight
-                %label 重量
+                %label Weight
                 %input.r(maxlength="3" name="weight_low" size="3" type="text" value="0.0")
                 =succeed "-" do
                   %strong kg
                 %input.r(maxlength="3" name="weight_high" size="3" type="text" value="25.0")
                 %strong kg
               %td.new-rate.rate-price
-                %label 价格
+                %label Price
                 %strong ¥
                 %input.r(maxlength="5" name="price" size="5" type="text" value="10.0")
                 %strong 元
             %tr.no-lines
               %td.new-rate-done(colspan="3")
-                %input(name="commit" type="submit" value="保存")
-                或者
+                %input(name="commit" type="submit" value="Save")
+                Or
                 %span.action
-                  %a.cancel(href="#") 取消
+                  %a.cancel(href="#") Cancel
     %tr.new-promotional-rate.hide
       %td(colspan="4" style="padding:0")
         %form(action="#" method="post" onsubmit="return false")
           %table.new-rate-table
             %tr
               %td.new-rate.rate-name(style="padding-left: 10px")
-                %label 名称
+                %label Name
                 %input.promotional-rate-name-new(name="name" style="width: 100%; background-image: none; background-position: 0% 0%; background-repeat: repeat repeat;" type="text")
               %td.new-rate.rate-min-order-subtotal(style="width:220px;")
-                %label 价格区间
+                %label Price range
                 %strong ¥
                 %input(name="min_order_subtotal" size ="5" type="text" value="50.0")
                 %strong 元
@@ -87,16 +87,16 @@
                   %input.r(name="max_order_subtotal" size="5" type="text")
                   %strong 元
               %td.new-rate.rate-price
-                %label 运费
+                %label Freight
                 %strong ¥
                 %input.r(name="price" size="5" type="text" value="0.0")
                 %strong 元
             %tr.no-lines
               %td.new-rate-done(colspan="3")
-                %input(name="commit" type="submit" value="保存")
-                或者
+                %input(name="commit" type="submit" value="Save")
+                Or
                 %span.action
-                  %a.cancel(href="#") 取消
+                  %a.cancel(href="#") Cancel
 
 %script(id="standard-rate-item" type="text/x-handlebars-template")
   %td.weight-based

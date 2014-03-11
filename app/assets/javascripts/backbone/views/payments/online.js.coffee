@@ -12,7 +12,7 @@ App.Views.Payment.Online = Backbone.View.extend # 在线支付
 
   render: ->
     configed = @model.get('id')?
-    @$('.activate_payment_provider strong').html "支付宝#{@model.get('service_name')}服务"
+    @$('.activate_payment_provider strong').html "Paypal#{@model.get('service_name')}Service"
     @$('.payment_select').toggle !configed
     @$('.activate_payment_provider').toggle configed
     @$('.account_payment_provider').hide()
@@ -41,7 +41,7 @@ App.Views.Payment.Online = Backbone.View.extend # 在线支付
         payment_type_id: self.$("input[name='payment_type_id']").val()
       },
       success: (model, resp) ->
-        msg '修改成功!'
+        msg 'Successfully modified!'
         self.render()
     false
 
@@ -56,13 +56,13 @@ App.Views.Payment.Online = Backbone.View.extend # 在线支付
 
   destroy: ->
     self = this
-    if confirm '您确定要删除吗'
+    if confirm 'Are you sure you want to delete it'
       @model.destroy
         success: (model, response) ->
           self.$('.payment_select').show()
           self.$('.account_payment_provider').hide()
           self.$('.activate_payment_provider').hide()
-          msg '删除成功!'
+          msg 'Deleted successfully!'
           model.clear()
           model.id = null
     return false

@@ -1,6 +1,8 @@
 class Admin::ApiClientsController < Admin::AppController
   prepend_before_filter :authenticate_user!
   layout 'admin'
+  before_filter :set_locale
+
   expose(:shop){ current_user.shop }
   expose(:api_clients){ shop.api_clients }
   expose(:api_clients_json){ api_clients.to_json }
@@ -18,4 +20,19 @@ class Admin::ApiClientsController < Admin::AppController
     render json: api_client
   end
 
+ def set_locale
+    I18n.locale = params[:locale] if params[:locale].present? 
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+

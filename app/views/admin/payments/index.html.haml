@@ -1,13 +1,15 @@
-%h2#title 结账&支付
+%h2#title 
+  =t :billing_and_payment
 #action-links
   %ul
 =render partial:"shared/noscript"
 =render partial:"shared/upgrade_ie"
-%h4 支付网关
+%h4 
+  =t :payment_gateway
 %p.description
-  支付网关可以允许您商店的顾客使用相应的支付方式为订单付款(例如，支付宝). 获取更多的信息，
+  =t :payment_gateway_description
   = succeed "." do
-    =link_to '请点击这里',faq_path
+    =link_to t(:click_here),faq_path
 .pgroup
   =render 'alipay'
   =render 'tenpay'
@@ -18,17 +20,22 @@
         %td
           %table.desc
             %tr
-              %td.r 支付方式:
+              %td.r 
+                =t :payment
               %td.meta
-                %strong 普通支付方式
+                %strong 
+                  =t :common_payment
             %tr
-              %td.r 描述:
-              %td.meta 一些不需要银行卡的支付方式，例如，银行转账，货到付款等
+              %td.r 
+                =t :description
+              %td.meta 
+                =t :payment_description
     %dl#manual_payment_gateways.cl.sst{:style => "padding: 0px 0 0 0px;margin-bottom: 0; border-top: 1px solid #ddd"}
       =render partial:'custom-payment'
       %dt.nst{:style => "padding: 10px 0 10px 10px;"}
         %select#select_custom_payment_method{:name => "", :style => "width: 300px;"}
-          %option(value= "") 选择增加普通支付方式
+          %option(value= "") 
+            =t :select_the_payment_method_to_increase_general
           =options_for_select  custom_types
       %dd#account_manual_payment_gateway.nsb{:style => "display:none;border-top: 1px solid #ddd"}
         =form_for payment, html:{id: 'new_custom_payment', onsubmit: 'return false'} do |f|
@@ -38,7 +45,7 @@
               %p.credential=f.text_field :name
             .sb
               %label{:for => "message_manual_payment_gateway"}
-                %span.hint 当顾客结账时，下面提示会呈现给顾客
+                %span.hint When a customer checkout，The following tips will be presented to the customer
               %p.credential
                 =f.text_area :message, cols: 40,rows: 10
           .group-actions
@@ -50,32 +57,36 @@
   =form_for shop, html:{id:'checkout-config', onsubmit: 'return false'} do |f|
     .group
       .group-fields
-        %h3.l{:style => "color: #999;font-size: 18px; font-weight: normal; margin: 5px"} 顾客付款设置
+        %h3.l{:style => "color: #999;font-size: 18px; font-weight: normal; margin: 5px"} 
+          =t :customer_payment_settings
         #customer-accounts
-          %h5.note.st 这个设置将影响顾客如何付款.
+          %h5.note.st 
+            =t :customer_payment_setting_affecting
           .st.sb.sl
             %ul.nobull
               %li
                 =f.radio_button :customer_accounts,''
                 %label{:for => "shop_customer_accounts_"}
-                  不需要注册
-                  %span.hint 不提供顾客注册功能，用户将以游客的形式付款
+                  =t :no_registration_required
+                  %span.hint 
+                  =t :no_customer_registration_function
               %li
                 =f.radio_button :customer_accounts,'optional'
                 %label{:for => "shop_customer_accounts_optional"}
-                  可选注册
-                  %span.hint 用户可选择登陆，也可以不登陆付款
+                  =t :optional_registration
+                  %span.hint 
+                    =t :user_selectable_landing
               %li
                 =f.radio_button :customer_accounts,'required'
                 %label{:for => "shop_customer_accounts_required"}
-                  必须注册
+                  =t :must_be_registered
                   %span.hint
-                    用户必须注册账号才能付款
+                    =t :users_must_register_in_order_to_pay
           #customer-accounts-required.message{:style => "margin:15px 0 0 0; display:none;"}
-            %p 顾客只有当注册账号之后才能下单
+            %p Customers only after the registered account to order
       / .group-fields
       .group-actions
-        %input.btn#checkout{:name => "commit", :type => "submit", :value => "保存"}/
+        %input.btn#checkout{:name => "commit", :type => "submit", :value => t(:save)}/
       / .group-actions
     / .group
 / checkout config

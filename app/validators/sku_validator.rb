@@ -4,7 +4,7 @@ class SkuValidator < ActiveModel::Validator #用于验证sku数量超过商店�
   def validate(record)
     shop = record.shop || record.product.try(:shop)
     if !shop.nil? && shop.plan_type.skus <= shop.variants.size
-      record.errors[:base] << "超过商店限制"
+      record.errors[:base] << "Shops limit exceeded"
     end
   end
 

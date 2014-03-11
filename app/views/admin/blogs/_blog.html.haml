@@ -2,13 +2,17 @@
   %thead
     %tr
       %th{:width => "20%"}==#{blog.title}  Article
-      %th{:width => "10%"} Comment
-      %th{:width => "17%"} Tag
-      %th{:width => "13%"} Author
-      %th{:width => "8%"} Update
+      %th{:width => "10%"} 
+        =t :comment
+      %th{:width => "17%"} 
+        =t :tag
+      %th{:width => "13%"} 
+        =t :author
+      %th{:width => "8%"} 
+        =t :update
       %th{:width => "5%"} &nbsp;
   %tbody
     -articles = blog.articles
     =render partial: 'admin/articles/article' , collection: articles, locals: {blog: blog}
     %tr.last-article
-      %td{:colspan => "6"}=link_to "管理 #{blog.title}", blog_path(blog),class: 'view-all-articles'
+      %td{:colspan => "6"}=link_to "Management #{blog.title}", blog_path(blog),class: 'view-all-articles'

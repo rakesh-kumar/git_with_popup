@@ -2,6 +2,7 @@
 class Admin::PagesController < Admin::AppController
   prepend_before_filter :authenticate_user!
   layout 'admin'
+  before_filter :set_locale
 
   expose(:shop) { current_user.shop}
   expose(:pages) { current_user.shop.pages }
@@ -34,5 +35,9 @@ class Admin::PagesController < Admin::AppController
     respond_to do |format|
       format.js { render template: "admin/pages/destroy" }
     end
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale].present? 
   end
 end

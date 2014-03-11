@@ -1,0 +1,491 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ar:
+  activerecord:
+    models:
+      theme: Theme
+      user: المستعمل
+      shop: Shop
+      product: سلعة
+      custom_collection: مجموعة
+      blog: بلوق
+      article: مقالة
+      page: صفحة
+      order: أوامر
+      subscribe: معلومات الاشتراك
+      payment: معلومات الدفع
+      shop_domain: Shops domain
+    attributes:
+      user:
+        name: Full name
+        phone: Phone
+        avatar_image: Picture information
+        bio: Introduction
+        email: Mailbox
+        current_password: كلمة المرور الحالية
+        password: Password
+        password_confirmation: Confirm password
+        remember_me: Remember me
+        shop:
+          permanent_domain: أسماء النطاقات اثنين
+          name: اسم المحل
+      weight_based_shipping_rate:
+        name: اسم
+        price: شحن
+      payment:
+        payment_type: أنواع الدفع
+        remark: كلام
+        key: الصفقة كود الأمن
+        account: الحساب (الحالة أو شريك تجاري رقم)
+        email: حساب باي بال الدخول (عنوان البريد الإلكتروني أو رقم الهاتف)
+        service: واجهة نوع
+        number: لا.
+        apply: تطبيق
+        name: Mode
+
+      price_based_shipping_rate:
+        name: اسم
+        price: شحن
+      product:
+        title: Title
+        body_html: Description
+        product_type: Product Type
+        vendor: Commodity producers
+        variants:
+          price: Price
+          weight: الوزن
+          base: المعرف الفريد البضائع
+          compare_at_price: سوق
+          sku: المعرف الفريد البضائع
+          requires_shipping: عنوان متطلبات الشحن
+        photos:
+          product_image: صورة المنتج
+      photo:
+        product_image: صورة المنتج
+      product_variant:
+        price: Price
+        weight: Weight
+        compare_at_price: Market
+        sku: المعرف الفريد البضائع
+        requires_shipping: Requirements shipping address
+        inventory_quantity: Existing stocks?
+      product_option:
+        name: الخيار اسم
+      page:
+        title: Title
+        description: Description
+      theme:
+        name: Name
+        handle: Name handle
+        style: Style
+        style_handle: Style handle
+        role: Role
+        price: Price
+        color: Color
+        desc: Description
+        shop: demoShop subdomain
+        site: On the official website
+        author: Author
+        email: AuthorEmail
+        published: Whether to enable
+        position: Sort numbers
+        file: Theme compressed file
+        main: Topic List Screenshot
+        collection: Details of the collection theme screenshot
+        product: Theme Details Product Screenshot
+      shop:
+        permanent_domain: أسماء النطاقات اثنين
+        name: Shop Name
+        plan: Type
+        zip_code: Zip code
+        keywords: الكلمة
+        phone: Phone
+        theme: Theme
+        deadline: Expiry Date
+        password: كلمة السر
+        email: Mailbox
+        address: Address
+        order_number_format: Order Number format
+        province: Province
+        city: City
+        district: Area
+        password: Password
+        password_enabled: Store password enabled
+        password_message: Message
+        customer_accounts: Customer payment settings
+        guided: The task is complete guide
+        created_at: Created
+        updated_at: Update
+      subscribe:
+        address: عنوان البريد الإلكتروني
+      blog:
+        title: Title
+      article:
+        title: Title
+        author: Author
+        body_html: Content
+        tags: Tag
+      custom_collection:
+        title: Title
+        body_html: Description
+      smart_collection:
+        title: لقب
+        body_html: وصف
+      order:
+        email: عنوان البريد الإلكتروني
+      order_billing_address:
+        name: الاسم الكامل
+        company: شركة
+        country_code: بلد
+        province: مقاطعة
+        city: مدينة
+        address1: عنوان
+        address2: عنوان المستمر
+        zip: الرمز البريدي
+        phone: هاتف
+      order_shipping_address:
+        name: Full name
+        company: Company
+        country_code: بلد
+        province: Province
+        city: مدينة
+        address1: Address
+        address2: عنوان المستمر
+        zip: Zip Code
+        phone: Phone
+      customer:
+        name: Full name
+        email: Mailbox
+        password: كلمة السر
+        password_confirmation: تأكيد كلمة المرور
+        accepts_marketing: Receive e-mail marketing
+      customer_address:
+        name: الاسم الكامل
+        company: Company
+        country_code: بلد
+        phone: Phone
+        address1: Address
+        zip: Zip Code
+    errors:
+      template:
+        header: ""
+        body: ""
+      messages:
+        blank: Can not be empty
+        taken: موجود مسبقا
+        too_short: طول لا يمكن أن يكون أقل من٪ {عدد} حرفا.
+        too_long: طول ينبغي ألا تتجاوز٪ {عدد} حرفا.
+        not_a_number: الرقمية فقط
+        invalid: يجب أن تكون صالحة
+        at_least_one: واحد على الأقل المطلوبة
+        select: لم يختر حتى الآن
+        confirmation: ويجب أن يكون تأكيد كلمة المرور نفس
+      models:
+        user:
+          attributes:
+            email:
+              blank: لا يمكن أن تكون فارغة
+              taken: وقد احتلت
+              invalid: تنسيق غير صحيح
+            password:
+              blank: لا يمكن أن تكون فارغة
+              confirmation: ويجب أن يكون تأكيد كلمة المرور نفس
+        shop:
+          attributes:
+            permanent_domain:
+              blank: لا يمكن أن تكون فارغة
+              too_short: يجب أن يكون 3 أو أكثر، المجموعات التالية من الرسائل 20
+              invalid: أحرف غير قانونية، لا يمكن إلا أن مزيج من الأرقام والحروف
+              taken: وقد احتلت
+            name:
+              blank: لا يمكن أن تكون فارغة
+            storage:
+              full: وقد استخدمت متاجر قدرة تصل، يرجى إدخال [حساب] صفحة وجهات النظر
+        product:
+          attributes:
+            title:
+              blank: لا يمكن أن تكون فارغة
+
+  activemodel:
+    attributes:
+      contact:
+        name: الاسم الكامل
+        email: البريد الإلكتروني عنوان
+        body: محتوى
+    errors:
+      messages:
+        blank: لا يمكن أن تكون فارغة
+
+  doorkeeper:
+    errors:
+      messages:
+        invalid_redirect_uri: طلبات العميل redirect_uri لا يطابق إعدادات الخادم
+    scopes:
+      read_products: الحصول على معلومات المنتج
+      write_products: تحديث معلومات المنتج
+      read_orders: الوصول إلى معلومات النظام
+      write_orders: تحديث ترتيب المعلومات
+
+  #页面中的文字
+  web:
+    save: Save
+    cancel: Cancel
+    back: 返回
+    list: 列表
+    edit: Editor
+    new: 新增
+    show: 查看
+    delete: 删除
+    confirm: 您是否确定?
+    created_at: 创建于
+    all: 全部
+    design: 管理网店布局
+    show: 查看网店
+    profile: 个人资料
+    settings: 设置
+    logout: 退出
+    optional: (非必填)
+    or: Or
+    published: 发布
+    hidden: 隐藏
+    upgrade: Upgrade
+
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%e %b"
+      long: "%B %e, %Y"   
+
+    day_names: [الأحد, الإثنين, الثلاثاء, الأربعاء, الخميس, الجمعة, السبت]
+    abbr_day_names: [الأحد, الإثنين, الثلاثاء, الأربعاء, الخميس, الجمعة, السبت]
+    month_names: [~, يناير, فبراير, مارس, ابريل, مايو, يونيو, يوليو, اغسطس, سبتمبر, اكتوبر, نوفمبر, ديسمبر]
+    abbr_month_names: [~, يناير, فبراير, مارس, ابريل, مايو, يونيو, يوليو, اغسطس, سبتمبر, اكتوبر, نوفمبر, ديسمبر]
+
+  time:
+    formats:
+      default: "%a %b %d %H:%M:%S %Z %Y"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+      only_second: "%S"  
+      serial: "%Y年%b%d日"
+
+      datetime:
+        formats:
+        default: "%Y-%m-%dT%H:%M:%S%Z"
+    am: 'صباحا'
+    pm: 'مساءا'
+
+#Registration
+  store_name: "تعطي متجرك اسم"
+  registration: "تسجيل"
+  creating_account_error: "حدث الخطأ التالي أثناء إنشاء حساب "
+  web_address: "عنوان ويب من متجر Souqueen الخاص"
+  about_you: "عنك"
+  full_name: "الاسم الكامل"
+  address: "عنوان"
+  zip_code: "الرمز البريدي"
+  phone: "هاتف"
+  login_information: "معلومات تسجيل الدخول الخاصة بك"
+  email_address: "عنوان البريد الإلكتروني"
+  password: "كلمة السر"
+  confirm_pass: "تأكيد كلمة المرور"
+  mobile: "متنقل"
+  terms: "شروط الخدمة"
+  terms_agree: "تحتاج إلى توافق قبل شروط تسجيل ShopQi الخدمة."
+  notify: "لقد قرأت وأوافق"
+
+#login
+  login: "دخول"
+  store_web_address: "متجر العنوان على الإنترنت"
+  email_login: "البريد الإلكتروني"
+  password_login: "كلمة السر"
+
+#Admin Dashboard
+  souqeen_welcome: "Souqueen مرحبا! قبل تمكين مخزن، ونحن سوف توجه لكم من خلال خطوات صغيرة الستة."  
+  next_step: "الخطوة التالية:"
+  commodity: "سلعة"
+  store_product: "متجر لديه أي منتج! تذهب"
+  product_page: "صفحة المنتج"
+  incre_first_product: "وزيادة المنتج الخاص بك أولا."
+  home_enabled_pass: "المتجر الخاص بك الرئيسية تمكين حماية كلمة السر، كلمة المرور:"
+  you_can: "يمكنك"
+  this_pass: "كلمة المرور هذه."
+  customer: "زبون"
+  commodity: "سلعة"
+  set: "مجموعة"
+  blog_page: "بلوق & صفحة"
+  link_list: "قائمة الرابط"
+  promotions: "الترقيات"
+  admin_giude: "تخطي تخزين الإعدادات، وتمكين مخزن المباشر"
+  modify_or_delete: "تعديل أو حذف"
+  modify_the_appearance: "تعديل مظهر المحل"
+  appearance_settings: "إعدادات المظهر"
+  template_editor: "محرر قالب"
+  theme_manager: "مدير الموضوع"
+  browse_appearance: "استعرض المظهر"
+  visit_store_appearance: "زيارة متجر مظهر"
+  set_your_store: "تعيين متجرك"
+  general_settings: "إعدادات عامة" 
+  payment: "دفع"
+  express_delivery: "تسليم سريع"
+  email_and_remind: "البريد الإلكتروني وتذكير"
+  dns_and_domain_name: "اسم DNS المجال و"
+  application_not_installed: "التطبيق غير مثبت"
+  application_has_been_installed: "تم تطبيق المثبتة"
+  private_applications: "تطبيقات خاصة"
+  management_applications: "تطبيقات إدارة"
+  get_more_applications: "الحصول على مزيد من التطبيقات"
+  visit_the_app_store: "زيارة المتجر"
+  customize_the_appearance: "تخصيص مظهر"
+  publish_content: "نشر المحتوى"
+  payment_gateway: "بوابة الدفع"
+  logistics_and_distribution: "الخدمات اللوجستية والتوزيع"
+  binding_domain: "مجال ملزمة"
+  enable_your_store: "تمكين متجرك"
+  enable_store: "تمكين متجرك"
+  add_item: "إضافة عنصر"
+  order_management: "إدارة النظام"
+  show: "عرض"
+  orders: "أوامر"
+  and: "و"
+  of: "من"
+  any_payment_status: "أي حالة السداد"
+  any_distribution_of_state: "أي توزيع للدولة"
+  normal: "طبيعي"
+  date: "تاريخ"
+  customer: "زبون"
+  payment_status: "الحالة الدفع"
+  delivery_status: "حالة التسليم"
+  the_total_amount_on_order: "المبلغ الإجمالي"
+  showing_the_number_of: "عرض عدد"
+  customer_management: "إدارة العملاء"
+  new_customer_information: "معلومات جديدة العملاء"
+  export_customer_information: "معلومات جديدة العملاء..."
+  customers_grouping: "معلومات جديدة العملاء..."
+  full_name: "الاسم الكامل"
+  address: "عنوان"
+  the_amount_of_consumption: "كمية الاستهلاك"
+  orders: "أوامر"
+  recent_orders: "الطلبيات الأخيرة"
+  customer_accounts_are: "حسابات العملاء هي"
+  enable: "تمكين"
+  optional: "اختياري"
+  modify_these_configurations: "تعديل هذه التكوينات"
+  showing_the_number_of_customer: "يبين عدد"
+  add_filter_through_total_order_of_customer: "إضافة فلتر التصفية من خلال النظام الكلي للمعلومات العملاء وغيرها من الشروط"
+  commodity_management: "إدارة السلع"
+  show: "عرض"
+  and: "و"
+  goods: "بضائع"
+  stock: "الأوراق المالية"
+  total: "مجموع"
+  list_view: "عرض قائمة"
+  inventory_view: "عرض المخزون"
+  new_product: "منتج جديد"
+  all_manufacturers: "جميع الشركات المصنعة"
+  all_types: "جميع أنواع"
+  product_collections: "مجموعات المنتج"
+  new_custom_collection: "مجموعة مخصصة جديدة"
+  intelligence_collection: "جمع المعلومات الاستخبارية"
+  you_have_not_added_any_smart_collection: "لم تقم بإضافة أي جمع الذكية .."
+  custom_collection: "مجموعة مخصصة"
+  hide: "إخفاء"
+  commodity: "سلعة"
+  new_smart_collection: "مجموعة ذكية جديدة"
+  modification: "تعديل"
+  description: "وصف"
+  start_typing_the_product_name: "تبدأ بكتابة اسم المنتج"
+  you_can_enter_the_product_name: "يمكنك إدخال اسم المنتج لتضييق نطاق قائمة السلع"
+  select_the_product: "حدد المنتج الذي تريد إضافته"
+  visibility_collection: "الرؤية كوكتيل"
+  visibility_collection_message: "إذا لم يكن لديك هذا العرف المجموعات المعروضة في متجرك، يمكنك ضبط الرؤية لإخفاء."
+  products_Belonging_to_this_collection: "المنتجات التي تنتمي إلى هذه المجموعة"
+  # inventory_view: "لقب"
+  title: "لقب"
+  blog_page: "بلوق"
+  page: "صفحة"
+  new_page: "صفحة جديدة"
+  new_blog: "بلوق جديدة"
+  new_posts: "المشاركات الجديدة"
+  page_description: "يتم عرض الصفحة على معلومات عملك أو مكان مساعدة"
+  for_example: "مثلا"
+  etc: "الخ"
+  about_us_terms_of_service: "من نحن، شروط الخدمة"
+  update: "التحديث"
+  blog: "بلوق"
+  blog_description: "وكثيرا ما سلسلة من المقالات تحديث بلوق، يمكن للعملاء الاشتراك الخاصة بك لبلوق، في الوقت المناسب لرؤية آخر جديد."
+  comment: "تعليق"
+  update: "التحديث"
+  tag: "بطاقة"
+  author: "الكاتب"
+  article: "مقالة"
+  store_navigation: "مخزن للملاحة"
+  add_a_link_list: "إضافة القائمة رابط"
+  link_list: "قائمة الرابط"
+  link_list_description: "القائمة رابط هو عبارة عن مجموعة من الروابط، العملاء الذين ينقرون على هذه الروابط للتنقل من خلال متجر صفحات مختلفة؛"
+  link_list_description1: "عند إضافة قائمة ارتباط جديد، تحتاج إلى إدراجه في ظهور هذا الموضوع لتظهر؛ لجعل هذه القائمة من الارتباطات الموجودة على صفحة متجر، الرجاء"
+  template_editor_modify_the_template: "محرر قالب تعديل قالب"
+  link_name: "اسم الرابط"
+  link_path: "مسار الرابط"
+  footer: "تذييل ..."
+  footer_msg: "هذا هو قائمة افتراضية من الروابط."
+  modify_the_link_list: "تعديل قائمة الرابط"
+  promotions: "الترقيات"
+  add_coupon_code: "إضافة رمز القسيمة"
+  promo_code: "الرمز الترويجي"
+  you_can_customize_the_discount_code: "يمكنك تخصيص رمز الخصم للتسوق"
+  the_amount_of_vouchers: "كمية قسائم"
+  the_number_of_vouchers: "عدد القسائم"
+  souQueen_api: "SouQueen API"
+  private_applications: "تطبيقات خاصة"
+  private_applications_description: "باستخدام التطبيقات API الملكية ShopQi هو وسيلة للتفاعل مع مخزن."
+  private_applications_description_next_line: "باستخدام لهم بإنشاء المهام الآلي يمكن أن يكون أكثر ملاءمة للاستخدام مخزن"
+  generate_a_new_application_btn: "توليد طلب جديد"
+  api_key: "مفتاح API"
+  api_password: "API كلمة المرور"
+  url_format: "تنسيق URL"
+  shared_key: "مفتاح مشترك"
+  general_settings: "إعدادات عامة"
+  about_you_msg: "يمكن تخزين اسمه، وسيتم عرض هذا الاسم على عنوان الصفحة"
+  store_address: "عنوان المحل"
+  adjustment_of_standards_and_formats: "تعديل مستويات وأشكال"
+  adjustment_of_standards_and_formats_msg: "المعايير وتنسيقات، وأسعار المنتجات، والوزن والجارية، وقت التخزين، الخ"
+  custom_order_number_format: "تنسيق مخصص الأمر رقم"
+  currency: "عملة"
+  custom_display_format: "تنسيق العرض حسب الطلب"
+  security: "أمن"
+  security_msg: "يمكنك إضافة كلمة مرور لمتجرك، لذا، عندما يزور المستخدمين متجرك عندما تحتاج إلى إدخال كلمة المرور هذه. هذه الميزة في صيانة متجرك أو معالجة المعلومات الخاصة بك أمر مفيد للغاية عند، أو إذا كنت تاجر الجملة، وبيع إلى مجموعة العملاء على وجه الخصوص، كما أنها مفيدة جدا."
+  password_protection_storefront: "حماية كلمة المرور واجهة المخزن"
+  customer_information: "إبلاغ معلومات العملاء"
+  save: "حفظ"
+  name: "اسم المحل"
+  email: "صندوق البريد"
+  address: "عنوان" 
+  zip_code: "الرمز البريدي" 
+  phone: "هاتف"
+  billing_and_payment: "الفواتير والدفع"
+  payment_gateway: "بوابة الدفع"
+  payment_gateway_description: "بوابة الدفع يسمح لك لتخزين العميل باستخدام الطريقة المناسبة للدفع للنظام الدفع (على سبيل المثال، باي بال). لمزيد من المعلومات،"
+  click_here: "انقر هنا."
+  payment: "دفع"
+  common_payment: "الدفع المشتركة"
+  description: "وصف"
+  payment_description: "بعض لا تحتاج إلى دفع بطاقة البنك، على سبيل المثال، حوالة مصرفية، نقدا عند التسليم"
+  editor: "محرر"
+  customer_payment_settings: "إعدادات دفع العملاء"
+  customer_payment_setting_affecting: "وهذا الإعداد تؤثر على كيفية دفع العملاء."
+  no_registration_required: "لا يتطلب التسجيل"
+  no_customer_registration_function: "لا وظيفة تسجيل العملاء، وسيتم دفع المستخدمين في شكل السياح"
+  optional_registration: "تسجيل اختياري"
+  user_selectable_landing: "هبوط اختيار المستخدم، قد لا تكون هبطت الدفع"
+  must_be_registered: "يجب أن تكون مسجلة"
+  users_must_register_in_order_to_pay: "يجب على المستخدمين تسجيل حساب جديد من أجل دفع"
+  policy: "سياسة"
+  refund_privacy_and_terms_of_service: "المبلغ، والخصوصية وشروط الخدمة"
+  refund_privacy_and_terms_of_service_note: "قد ترغب في حاجة لتخزين المسترد، الخصوصية وشروط الخدمة رابط لدفع page.These مواقع تخزين الخاص بك تحتوي على رسالة نص عادي المقابلة"
+  select_the_payment_method_to_increase_general: "اختر طريقة الدفع لزيادة عامة"
+  online_payment_paypal: "على الانترنت الدفع باي بال،"
+  description: "وصف"
+  paypal_description: "ملتزمة بتوفير الأمن للالتجارة الإلكترونية الصينية، ومريحة، وشخصية حلول الدفع عبر الإنترنت"
+  

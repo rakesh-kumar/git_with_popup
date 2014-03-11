@@ -1,14 +1,14 @@
 {{ shop_name }},
 
-今天({{ date | date: "%Y-%m-%d %H:%M" }}), {{ customer.name }} 新增了订单.
+Today({{ date | date: "%Y-%m-%d %H:%M" }}), {{ customer.name }} New orders.
 
-付款方式:
+Payment:
   {{ gateway }}{% if requires_shipping %}
 
-发货方式:
+Delivery:
   {{ shipping_method.title }}
   
-收货人信息:
+Consignee information:
   {{ shipping_address.name }}
   {{ shipping_address.province}} {{ shipping_address.city}} {{ shipping_address.district}} {{ shipping_address.address1}} , {{ shipping_address.zip }}
   {{ shipping_address.phone }}{% endif %}

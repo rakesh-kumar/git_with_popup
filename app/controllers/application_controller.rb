@@ -2,9 +2,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_host_for_mailer
+  before_filter :set_locale
 
   protected
   def set_host_for_mailer #用于设置发送邮件时的host,放置这里，主要是devise的控制器继承这个控制器
     ActionMailer::Base.default_url_options[:host] = "#{request.host}#{request.port_string}"
   end
+  
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale].present? 
+  end
+
 end

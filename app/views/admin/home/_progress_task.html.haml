@@ -4,41 +4,41 @@
     %a.show_add_product_guide(data-guide-position="bottom" data-guide-target="#navlist li a[href='/admin/products']" data-guide-text="Click here to add a commodity" href="#add_product")
       %em.icon
       %strong.triangle
-      Add Item
+      =t :add_item
 %script(id="customize_theme-item" type="text/x-handlebars-template")
   %span
     %a.show_customize_theme_guide(data-guide-position="left" data-guide-target="#nav-theme-settings a" data-guide-text="Click here to modify the appearance of your theme" href="#customize_theme")
       %em.icon
       %strong.triangle
-      Customize the appearance
+      =t :customize_the_appearance
 %script(id="add_content-item" type="text/x-handlebars-template")
   %span
     %a.show_add_content_guide(data-guide-position="bottom" data-guide-target="#navlist li a[href='/admin/pages']" data-guide-text="Click here to modify your content store" href="#add_content")
       %em.icon
       %strong.triangle
-      Publish content
+      =t :publish_content
 %script(id="setup_payment_gateway-item" type="text/x-handlebars-template")
   %span
     %a.show_setup_payment_gateway_guide(data-guide-position="left" data-guide-target="#payment a" data-guide-text="Click here to select your payment gateway" href="#setup_payment_gateway")
       %em.icon
       %strong.triangle
-      Payment Gateway
+      =t :payment_gateway
 %script(id="setup_shipping-item" type="text/x-handlebars-template")
   %span
     %a.show_setup_shipping_guide(data-guide-position="left" data-guide-target="#shipping a" data-guide-text="Set your logistics costs Click here" href="#setup_shipping")
       %em.icon
       %strong.triangle
-      Logistics and distribution
+      =t :logistics_and_distribution
 %script(id="setup_domain-item" type="text/x-handlebars-template")
   %span
     %a.show_setup_domain_guide(data-guide-position="left" data-guide-target="#network a" data-guide-text="Click here to manage your domain" href="#setup_domain")
       %em.icon
       %strong.triangle
-      Binding domain
+      =t :binding_domain
 %script(id="launch-item" type="text/x-handlebars-template")
   %span
     {{#if is_current}}
-    =link_to 'Enable your store', user_root_path
+    =link_to t(:enable_your_store), user_root_path
     {{else}}
-    %strong Enable your store{{is_current}}
+    / %strong =t :Enable your store{{is_current}}
     {{/if}}

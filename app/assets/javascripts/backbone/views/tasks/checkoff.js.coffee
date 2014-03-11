@@ -42,36 +42,36 @@ App.Views.Task.Checkoff = Backbone.View.extend
     false
 
   next_step_message: (task) ->
-    message = "下一步是 "
+    message = "The next step is "
     name = task.get('name')
     desc = switch name
       when 'customize_theme'
-        '定制您的主题设置'
+        'Customize your theme settings'
       when 'add_content'
-        '修改您的网页内容'
+        'Modify your web content'
       when 'setup_payment_gateway'
-        '设置您最常用的支付网关'
+        'Set your most commonly used payment gateway'
       when 'setup_shipping'
-        '设置您的运费'
+        'Set your shipping'
       when 'setup_domain'
-        '绑定您的域名'
+        'Bind your domain'
       when 'launch'
-        '启用商店'
+        'Enable Store'
     "#{message} #{desc}"
 
   step_name: ->
     switch @model.get('name')
       when 'add_product'
-        '增加一个商品'
+        'Add a product'
       when 'customize_theme'
-        '外观设置'
+        'Appearance settings'
       when 'add_content'
-        '增加内容'
+        'Additions'
       when 'setup_payment_gateway'
-        '支付网关'
+        'Payment Gateway'
       when 'setup_shipping'
-        '运费'
+        'Freight'
       when 'setup_domain'
-        '域名'
+        'Domain name'
       when 'launch'
-        '启用商店'
+        'Enable Store'

@@ -15,9 +15,9 @@ class Order < ActiveRecord::Base
 
   accepts_nested_attributes_for :shipping_address
 
-  validates_presence_of :email, message: '此栏不能为空白'
-  validates_presence_of :shipping_address, :shipping_rate, message: '此栏不能为空白', if: "requires_shipping?"
-  validates_presence_of :payment_id, message: '此栏不能为空白', unless: "total_price.zero?"
+  validates_presence_of :email, message: 'This field can not be blank'
+  validates_presence_of :shipping_address, :shipping_rate, message: 'This field can not be blank', if: "requires_shipping?"
+  validates_presence_of :payment_id, message: 'This field can not be blank', unless: "total_price.zero?"
   #validates :shipping_rate, inclusion: { in: %w()} # TODO: 配送记录必须存在
 
   default_value_for :status, 'open'
@@ -53,7 +53,7 @@ class Order < ActiveRecord::Base
   end
 
   after_create do
-    self.histories.create body: '创建订单'
+    self.histories.create body: 'Create Order'
     send_email("order_confirm") #发送客户确认邮件
     shop.subscribes.map(&:email_address).each do |email_address| #给网店管理者发送邮件
       send_email("new_order_notify",email_address)
@@ -83,13 +83,13 @@ class Order < ActiveRecord::Base
       case self.status.to_sym
       when :closed
         self.closed_at = Time.now
-        self.histories.create body: '订单被关闭'
+        self.histories.create body: 'Orders are closed'
       when :open
         self.closed_at = nil
-        self.histories.create body: '订单重新打开'
+        self.histories.create body: 'Orders reopen'
       when :cancelled
         self.cancelled_at = Time.now
-        self.histories.create body: "订单被取消.原因:#{cancel_reason_name}"
+        self.histories.create body: "Order is canceled.Reason:#{cancel_reason_name}"
       end
     end
     if financial_status_changed? and financial_status_pending? # 一旦进入此待支付状态则需要更新顾客消费总金额
@@ -189,7 +189,7 @@ class Order < ActiveRecord::Base
   end
 
   def title
-    "订单 #{name}"
+    "Orders #{name}"
   end
 
   def pay!(amount, trade_no = nil)
@@ -306,7 +306,7 @@ class OrderTransaction < ActiveRecord::Base
     if status_changed? and status.to_sym == :success # 退款成功
       self.order.financial_status = :refunded
       self.order.save
-      self.order.histories.create body: "我们已经将款项退回给顾客"
+      self.order.histories.create body: "We have the money refunded to the customer"
     end
   end
 
@@ -335,7 +335,7 @@ class OrderFulfillment < ActiveRecord::Base
     fulfillment_status = (self.order.line_items.unshipped.size > 0) ? :partial : :fulfilled
     self.order.fulfillment_status = fulfillment_status
     self.order.save
-    self.order.histories.create body: "我们已经将#{line_items.size}个商品发货", url: order_fulfillment_path(self.order, self)
+    self.order.histories.create body: "We have#{line_items.size}Products shipped", url: order_fulfillment_path(self.order, self)
     Resque.enqueue(ShopqiMailer::Ship, 'ship_confirm', self.id) if self.notify_customer == 'true' #当选中通知顾客时，发送邮件(不管有没有写运货单号)
   end
 

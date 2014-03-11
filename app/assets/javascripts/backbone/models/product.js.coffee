@@ -79,7 +79,7 @@ App.Models.ProductVariant = Backbone.Model.extend
     # 必填
     _(App.product.options.models).each (model) ->
       unless attrs["option#{i++}"]
-        error["基本选项#{model.attributes.name}"] = "不能为空!"
+        error["Basic Options#{model.attributes.name}"] = "Can not be empty!"
     # 唯一性
     exists = App.product_variants.find (variant) ->
       result = variant.id isnt self.id

@@ -12,7 +12,7 @@ App.Views.Product.Index.Index = Backbone.View.extend
     @collection.view = this
     _.bindAll this, 'render'
     this.render()
-    $.guide $('#add-prod a'), '点击此处增加一个商品', 'left' if @collection.length is 0
+    $.guide $('#add-prod a'), 'Click here to add a commodity', 'left' if @collection.length is 0
     $('#product-container').delegate '.variant-list-item', 'mouseover mouseout', (event) -> # 鼠标移至款式时，显示sku
       if event.type is 'mouseover'
         $('.variant-tip', this).show()
@@ -35,7 +35,7 @@ App.Views.Product.Index.Index = Backbone.View.extend
     this.$('#select-all').attr 'checked', all_checked
     if checked[0]
       #已选中款式总数
-      this.$('#product-count').text "已选中 #{checked.size()} 个商品"
+      this.$('#product-count').text "Checked #{checked.size()} Products"
       $('#product-controls').show()
     else
       $('#product-controls').hide()
@@ -44,7 +44,7 @@ App.Views.Product.Index.Index = Backbone.View.extend
   changeProductSelect: ->
     operation = this.$('#product-select').val()
     is_destroy = (operation is 'destroy')
-    if is_destroy and !confirm('您确定要删除选中的款式吗?')
+    if is_destroy and !confirm('Are you sure you want to delete the selected style?')
       $('#product-select').val('')
       return false
     self = this
@@ -57,7 +57,7 @@ App.Views.Product.Index.Index = Backbone.View.extend
           App.products.remove model
         else if operation in ['publish', 'unpublish']
           model.set published: (operation is 'publish')
-      msg_text = if is_destroy then '删除' else '更新'
+      msg_text = if is_destroy then 'Delete' else 'Update'
       msg "批量#{msg_text}成功!"
     $('#product-select').val('')
     false

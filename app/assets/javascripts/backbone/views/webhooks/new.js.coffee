@@ -11,7 +11,7 @@ App.Views.Webhook.New = Backbone.View.extend
     @collection = App.webhooks
     @collection.bind 'add', (model, collection) ->
       self.cancel()
-      msg '新增成功!'
+      msg 'New success!'
       new App.Views.Webhook.Show model: model
 
   save: ->

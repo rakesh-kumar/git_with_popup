@@ -1,18 +1,22 @@
 #banner
   .content
-    %h1 Login
+    %h1 
+      =t :login
   / .content
 / #banner
 .content.subpage
   .loginarea
     .col-5(style="padding-top:25px;")
       %form(method="post")
-        %label(for="subdomain") Store Web Address
+        %label(for="subdomain") 
+          =t :store_web_address
         %input#subdomain.formnote(name="subdomain" type="text")/
         %span.formnote=Setting.store_host
-        %label(for="login") Email
+        %label(for="login") 
+          =t :email_login
         %input#login(name="user[email]" type="text")/
-        %label(for="password") Password
+        %label(for="password") 
+          =t :password_login
         %input#password.formnote(name="user[password]" type="password" value="")/
         / <span class="formnote"><a href="">Forgot Password?</a></span>
         =image_submit_tag 'buttons/btn-login-grey.gif', value: 'log in', onclick: "this.form.action='http://'+$('#subdomain').val()+'#{Setting.store_host}#{request.port_string}/user/sign_in';this.form.submit(); return false;"

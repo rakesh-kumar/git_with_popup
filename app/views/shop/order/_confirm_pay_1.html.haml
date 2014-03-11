@@ -1,7 +1,7 @@
 -payment = order.payment
 -address = order.shipping_address
 %p==您选择的付款方式为: #{payment.payment_type.name}
-%p==点击确认支付，将前往支付中心进行付款操作！
+%p==点击确认支付，Will make a payment to the payment center operations！
 - payment_service_for order.token, payment.account, service: :alipay, html: { id: 'payment-form', method: :get } do |service|
   - if payment.direct? # 即时到帐
     - service.total_fee order.total_price
@@ -18,9 +18,9 @@
   - service.charset "utf-8"
   - service.service payment.service
   - service.payment_type 1
-  - service.subject "#{shop.name}商品"
+  - service.subject "#{shop.name}Commodity"
   - service.sign payment.key
 .actions
-  = button_to_function "确认支付", "$('#payment-form > div').remove();$('#payment-form').submit()",class:'btn'
+  = button_to_function "Confirm payment", "$('#payment-form > div').remove();$('#payment-form').submit()",class:'btn'
   =w('or')
   =link_to w('cancel'),show_shop_url

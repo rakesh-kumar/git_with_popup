@@ -111,7 +111,7 @@ class Shop::AppController < ActionController::Base
       when 'blog'               ; assign['blog'].title
       when 'collection'         ; assign['collection'].title
       when 'article'            ; assign['article'].title
-      when 'customers_order'    ; "订单#{assign['order'].name}"
+      when 'customers_order'    ; "订单 #{assign['order'].name}"
       when 'customers_account'  ; "我的帐号"
       when 'customers_addresses'; "收货地址"
       when 'search'             ; '查询'

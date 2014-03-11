@@ -5,12 +5,12 @@ App.Views.CustomerGroup.Index.Index = Backbone.View.extend
     "click .customer-group": 'active'
 
   initialize: ->
-    @model = App.customer_group # 与查询面板交互的桥梁
+    @model = App.customer_group # Interact with the query panel bridge
     self = this
     this.render()
     @model.bind 'change:id', -> self.switch()
     @model.set id: -1
-    $('#save_group_button').live 'click', -> self.save() # 弹出的保存窗口
+    $('#save_group_button').live 'click', -> self.save() # Pop-up window to save
     @collection.bind 'add', (model, collection) ->
       new App.Views.CustomerGroup.Index.Show model: model # 回显新增分组
       self.model.set id: model.id
@@ -18,8 +18,8 @@ App.Views.CustomerGroup.Index.Index = Backbone.View.extend
   render: ->
     # 默认分组:所有顾客、当前查询
     @collection.add [
-      { id: -1, name: '所有顾客', term: '', query: '' },
-      { id: 0 , name: '当前查询', term: '', query: '' }
+      { id: -1, name: 'All Customers', term: '', query: '' },
+      { id: 0 , name: 'Current query', term: '', query: '' }
     ]
     @collection.comparator = (model) -> model.id
     @collection.sort()
@@ -40,7 +40,7 @@ App.Views.CustomerGroup.Index.Index = Backbone.View.extend
   save: ->
     name = $('#new_group_name').val()
     if !name
-      error_msg '名称不能为空'
+      error_msg 'Name can not be empty'
       return false
     self = this
     group = App.customer_groups.get(0)

@@ -27,7 +27,7 @@ class Shipping < ActiveRecord::Base
   end
 
   def code_name # 区域
-    return '全国' if self.code == District::CHINA
+    return 'Nationwide' if self.code == District::CHINA
     District.get self.code, prepend_parent: true
   end
 

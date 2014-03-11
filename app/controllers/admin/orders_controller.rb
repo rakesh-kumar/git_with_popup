@@ -4,6 +4,7 @@ class Admin::OrdersController < Admin::AppController
   skip_before_filter :check_permission     , only: :alipay_refund_notify
   skip_before_filter :force_domain         , only: :alipay_refund_notify
   layout 'admin'
+  before_filter :set_locale
 
   expose(:shop) { current_user.shop }
   expose(:orders) { shop.orders }
@@ -64,7 +65,7 @@ class Admin::OrdersController < Admin::AppController
       data = [{
         'trade_no' => order.trade_no,
         'amount' => transaction.amount,
-        'reason' => '协商退款'
+        'reason' => 'Negotiation refund'
       }]
       @refund_apply_url = Gateway::Alipay::Refund.apply_url(payment.account, payment.key, payment.email, 'batch_no' => transaction.batch_no, 'data' => data, 'notify_url' => "#{request.protocol}#{shop.domains.myshopqi.host}#{alipay_refund_notify_order_path(order)}")
     end
@@ -113,6 +114,10 @@ class Admin::OrdersController < Admin::AppController
   def destroy
     order.destroy
     redirect_to orders_path
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale].present? 
   end
 
   begin 'from pay gateway'

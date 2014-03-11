@@ -74,6 +74,7 @@ Shopqi::Application.routes.draw do
       get '/faq'       , to: 'home#faq'     , as: :faq
       get '/links'     , to: 'home#links'   , as: :home_links
       get '/about'     , to: 'home#about'   , as: :about
+      get '/new_home'  , to: 'home#new_home', as: :new_home
       scope "/tour" do # 功能演示
         get '/'        , to: 'home#tour'    , as: :tour_intro
         get '/store'   , to: 'home#store'   , as: :tour_store

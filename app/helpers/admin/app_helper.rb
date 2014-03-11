@@ -35,12 +35,12 @@ module Admin::AppHelper
   def menus
     @menus ||= [
       { label: orders_menu_label, url: orders_path },
-      { label: 'Customer', url: customers_path },
-      { label: 'Commodity', url: products_path },
-      { label: 'Set', url: custom_collections_path },
-      { label: 'Blog & page', url: pages_path },
-      { label: 'Link List', url: link_lists_path },
-      { label: 'Promotions', url: discounts_path }
+      { label: t('customer'), url: customers_path },
+      { label: t('commodity'), url: products_path },
+      { label: t('set'), url: custom_collections_path },
+      { label: t('blog_page'), url: pages_path },
+      { label: t('link_list'), url: link_lists_path },
+      { label: t('promotions'), url: discounts_path }
     ]
     @menus
   end

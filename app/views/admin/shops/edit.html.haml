@@ -1,59 +1,66 @@
-%h2#title General Settings
+%h2#title 
+  =t :general_settings
 #action-links
   %ul
 #general-settings
   =form_for shop do |f|
-    %h3 About you
+    %h3 
+    =t :about_you
     %p.hint.sb
-      Can store named，This name will be displayed on the page title
+      =t :about_you_msg
     .box2
       %dl
-        %dt.nst=f.label :name
+        %dt.nst=f.label t(:name)
         %dd=f.text_field :name ,class:"big"
-        %dt=f.label :email
+        %dt=f.label t(:email)
         %dd=f.text_field :email ,class:"big"
-    %h3 Store Address
+    %h3 
+    =t :store_address
     .box2
       %dl
         %dd
           %table.data2{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "width: 600px"}
             %tr
               %td.region{:colspan => "2"}
-                %label{:for => "shop_address1"} Address
+                %label{:for => "shop_address1"} 
+                  =t :address
                 %br/
-                =f.select :province, District.list, {include_blank: '--省份--'}, style: 'width: 106px'
-                =f.select :city, District.list(shop.province), {include_blank: '--城市--'}, style: 'width: 106px'
-                =f.select :district, District.list(shop.city), {include_blank: '--地区--'}, style: 'width: 106px'
+                =f.select :province, District.list, {include_blank: '- State -'}, style: 'width: 106px'
+                =f.select :city, District.list(shop.province), {include_blank: '- City -'}, style: 'width: 106px'
+                =f.select :district, District.list(shop.city), {include_blank: '- Area -'}, style: 'width: 106px'
             %tr
               %td{:style => "padding-right: 5px"}
-                =f.label :address
+                =f.label t(:address)
                 %br/
                 =f.text_field :address,size:50
             %tr
               %td{:style => "padding-right: 5px"}
-                =f.label :zip_code
+                =f.label t(:zip_code)
                 %br/
                 =f.text_field :zip_code,size:7
               %td
-                =f.label :phone
+                =f.label t(:phone)
                 %br/
                 =f.text_field :phone ,size:20
-    %h3 Adjustment of standards and formats
+    %h3 
+      =t :adjustment_of_standards_and_formats
     %p.hint.sb
-      Standards and Formats，The prices for the product，Shipping Weight and ongoing，Storage time, etc.
+      =t :adjustment_of_standards_and_formats_msg
     .box2
       %dl.nsb
         %dt
           =f.label :order_number_format
-          %small=link_to "Custom Order Number format","#",id:"formatting"
+          %small=link_to t(:custom_order_number_format),"#",id:"formatting"
         %dd
           %p.note.sb#order-number-format-notes(style="display:none") You can change the format of your order number here，Among{{number}}Is a placeholder,Order number will be replaced。
           =f.text_field :order_number_format,style:'display:none'
           %span#order-number-format-example #1234
         %dt
-          %label(for="shop_currency") Currency
+          %label(for="shop_currency") 
+            =t :currency
           %small
-            %a#currentcy_format(href="#")> Custom display format
+            %a#currentcy_format(href="#")> 
+              =t :custom_display_format
         %dd
           =f.select :currency, currentcy_options
           #money_format_content.hide
@@ -74,25 +81,28 @@
               =f.text_field :money_in_emails_format, class: :has_example
               %span.note Message is displayed, do not include units:
               %span#shop_money_in_emails_format_example.note ¥29.95
-    %h3 Security
+    %h3 
+      =t :security
     %p.hint.sb
-      You can add a password for your store，So，When users visit your store when，You need to enter this password。This feature in your store maintenance or process your information is very useful when。Or if you are a wholesaler，Sell ​​to a particular customer group，It is also very useful。
+      =t :security_msg
     .box2
       %dl.nsb
         %dd
           =f.check_box :password_enabled,value:1
-          %label{:for => "shop_password_enabled"} Password protection storefront
+          %label{:for => "shop_password_enabled"} 
+          =t :password_protection_storefront
       %dl#password-details.nst{:style => "display:none"}
         %dt.nst
           =f.label :password
         %dd
           =f.text_field :password
         %dt.sst
-          %label{:for => "shop_password_message"} Inform the customer information
+          %label{:for => "shop_password_message"} 
+          =t :customer_information
         %dd
           %textarea#shop_password_message.image-target{:cols => "20", :name => "shop[password_message]", :rows => "8"}
     %p.btn-divider{:style => "margin: 0"}
-      =f.submit "Save",class:"btn"
+      =f.submit t(:save),class:"btn"
 
 :javascript
   $(function(){

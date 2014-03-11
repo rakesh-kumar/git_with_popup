@@ -1,21 +1,26 @@
 %h2#title Blog &amp; Page
 #action-links
   %ul
-    %li#create-page= link_to "New Page", new_page_path
-    %li#create-blog= link_to "New blog", new_blog_path
-    %li#create-article= link_to "New Posts", new_article_path
+    %li#create-page= link_to t(:new_page), new_page_path
+    %li#create-blog= link_to t(:new_blog), new_blog_path
+    %li#create-article= link_to t(:new_posts), new_article_path
 #pages
-  %h4 Page
+  %h4 
+  =t :page
   %p.description
-    Page is displayed on your business information or help place
+    =t :page_description
     %br
-    For example:
-    %em "About Us", "Terms of Service", etc.
+    =t :for_example
+    %em 
+    =t :about_us_terms_of_service 
+    =t :etc
   %table.standard-table(cellspacing="0" cellpadding="0" style="margin-bottom: 40px")
     %thead
       %tr
-        %th(scope="col") Title
-        %th(scope="col" style="width: 150px;") Update
+        %th(scope="col") 
+          =t :title
+        %th(scope="col" style="width: 150px;") 
+          =t :update
         %th(scope="col" style="width: 50px") &nbsp;
     %tbody= render pages
   / PAGINATION LINKS

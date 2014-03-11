@@ -2,18 +2,18 @@
 
 #table-filters.box2.sst
   %div(style="float: right; font-size: 12px")
-    Showing the number of:
+    =t :showing_the_number_of
     %select#page-size-select(style="width:60px")
       -page_sizes.each_pair do |name, code|
         -value = order_search_path(limit: code)
         %option{value:"#{value}", selected:(@limit.to_i == code.to_i)}=name
-  Show
-  %a#payment-filter-link(href="#")=search_label :financial_status, 'Any payment status', financial_status
-  And
-  %a#shipping-filter-link(href="#")=search_label :fulfillment_status, 'Any distribution of state', fulfillment_status
-  Of
-  %a#status-filter-link(href="#")=search_label :status, 'Normal', status
-  Orders
+  =t :show
+  %a#payment-filter-link(href="#")=search_label :financial_status,t(:any_payment_status), financial_status
+  =t :and
+  %a#shipping-filter-link(href="#")=search_label :fulfillment_status, t(:any_distribution_of_state), fulfillment_status
+  =t :of
+  %a#status-filter-link(href="#")=search_label :status, t(:normal), status
+  =t :orders
   #payment-status-select.filter-select
     %ul.dropdown.hide(style='left: -232px')
       %li
@@ -68,13 +68,19 @@
               %tr
                 %th.nosort(style="width: 16px")
                   %input#select-all(type="checkbox")/
-                %th.sortcol Orders
+                %th.sortcol 
+                  =t :orders
                 %th(style="width: 22px; padding: 0") &nbsp;
-                %th.sortcol.sortasc(style="width: 80px !important") Date
-                %th.sortcol Customer
-                %th.sortcol Payment status
-                %th.sortcol Delivery Status
-                %th.sortcol(style="text-align: right;padding-right: 4px !important;background-position: 5% center !important;") The total amount
+                %th.sortcol.sortasc(style="width: 80px !important") 
+                  =t :date
+                %th.sortcol 
+                  =t :customer
+                %th.sortcol 
+                  =t :payment_status
+                %th.sortcol 
+                  =t :delivery_status
+                %th.sortcol(style="text-align: right;padding-right: 4px !important;background-position: 5% center !important;") 
+                  =t :the_total_amount_on_order
             %tbody
 %div(style="width:100%")
   #pagination

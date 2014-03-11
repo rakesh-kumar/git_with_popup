@@ -1,12 +1,12 @@
-=dialog '取消订单' do
+=dialog 'Cancel Order' do
   #cancel_order
     =form_for order, url: cancel_order_path(order) do |f|
       %p.st.ssb
-        您应该取消此订单如果它是欺诈性的、顾客改变主意，或者没有商品了。取消订单是
+        You should cancel this order if it is fraudulent、Customers change their mind，Or no product of。Cancel order
         =succeed "." do
-          %strong.highlight-alt 不可恢复的
+          %strong.highlight-alt Unrecoverable
       %p.st.ssb
-        %label(for="reason") 原因:
+        %label(for="reason") Reason:
         %select#reason(name="order[cancel_reason]")=options_for_select cancel_reasons.invert
       .pgroup
         %table#cancel-data.no-lines
@@ -14,16 +14,16 @@
             %tr
               %td(style="width: 200px")
                 %input#refund(checked="checked" name="refund" type="checkbox" value="1")
-                %label(for="refund") 退款
+                %label(for="refund") Refund
               %td#refund-instructions.note
-                您将退回 #{shop.format_money_in_emails(order.total_price)} 给顾客。取消订单后请手动点击"退款"链接进行退款。
+                您将退回 #{shop.format_money_in_emails(order.total_price)} To customers。After the cancellation of orders manually click"Refund"链接进行退款。
                 -#
                   %input#amount(name="amount" size="7" type="text" value="#{order.total_price}")
           %tr
             %td(style="width: 200px; padding-top: 20px")
               %input#email(checked="checked" name="email" type="checkbox" value="1")
-              %label(for="email") 发送Email
-            %td.note(style="padding-top: 20px") 发送通知邮件给顾客.
-      %input#submit.btn(name="commit" type="submit" value="取消此订单")
+              %label(for="email") Send an Email
+            %td.note(style="padding-top: 20px") Send notification email to the customer.
+      %input#submit.btn(name="commit" type="submit" value="Cancel this order")
       或者
-      %a.close-lightbox(href="#") 关闭此窗口
+      %a.close-lightbox(href="#") Close this window

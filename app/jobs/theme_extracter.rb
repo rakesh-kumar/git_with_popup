@@ -21,7 +21,7 @@ module ThemeExtracter
           end
         end
       rescue => e
-        puts "解压文件发生错误:#{e}"
+        puts "Extracting file error:#{e}"
         raise e
       end
     end

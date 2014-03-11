@@ -4,7 +4,7 @@
   %td.list-image(style="text-align: center ! important;")
     %label(for="checkbox-38663892")=image_tag 'other/no-image-thumb.gif'
   %td(style="padding-left: 3px; vertical-align: middle;")
-    %p=link_to product.title, product_path(product), title: "处理:#{product.title}"
+    %p=link_to product.title, product_path(product), title: "Process:#{product.title}"
     %p.list-product-type=product.product_type
     %p.list-vendor=product.vendor
   %td.list-variants
@@ -21,6 +21,6 @@
           %br/
           .variant-tip.newtip.hide
             .default
-              .content=variant.sku ? variant.sku : "没有SKU"
+              .content=variant.sku ? variant.sku : "No SKU"
   %td.list-total(style="text-align: center; vertical-align: middle;")
     %span(style="font-size: 18px")=product.variants.map(&:inventory_quantity).sum

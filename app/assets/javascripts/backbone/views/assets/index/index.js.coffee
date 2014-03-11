@@ -30,7 +30,7 @@ App.Views.Asset.Index.Index = Backbone.View.extend
   templateEditor: ->
     window.TemplateEditor =
       editor: null
-      current: null # 当前编辑的主题文件实体对象
+      current: null # The current theme file entity object editing
       html_mode: require("ace/mode/html").Mode
       css_mode: require("ace/mode/css").Mode
       js_mode: require("ace/mode/javascript").Mode

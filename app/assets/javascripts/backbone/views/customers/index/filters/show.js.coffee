@@ -2,14 +2,14 @@ App.Views.Customer.Index.Filter.Show = Backbone.View.extend
   className: 'filter-tag'
 
   events:
-    "click .close-filter-tag": 'destroy' # 删除主过滤器
+    "click .close-filter-tag": 'destroy' # Delete the primary filter
 
   initialize: ->
     self = this
     _.bindAll this, 'render'
     this.render()
 
-  # 删除过滤器
+  # Remove Filter
   destroy: ->
     @model.collection.remove @model
     this.remove()

@@ -3,7 +3,7 @@
     =link_to article.title,blog_article_path(blog,article)
   %td{ :style => "width: 35%;" }
     %p.description
-      最后更新于:
+      Last Updated on:
       %em
         ==#{distance_of_time_in_words(article.updated_at,Time.now)}
       %br

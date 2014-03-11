@@ -11,7 +11,7 @@ class Theme < ActiveRecord::Base
   validates_presence_of :name, :handle, :style, :style_handle, :role, :color
   validates_uniqueness_of :style_handle, scope: :handle
 
-  default_value_for :style       , '默认'
+  default_value_for :style       , 'Default'
   default_value_for :style_handle, 'default'
   default_value_for :role        , KeyValues::Theme::Role.first.code
   default_value_for :color       , COLOR.first
