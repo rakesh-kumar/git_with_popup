@@ -14,6 +14,7 @@ gem 'acts_as_list', git: 'git://github.com/swanandp/acts_as_list.git' # 支持�
 gem 'debugger'
 #use unicorn as web server
 gem 'unicorn'
+gem 'puma'
 
 gem 'default_value_for'
 gem 'sunspot_rails',  '~> 1.3.3'
