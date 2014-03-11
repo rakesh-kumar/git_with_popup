@@ -1,13 +1,15 @@
-%h2#title Billing & payment
+%h2#title 
+  =t :billing_and_payment
 #action-links
   %ul
 =render partial:"shared/noscript"
 =render partial:"shared/upgrade_ie"
-%h4 Payment Gateway
+%h4 
+  =t :payment_gateway
 %p.description
-  Payment gateway allows you to store the customer using the appropriate method of payment for the order of payment(For example，Paypal). For more information，
+  =t :payment_gateway_description
   = succeed "." do
-    =link_to 'Click here',faq_path
+    =link_to t(:click_here),faq_path
 .pgroup
   =render 'alipay'
   =render 'tenpay'
@@ -18,17 +20,22 @@
         %td
           %table.desc
             %tr
-              %td.r Payment:
+              %td.r 
+                =t :payment
               %td.meta
-                %strong Common Payment
+                %strong 
+                  =t :common_payment
             %tr
-              %td.r Description:
-              %td.meta Some do not need a bank card payment，For example，Bank transfer，Cash on delivery
+              %td.r 
+                =t :description
+              %td.meta 
+                =t :payment_description
     %dl#manual_payment_gateways.cl.sst{:style => "padding: 0px 0 0 0px;margin-bottom: 0; border-top: 1px solid #ddd"}
       =render partial:'custom-payment'
       %dt.nst{:style => "padding: 10px 0 10px 10px;"}
         %select#select_custom_payment_method{:name => "", :style => "width: 300px;"}
-          %option(value= "") Select the payment method to increase general
+          %option(value= "") 
+            =t :select_the_payment_method_to_increase_general
           =options_for_select  custom_types
       %dd#account_manual_payment_gateway.nsb{:style => "display:none;border-top: 1px solid #ddd"}
         =form_for payment, html:{id: 'new_custom_payment', onsubmit: 'return false'} do |f|
@@ -50,32 +57,36 @@
   =form_for shop, html:{id:'checkout-config', onsubmit: 'return false'} do |f|
     .group
       .group-fields
-        %h3.l{:style => "color: #999;font-size: 18px; font-weight: normal; margin: 5px"} Customer payment settings
+        %h3.l{:style => "color: #999;font-size: 18px; font-weight: normal; margin: 5px"} 
+          =t :customer_payment_settings
         #customer-accounts
-          %h5.note.st This setting will affect how customers pay.
+          %h5.note.st 
+            =t :customer_payment_setting_affecting
           .st.sb.sl
             %ul.nobull
               %li
                 =f.radio_button :customer_accounts,''
                 %label{:for => "shop_customer_accounts_"}
-                  No registration required
-                  %span.hint No customer registration function，Users will be paid in the form of tourists
+                  =t :no_registration_required
+                  %span.hint 
+                  =t :no_customer_registration_function
               %li
                 =f.radio_button :customer_accounts,'optional'
                 %label{:for => "shop_customer_accounts_optional"}
-                  Optional registration
-                  %span.hint User selectable landing，Payment may not be landed
+                  =t :optional_registration
+                  %span.hint 
+                    =t :user_selectable_landing
               %li
                 =f.radio_button :customer_accounts,'required'
                 %label{:for => "shop_customer_accounts_required"}
-                  Must be registered
+                  =t :must_be_registered
                   %span.hint
-                    Users must register an account in order to pay
+                    =t :users_must_register_in_order_to_pay
           #customer-accounts-required.message{:style => "margin:15px 0 0 0; display:none;"}
             %p Customers only after the registered account to order
       / .group-fields
       .group-actions
-        %input.btn#checkout{:name => "commit", :type => "submit", :value => "Save"}/
+        %input.btn#checkout{:name => "commit", :type => "submit", :value => t(:save)}/
       / .group-actions
     / .group
 / checkout config

@@ -3,9 +3,10 @@
     %dd(style= "padding: 10px 10px 5px 10px" id= "activate_manual_payment_gateway_{{id}}")
       %a.fr.destroy
         =image_tag 'admin/icons/trash.gif'
-      Payment:
+      =t :payment
       %strong {{ name }}
-      %a(href='#' class='edit-custom-payment') Editor
+      %a(href='#' class='edit-custom-payment') 
+        =t :editor
     %dd.nsb(style= "display:none; border-top: 1px solid #ddd" id= "account_manual_payment_gateway_{{ id }}")
       %form(accept-charset= "UTF-8" action = "#" method= "post" id="custom-payment" onsubmit="return false" )
         .group-fields

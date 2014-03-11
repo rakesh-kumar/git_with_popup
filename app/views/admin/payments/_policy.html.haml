@@ -1,10 +1,12 @@
 =form_for shop  do |f|
   .group-fields
-    %h3.light Policy
+    %h3.light 
+      =t :policy
     .pgroup{:style => "margin:0"}
-      %h4 Refund，Privacy and Terms of Service
+      %h4 
+        =t :refund_privacy_and_terms_of_service
       %p.note.st.ssb
-        You may want to need to store your refund，Privacy and terms of service link to your store's payment page.These locations contain the corresponding plaintext message
+        =t :refund_privacy_and_terms_of_service_note
         %br/
       =f.fields_for :policies,:title do |v|
         %h4=v.object.title
