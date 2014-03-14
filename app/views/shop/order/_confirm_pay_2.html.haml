@@ -12,7 +12,7 @@
   - service.charset "utf-8"
   - service.spbill_create_ip request.remote_ip
   - service.description "#{shop.name}Commodity"
-  - service.attach 'ShopQi'
+  - service.attach 'Soqueen'
   - service.sign payment.key
 .actions
   = button_to_function "Confirm payment", "$('#payment-form > div').remove();$('#payment-form').submit()",class:'btn'
