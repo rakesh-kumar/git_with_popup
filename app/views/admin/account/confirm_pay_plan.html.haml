@@ -14,7 +14,7 @@
       - service.charset "utf-8"
       - service.service ActiveMerchant::Billing::Integrations::Alipay::Helper::CREATE_DIRECT_PAY_BY_USER
       - service.payment_type 1
-      - service.subject 'ShopQi account renewals program'
+      - service.subject 'Soqueen account renewals program'
       - service.sign
     .actions
       = button_to_function "Confirm payment", "$('#payment-form > div').remove();$('#payment-form').submit()",class:'btn'

@@ -23,7 +23,7 @@ class Shopqi::RegistrationsController < Devise::RegistrationsController
     # if is_code_valid? # Mobile checksum (the test environment does not verify)
     #   session[:verify_code] = nil
       build_resource
-      resource.shop.themes.first.theme_id ||= Theme.default.id
+      #resource.shop.themes.first.theme_id ||= Theme.default.id
       resource.shop.email = resource.email #Default mailbox store when registered user mailboxes
       if resource.save
         Rails.cache.write(registered_cache_key, true, expires_in: 24.hours) # Avoid duplication of registration

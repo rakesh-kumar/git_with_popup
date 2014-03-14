@@ -4,7 +4,7 @@
       %p Confirm account program changes
     .ppb
       %p.sb
-        %strong Please confirm that you want to upgrade your ShopQi account:
+        %strong Please confirm that you want to upgrade your Soqueen account:
       %p.sb
         ==You will upgrade your account to #{raw high_color plan_type.name} 方案，此方案单价为#{raw high_color plan_type.price}元/年，
       %p.sb
@@ -18,7 +18,7 @@
       - service.charset "utf-8"
       - service.service ActiveMerchant::Billing::Integrations::Alipay::Helper::CREATE_DIRECT_PAY_BY_USER
       - service.payment_type 1
-      - service.subject 'Upgrade ShopQi account program'
+      - service.subject 'Upgrade Soqueen account program'
       - service.sign
     .actions
       = button_to_function "Confirm payment", "$('#payment-form > div').remove();$('#payment-form').submit()",class:'btn'
